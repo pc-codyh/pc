@@ -1,0 +1,123 @@
+/* MAIN TAGS */
+body
+{
+    /*background-color: #999999;*/
+    background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #F71A1A), color-stop(1, #FFFFFF));
+	background-image: -webkit-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	background-image: -moz-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	background-image: -ms-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	/*background-color: #F71A1A;*/
+}
+
+h4
+{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;   
+    margin-bottom: -5px;
+    background-color: #FFC90E;
+    padding: 2px;
+    padding-left: 5px;
+    box-shadow: 0 0 10px #000000;
+}
+
+/* DIV TAGS*/
+#main_body
+{
+    width: 860px;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+    /*background-color: #999999;*/
+    background-color: #FFFFFF;
+    box-shadow: 0 0 20px #000000;
+}
+
+#main_header
+{
+    border: 1px solid #000000;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    text-align: center;
+    color: #FFFFFF;       
+}
+
+#main_header img
+{
+    margin-left: -1px;
+    margin-top: 1px;
+}
+
+#main_info
+{
+    border-top : 1px solid #000000;
+}
+
+#main_info table
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#main_info td
+{
+    width: 400px;
+}
+
+#main_info form
+{
+    margin-top: 16px;   
+}
+
+#main_info p
+{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+#footer
+{
+    text-align: center;
+    font-size: small;
+    margin-top: 10px;
+}
+
+/* CLASSES */
+.login_column
+{
+    border: 1px solid #000000;
+    box-shadow: 0 0 10px #000000;
+    /*background-color: #F71A1A;*/
+    /*background-color: #FFC90E;*/
+    background-color: #FFFFFF;
+}
+
+.login_username
+{
+    padding: 2px;
+}
+
+.login_submit
+{
+    height: 30px;
+    width: 80px;
+}
+
+.login_help
+{
+    font-size: x-large;
+}
+
+.text_box
+{
+    background-color: #FFFFFF;
+    padding: 5px;
+    border: 1px solid #000000;
+}

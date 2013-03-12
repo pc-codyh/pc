@@ -1,0 +1,242 @@
+/* MAIN TAGS */
+body
+{
+    /*background-color: #999999;*/
+    background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #F71A1A), color-stop(1, #FFFFFF));
+	background-image: -webkit-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	background-image: -moz-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	background-image: -ms-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	/*background-color: #F71A1A;*/
+}
+
+td
+{
+    font-size: small;
+}
+
+a
+{
+    color: #000000;
+}
+
+a:hover
+{
+    color: #FFF2C4;
+}
+
+li a, li a:link, li a:active, li a:visited
+{
+  display: block;
+  text-decoration: none;
+  list-style: none;
+}
+
+li
+{
+  float: left;
+  margin: 0;
+  position: relative;
+}
+
+ul
+{
+	list-style: none;
+	margin:0px;
+	padding:0px;
+}
+
+select
+{
+    float: left;
+    border: 1px solid #000000;
+}
+
+/* DIV TAGS*/
+#main_body
+{
+    width: 860px;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+    /*background-color: #999999;*/
+    background-color: #FFFFFF;
+    padding-bottom: 20px;
+    box-shadow: 0 0 20px #000000;
+}
+
+#main_header
+{
+    border: 1px solid #000000;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color: #000000;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#main_header img
+{
+    margin-left: -1px;
+    margin-top: 1px;
+}
+
+#main_menu
+{
+    border-top : 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    height: 40px;
+}
+
+#main_info
+{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;   
+    /*background-color: #999999;*/
+}
+
+#main_info p
+{
+    
+    font-size: medium;
+    margin-top: 30px;
+    /*color: #FFFFFF;*/
+    color: #000000;
+    /*background-color: #000000;*/
+    background-color: #FFC90E;
+    padding: 5px;
+    box-shadow: 0 0 10px #000000;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+#footer
+{
+    text-align: center;
+    font-size: small;
+    margin-top: 10px;
+}
+
+#main_menu_playerstats
+{
+	background:url(imgs/playerstats_selected.png) no-repeat;
+}
+
+#main_menu_playerstats a, .main_menu_playerstats a:link, .main_menu_playerstats a:visited
+{
+	display:block;
+}
+
+#main_menu_playerstats a:hover img
+{
+	visibility:hidden;
+}  
+
+#main_menu_teamstats
+{
+	background:url(imgs/teamstats_selected.png) no-repeat;
+}
+
+#main_menu_teamstats a, .main_menu_teamstats a:link, .main_menu_teamstats a:visited
+{
+	display:block;
+}
+
+#main_menu_teamstats a:hover img
+{
+	visibility:hidden;
+} 
+
+#main_menu_gameresults
+{
+	background:url(imgs/gameresults_selected.png) no-repeat;
+}
+
+#main_menu_gameresults a, .main_menu_gameresults a:link, .main_menu_gameresults a:visited
+{
+	display:block;
+}
+
+#main_menu_gameresults a:hover img
+{
+	visibility:hidden;
+}    
+
+#main_menu_teamprofiles
+{
+	background:url(imgs/teamprofiles_selected.png) no-repeat;
+}
+
+#main_menu_teamprofiles a, .main_menu_teamprofiles a:link, .main_menu_teamprofiles a:visited
+{
+	display:block;
+}
+
+#main_menu_teamprofiles a:hover img
+{
+	visibility:hidden;
+}      
+
+/* CLASSES */
+.stats_table
+{
+    margin-top: -5px;
+    border: 1px solid #000000;
+    background-color: #999999;
+}
+
+.stat_column
+{
+    text-align: center; 
+}
+
+.stat_column_selected
+{
+    text-align: center;
+    /*background-color: #999999;*/
+    background-color: #FFD84F;
+}
+
+.stat_column_name_selected
+{
+    /*background-color: #999999;*/
+    background-color: #FFD84F;
+}
+
+.stat_header
+{
+    font-weight: bold;
+    /*background-color: #767676;*/
+    background-color: #FFC90E;
+    text-align: center;
+}
+
+.stat_header_name
+{
+    font-weight: bold;
+    /*background-color: #767676;*/
+    background-color: #FFC90E; 
+}
+
+.even_row
+{
+    /*background-color: #AAAAAA;*/
+    background-color: #FFE794;
+}
+
+.odd_row
+{
+    /*background-color: #BBBBBB;*/
+    background-color: #FFF2C4;
+}
+
+.submit_team_button
+{
+    margin-top: -1px;
+    padding-bottom: 2px;
+    padding-top: 3px; 
+}
