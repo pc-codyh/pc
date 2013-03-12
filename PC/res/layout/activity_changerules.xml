@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/changerules_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Change Rules"
+        android:textColor="#000000" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/changerules_cupstostart_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="Cups To Start"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <RadioButton
+                android:id="@+id/changerules_cupsToStart_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="6 cups"
+                android:textColor="#222222" />
+
+            <RadioButton
+                android:id="@+id/changerules_cupsToStart_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="10 cups"
+                android:textColor="#222222" />
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/changerules_bouncesworth_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="Bounces Worth"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <RadioButton
+                android:id="@+id/changerules_bouncesWorth_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="1 cup"
+                android:textColor="#222222" />
+
+            <RadioButton
+                android:id="@+id/changerules_bouncesWorth_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="2 cups"
+                android:textColor="#222222" />
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/changerules_bounceinredemp_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="Bounce In Redemption Sends Game Straight To Overtime"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <RadioButton
+                android:id="@+id/changerules_bounceInRedemptionToOT_Yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="Yes"
+                android:textColor="#222222" />
+
+            <RadioButton
+                android:id="@+id/changerules_bounceInRedemptionToOT_No"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="No"
+                android:textColor="#222222" />
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/changerules_nbajam_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:text="NBA Jam Rule"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <RadioButton
+                android:id="@+id/changerules_nbaJam_On"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="On"
+                android:textColor="#222222" />
+
+            <RadioButton
+                android:id="@+id/changerules_nbaJam_Off"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:onClick="onRadioButtonClicked"
+                android:text="Off"
+                android:textColor="#222222" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/changerules_doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/done"
+        android:minHeight="120dp"
+        android:minWidth="120dp"
+        android:paddingRight="2dp"
+        android:paddingTop="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp" />
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+CHECKLIST (APP)
+_______________
+
+1) Fix shrinking play area.
+2) Move pregame odds request to background thread.
+3) Null pointer crash on login/main screen (likely to do with saving the rules) after 
+   app is killed in background.
+4) Game result uploaded twice (occurred once in 19 games).
+
+
+
+CHECKLIST (WEBSITE)
+___________________
+
+1) Make Game Results sortable in Team Profiles
+
+
+
+
+
+
+
+NEED TO BE FIXED BEFORE RELEASE
+_______________________________

@@ -1,0 +1,6 @@
+Rules
+
+1. NBA Jam Rule (on/off)
+2. Bounces worth (1 cup/2 cups)
+3. Bounce in redemption sends game straight to OT (yes/no)
+4. Starting cups (6 cups/10 cups)

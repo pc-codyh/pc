@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+        
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="10dp" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/chooseteams_teamone_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Team One"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:id="@+id/chooseteams_teamOne_playerOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
+
+    <Spinner
+        android:id="@+id/chooseteams_teamOne_playerTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/versus" />
+
+    <TextView
+        android:id="@+id/chooseteams_teamtwo_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Team Two"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:id="@+id/chooseteams_teamTwo_playerOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
+    <Spinner
+        android:id="@+id/chooseteams_teamTwo_playerTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:id="@+id/chooseteams_currentrules_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Current Rules"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/chooseteams_currentrules_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/chooseteams_playgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icn_play_game"
+        android:minHeight="90dp"
+        android:minWidth="90dp"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
+</ScrollView>

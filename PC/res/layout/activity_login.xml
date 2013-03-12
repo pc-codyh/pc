@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/login_username_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Username"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/login_Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_textfield"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        android:lines="1"
+        android:maxLength="20"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/login_password_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Password"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/login_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/rounded_textfield"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:maxLength="20"
+        android:padding="10dp" />
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/login_ResultImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/checkmark" />
+
+        <TextView
+            android:id="@+id/login_ResultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Login Result"
+            android:textColor="#000000" />
+
+    </TableRow>
+
+    <Button
+        android:id="@+id/login_SubmitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icn_login"
+        android:minHeight="120dp"
+        android:minWidth="120dp"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

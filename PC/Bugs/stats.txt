@@ -1,0 +1,59 @@
+Pong Player Stats
+_________________
+
+Wins
+Losses
+Overtime Losses
+Cup Differential
+Win Streak
+Loss Streak
+Shots
+Hits
+Hit Streak
+Miss Streak
+Bounces
+Gang Bangs
+Errors
+Redemption Shots
+Redemption Hits
+Redemption Attempts
+Redemption Successes
+ELO Rating
+S10
+H10
+S9
+H9
+S8
+H8
+S7
+H7
+S6
+H6
+S5
+H5
+S4
+H4
+S3
+H3
+S2
+H2
+S1
+H1
+Current Win Streak
+Current Loss Streak
+
+int stat_shotsTaken = 0;
+int stat_shotsHit = 0;
+int stat_currentHitStreak = 0;
+int stat_currentMissStreak = 0;
+int stat_bouncesHit = 0;
+int stat_gangBangsHit = 0;
+int stat_errorsCommitted = 0;
+int stat_heatingUp = 0;
+int stat_onFire = 0;
+int stat_redemptionShotsTaken = 0;
+int stat_redemptionShotsHit = 0;
+int stat_redemptionAttempts = 0;
+int stat_redemptionSuccesses = 0;
+ArrayList<Integer> stat_shotsPerCup = new ArrayList<Integer>(11);
+ArrayList<Integer> stat_hitsPerCup = new ArrayList<Integer>(11);

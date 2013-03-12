@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/randomizeteams_add_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Choose Player To Add To Randomization"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:id="@+id/randomizeteams_spinnerToAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/randomizeteams_addPlayerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/add_to_raffle"
+        android:minHeight="40dp"
+        android:minWidth="120dp"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/randomizeteams_in_raffle_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC33"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Players In Randomization"
+        android:textColor="#000000" />
+
+    <Spinner
+        android:id="@+id/randomizeteams_spinnerInRaffle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/randomizeteams_submitRandomization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/randomize"
+        android:minHeight="120dp"
+        android:minWidth="120dp"
+        android:textColor="#FFFFFF"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/randomizeteams_playerOne"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFBCBC"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/randomizeteams_playerTwo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="#FFBCBC"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/randomizeteams_versus_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:background="#F61A1A"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Versus"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/randomizeteams_playerThree"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFBCBC"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/randomizeteams_playerFour"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="#FFBCBC"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:textColor="#000000" />
+
+</LinearLayout>
+</ScrollView>
