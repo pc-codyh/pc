@@ -18,5 +18,5 @@ public class CalibriTextView extends TextView
 		Typeface font = Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF");
 		
 		setTypeface(font);
-	}
+	} 
 }
