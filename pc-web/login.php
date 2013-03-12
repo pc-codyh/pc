@@ -8,9 +8,7 @@ $databasePassword = "Cooors33!";
 mysql_connect($databaseHost, $databaseUsername, $databasePassword) or die(mysql_error());
 mysql_select_db($databaseName) or die(mysql_error()); 
 
-$hashed_password = md5($_GET['password']);
-
-$query = "SELECT * FROM `registrations` WHERE `username`='".$_GET['username']."' AND `password`='".$hashed_password."'";
+$query = "SELECT * FROM `registrations` WHERE `username`='".$_GET['username']."' AND `password`='".$_GET['password']."'";
 
 if ($runQuery = mysql_query($query))
 {

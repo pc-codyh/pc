@@ -16,9 +16,7 @@ if ($runQuery = mysql_query($query))
 	
 	if ($numRows == 0)
 	{   
-		$hashed_password = md5($_POST['password']);
-
-		mysql_query("INSERT INTO `registrations`(`username`,`password`) VALUES ('".$_POST['username']."','".$hashed_password."')");
+		mysql_query("INSERT INTO `registrations`(`username`,`password`) VALUES ('".$_POST['username']."','".$_POST['password']."')");
 		
 		echo 1;
 	}
