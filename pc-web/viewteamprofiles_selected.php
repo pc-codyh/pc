@@ -79,7 +79,7 @@ if ($runQueryID = mysql_query($queryID))
         $f1 = mysql_result($runPlayerQuery, $i, "name");
 ?>
 
-<option value="<?php echo $f1; ?>"><?php echo $f1; ?></option>
+<option value="<?php echo $f1; ?>" <?php if ($playerOne == $f1) { ?> selected <?php } ?> ><?php echo $f1; ?></option>
 
 <?php
 
@@ -100,7 +100,7 @@ if ($runQueryID = mysql_query($queryID))
         $f1 = mysql_result($runPlayerQuery, $i, "name");
 ?>
 
-<option value="<?php echo $f1; ?>"><?php echo $f1; ?></option>
+<option value="<?php echo $f1; ?>" <?php if ($playerTwo == $f1) { ?> selected <?php } ?> ><?php echo $f1; ?></option>
 
 <?php
 

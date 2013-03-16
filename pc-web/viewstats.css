@@ -2,11 +2,12 @@
 body
 {
     /*background-color: #999999;*/
-    background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #F71A1A), color-stop(1, #FFFFFF));
+    /*background-image: -webkit-gradient(linear, top, bottom, color-stop(0, #F71A1A), color-stop(1, #FFFFFF));
 	background-image: -webkit-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
 	background-image: -moz-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
-	background-image: -ms-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);
+	background-image: -ms-linear-gradient(top, #F71A1A 0%, #FFFFFF 100%);*/
 	/*background-color: #F71A1A;*/
+    background-image: url("imgs/background1.jpg");
 }
 
 td
