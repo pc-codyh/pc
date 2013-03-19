@@ -5,7 +5,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_menu">Pong Champ</string>
     <string name="registration_username_already_exists">Username Already Exists!</string>
-    <string name="registration_successful">Registration Successful!</string>
+    <string name="registration_successful">Registration Successful! You can now log in with the above username.</string>
     <string name="registration_invalid_username">Username must be at least 6 characters long and contain only letters and numbers.</string>
     <string name="registration_invalid_password">Password must be at least 6 characters long and contain only letters and numbers.</string>
     <string name="registration_passwords_do_not_match">Passwords do not match.</string>
