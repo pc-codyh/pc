@@ -265,18 +265,76 @@ public class PongPlayer
 	{
 		if (pressed)
 		{
-			btn.setBackgroundResource(R.drawable.player_icon_down);
+			togglePlayerIconDown(btn, stat_currentHitStreak);
+			
 			btn.setEnabled(false);
 			
 			_isActiveShooter = true;
 		}
 		else
 		{
-			btn.setBackgroundResource(R.drawable.player_icon);
+			togglePlayerIcon(btn, stat_currentHitStreak);
+			
 			btn.setEnabled(true);
 			
 			_isActiveShooter = false;
 		}
+	}
+	
+	// Function to toggle the player's icon based
+	// on their current hit streak.
+	private void togglePlayerIcon(Button btn, int hitStreak)
+	{
+		if (nbaJamRule())
+		{
+			if (hitStreak >= 3)
+			{
+				btn.setBackgroundResource(R.drawable.player_icon_on_fire);
+			}
+			else if (hitStreak == 2)
+			{
+				btn.setBackgroundResource(R.drawable.player_icon_heating_up);
+			}
+			else
+			{
+				btn.setBackgroundResource(R.drawable.player_icon);
+			}
+		}
+		else
+		{
+			btn.setBackgroundResource(R.drawable.player_icon);
+		}
+	}
+	
+	// Function to toggle the player's pressed icon
+	// based on their current hit streak.
+	private void togglePlayerIconDown(Button btn, int hitStreak)
+	{
+		if (nbaJamRule())
+		{
+			if (hitStreak >= 3)
+			{
+				btn.setBackgroundResource(R.drawable.on_fire_down);
+			}
+			else if (hitStreak == 2)
+			{
+				btn.setBackgroundResource(R.drawable.heating_up_down);
+			}
+			else
+			{
+				btn.setBackgroundResource(R.drawable.player_icon_down);
+			}
+		}
+		else
+		{
+			btn.setBackgroundResource(R.drawable.player_icon_down);
+		}
+	}
+	
+	// Function to reset to the default player icon.
+	private void resetPlayerIcon()
+	{
+		_display.getButton().setBackgroundResource(R.drawable.player_icon);
 	}
 	
 	public PongPlayerDisplay getDisplay()
@@ -446,12 +504,12 @@ public class PongPlayer
 				stat_redemptionInProgress = false;
 			}
 		}
-		
-		setNBAJamState();
 	}
 	
 	public void miss()
 	{
+		resetPlayerIcon();
+		
 		addStringToShotHistory(ID_MISS);
 		
 		stat_shotsTaken++;
@@ -477,8 +535,6 @@ public class PongPlayer
 			
 			_display.getButton().setEnabled(false);
 		}
-		
-		setNBAJamState();
 	}
 	
 	public void bounce()
@@ -533,8 +589,6 @@ public class PongPlayer
 				_gameRef.bounceInRedemption();
 			}
 		}
-		
-		setNBAJamState();
 	}
 	
 	public void gangBang()
@@ -1034,27 +1088,6 @@ public class PongPlayer
 		str += "\n--------------------------------------------------\n";
 		
 		_gameRef.concatenateShotHistory(str);
-	}
-	
-	private void setNBAJamState()
-	{
-		if (nbaJamRule())
-		{
-			int count = stat_currentHitStreak;
-			
-			if (count < 2)
-			{
-				_display.getTextView().setText(_name);
-			}
-			else if (count == 2)
-			{
-				_display.getTextView().setText(_name + _heatingUp);
-			}
-			else if (count > 2)
-			{
-				_display.getTextView().setText(_name + _onFire);
-			}
-		}
 	}
 	
 	public void setEloRating(float rating)
