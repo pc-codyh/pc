@@ -13,6 +13,11 @@ Logging out
 - If you successfully log in, the 'Login' button will become a 'Logout' button. Upon pressing this, you will be prompted to confirm your logout.
 
 
+Viewing Stats
+
+- Once you have successfully logged in, you can view your players' stats at any time by pressing the 'View Stats' button from the main menu of the app, or by accessing www.pongchamp.com and entering your username.
+
+
 Creating a new player
 
 - Without any players you can't play any games. A new player can be created by pressing 'Create Player' from the main menu and entering a new name.

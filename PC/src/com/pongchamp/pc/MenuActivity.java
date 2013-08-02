@@ -11,9 +11,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -156,6 +155,7 @@ public class MenuActivity extends Activity
     		
     		setupLogoutButton();
     		enableButtons();
+    		toggleRegisterButton(true);
     		
     		_activeUsername.setBackgroundColor(Color.parseColor("#FFCC33"));
     	}
@@ -163,6 +163,14 @@ public class MenuActivity extends Activity
     	{
     		_activeUsername.setText(R.string.menu_not_logged_in);
     	}
+    }
+    
+    // Function to toggle the "Register" button into
+    // a "View Stats" button when the user is logged
+    // in.
+    private void toggleRegisterButton(boolean isLoggedIn)
+    {
+    	_registerButton.setBackgroundResource((isLoggedIn) ? R.drawable.icn_view_stats : R.drawable.icn_register);
     }
     
     private void loadCachedPlayers(ArrayList<String> players)
@@ -212,7 +220,7 @@ public class MenuActivity extends Activity
         _randomizeTeamsButton.setBackgroundResource(R.drawable.icn_randomizer_down);
         _changeRulesButton.setBackgroundResource(R.drawable.icn_rules_down);
         _playGameButton.setBackgroundResource(R.drawable.icn_play_game_down);
-        _helpButton.setBackgroundResource(R.drawable.icn_help_down);
+//        _helpButton.setBackgroundResource(R.drawable.icn_help_down);
         
         ArrayList<Button> buttons = new ArrayList<Button>();
         
@@ -220,7 +228,7 @@ public class MenuActivity extends Activity
         buttons.add(_randomizeTeamsButton);
         buttons.add(_changeRulesButton);
         buttons.add(_playGameButton);
-        buttons.add(_helpButton);
+//        buttons.add(_helpButton);
         
         for (Button btn : buttons)
         {
@@ -235,7 +243,6 @@ public class MenuActivity extends Activity
         _randomizeTeamsButton.setBackgroundResource(R.drawable.icn_randomizer);
         _changeRulesButton.setBackgroundResource(R.drawable.icn_rules);
         _playGameButton.setBackgroundResource(R.drawable.icn_play_game);
-        _helpButton.setBackgroundResource(R.drawable.icn_help);
         
         ArrayList<Button> buttons = new ArrayList<Button>();
         
@@ -243,7 +250,6 @@ public class MenuActivity extends Activity
         buttons.add(_randomizeTeamsButton);
         buttons.add(_changeRulesButton);
         buttons.add(_playGameButton);
-        buttons.add(_helpButton);
         
         for (Button btn : buttons)
         {
@@ -272,7 +278,19 @@ public class MenuActivity extends Activity
     	{	
 			public void onClick(View v)
 			{
-				openRegisterWindow();
+				// The user is not logged in.
+				if (_activeUser == null)
+				{
+					openRegisterWindow();
+				}
+				else
+				{
+					Uri uri = Uri.parse("http://www.pongchamp.com/viewstats.php?username=" + _activeUser.getUsername() + "&submit=View+Stats");
+					
+					Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+					
+					startActivity(intent);
+				}
 			}
 		});
     }
@@ -329,6 +347,7 @@ public class MenuActivity extends Activity
     	
     	_activeUser = null;
     	
+    	toggleRegisterButton(false);
     	setupLoginButton();
     }
     

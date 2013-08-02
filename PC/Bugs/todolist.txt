@@ -7,9 +7,6 @@ _______________
    app is killed in background.
 4) Game result uploaded twice (occurred once in 100+ games).
 
-5) When logged in, "Register" icon should turn into a "View Stats" icon,
-   which links the user to their stats on the website.
-
 
 
 
@@ -37,3 +34,6 @@ ____________________
 1) Added ScrollView to the Register screen.
 2) In game player icon turns into a "Heating Up" and "On Fire" icon
    when appropriate.
+3) When logged in, "Register" icon turns into a "View Stats" icon,
+   which links the user to their stats on the website.
+4) Made "Help" icon always enabled.
