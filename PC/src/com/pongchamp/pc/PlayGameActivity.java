@@ -745,8 +745,8 @@ public class PlayGameActivity extends Activity
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
-	{	
-		if (keyCode != KeyEvent.KEYCODE_MENU)
+	{
+		if (keyCode == KeyEvent.KEYCODE_BACK)
 		{
 			showConfirmationPopupWindow();
 		}
