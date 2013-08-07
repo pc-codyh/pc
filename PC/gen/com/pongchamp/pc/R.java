@@ -109,6 +109,7 @@ public final class R {
         public static final int TableRow02=0x7f080068;
         public static final int TableRow03=0x7f08006c;
         public static final int TableRow05=0x7f080058;
+        public static final int action_menu_remove_cup=0x7f08008c;
         public static final int changerules_bounceInRedemptionToOT_No=0x7f08000d;
         public static final int changerules_bounceInRedemptionToOT_Yes=0x7f08000c;
         public static final int changerules_bounceinredemp_prompt=0x7f08000a;
@@ -153,7 +154,6 @@ public final class R {
         public static final int menu_loginButton=0x7f08002e;
         public static final int menu_playGameButton=0x7f080033;
         public static final int menu_registerButton=0x7f08002d;
-        public static final int menu_settings=0x7f08008c;
         public static final int menu_teamRandomizerButton=0x7f080030;
         public static final int odds_prompt=0x7f080070;
         public static final int odds_team_one_names=0x7f080071;

@@ -10,6 +10,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -194,6 +196,34 @@ public class PlayGameActivity extends Activity
 								_teamOnePlayerTwoName,
 								_teamTwoPlayerOneName,
 								_teamTwoPlayerTwoName);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		super.onCreateOptionsMenu(menu);
+		
+		getMenuInflater().inflate(R.menu.activity_menu, menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId())
+		{
+			// Options button to remove a cup.
+			case R.id.action_menu_remove_cup:
+			{
+				_game.setRemoveCupInProgress(true);
+				
+				return true;
+			}
+			
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	@Override
@@ -716,7 +746,10 @@ public class PlayGameActivity extends Activity
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{	
-		showConfirmationPopupWindow();
+		if (keyCode != KeyEvent.KEYCODE_MENU)
+		{
+			showConfirmationPopupWindow();
+		}
 		
 		return false;
 	}

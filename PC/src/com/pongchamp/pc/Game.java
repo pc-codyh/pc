@@ -87,6 +87,7 @@ public class Game
 	
 	boolean _shotInProgress = false;
 	boolean _shouldEnterOvertime = false;
+	boolean _removeCupInProgress = false;
 	int _cupsLeftToRemove = 0;
 	int _currentGangBangAmount = 0;
 	
@@ -753,6 +754,13 @@ public class Game
 						
 						removeCup(btn);
 					}
+					else if (_removeCupInProgress)
+					{
+						_removeCupInProgress = false;
+						_teamOneCupsRemaining--;
+						
+						removeCup(btn);
+					}
 					
 					updateCupsRemaining();
 					updateStatsTab();
@@ -775,6 +783,13 @@ public class Game
 					}
 					else if (checkForActiveError(ID_TEAM_TWO))
 					{
+						_teamTwoCupsRemaining--;
+						
+						removeCup(btn);
+					}
+					else if (_removeCupInProgress)
+					{
+						_removeCupInProgress = false;
 						_teamTwoCupsRemaining--;
 						
 						removeCup(btn);
@@ -1265,6 +1280,11 @@ public class Game
 	public int getRequestCount()
 	{
 		return _requestCount;
+	}
+	
+	public void setRemoveCupInProgress(boolean inProgress)
+	{
+		_removeCupInProgress = inProgress;
 	}
 	
 	public void storeVariablesForSaveState(Bundle savedInstanceState)
