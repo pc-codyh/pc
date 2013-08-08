@@ -100,6 +100,30 @@ public class PongPlayer
 	ArrayList<Integer> stat_shotsPerCup = null;
 	ArrayList<Integer> stat_hitsPerCup = null;
 	
+	// Achievements earned this game.
+	int[] stat_achievement = new int[15];
+	
+	boolean _heartbreakCity = false;
+	
+	// ID's for achievements
+	final int ID_SHS 			= 0; 	// Sharpshooter
+	final int ID_MJ			  	= 1; 	// Michael Jordan
+	final int ID_CIBAV			= 2; 	// Can I Buy A Vowel?
+	final int ID_BANK			= 3; 	// Bankruptcy
+	final int ID_CK				= 4; 	// Comeback Kill
+	final int ID_HC				= 5; 	// Heartbreak City
+	final int ID_CWTPD			= 6; 	// Caught With Their Pants Down
+	final int ID_PS				= 7; 	// Porn Star
+	final int ID_SW				= 8; 	// Stevie Wonder
+	final int ID_PER			= 9; 	// Perfection
+	final int ID_DBNO			= 10; 	// Down But Not Out
+	
+	final int ID_BB				= 12; 	// Bill Buckner
+	final int ID_BC				= 13;	// Bitch Cup
+	final int ID_MAR			= 14;	// Marathon
+	final int ID_ACH_COUNT		= 15;
+	
+	
 	boolean stat_redemptionInProgress = false;
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	
@@ -181,6 +205,12 @@ public class PongPlayer
 		{
 			stat_shotsPerCup.add(0);
 			stat_hitsPerCup.add(0);
+		}
+		
+		// Initialize the Achievement Array.
+		for (int i = 0; i < ID_ACH_COUNT; i++)
+		{
+			stat_achievement[i] = 0;
 		}
 	}
 	
@@ -454,6 +484,11 @@ public class PongPlayer
 	
 	public void hit(boolean addToShotHistory)
 	{
+		// Used for Achievements.
+		int missStreakBeforeShot = stat_currentMissStreak;
+		
+		updateHeartbreakCityStatus();
+		
 		if (addToShotHistory)
 		{
 			addStringToShotHistory(ID_HIT);
@@ -504,10 +539,14 @@ public class PongPlayer
 				stat_redemptionInProgress = false;
 			}
 		}
+		
+		updateAchievements(missStreakBeforeShot);
 	}
 	
 	public void miss()
 	{
+		updateHeartbreakCityStatus();
+		
 		resetPlayerIcon();
 		
 		addStringToShotHistory(ID_MISS);
@@ -535,10 +574,14 @@ public class PongPlayer
 			
 			_display.getButton().setEnabled(false);
 		}
+		
+		updateAchievements(-1);
 	}
 	
 	public void bounce()
 	{
+		updateHeartbreakCityStatus();
+		
 		addStringToShotHistory(ID_BOUNCE);
 		
 		stat_shotsTaken++;
@@ -589,6 +632,8 @@ public class PongPlayer
 				_gameRef.bounceInRedemption();
 			}
 		}
+		
+		updateAchievements(-1);
 	}
 	
 	public void gangBang()
@@ -602,9 +647,98 @@ public class PongPlayer
 	
 	public void error()
 	{
+		updateHeartbreakCityStatus();
+		
 		addStringToShotHistory(ID_ERROR);
 		
 		stat_errorsCommitted++;
+		
+		updateAchievements(-1);
+	}
+	
+	private void updateAchievements(int missStreakBeforeShot)
+	{
+		///////////////////////
+		// Achievement Stuff //
+		///////////////////////
+		
+		// (1) Sharpshooter [Hit streak of five or more cups]
+		if (stat_currentHitStreak == 5)
+		{
+			stat_achievement[ID_SHS] = 1;
+		}
+		
+		// (2) Michael Jordan [Two On-Fire's in one game]
+		if (stat_onFire == 2 && nbaJamRule())
+		{
+			stat_achievement[ID_MJ] = 1;
+		}
+		
+		// (5) Comeback Kill [Hit a shot after missing five in a row]
+		if (missStreakBeforeShot >= 5)
+		{
+			stat_achievement[ID_CK]++;
+		}
+		
+		// (7) Caught With Their Pants Down [Hit two bounces in a game]
+		if (stat_bouncesHit == 2)
+		{
+			stat_achievement[ID_CWTPD] = 1;
+		}
+		
+		// (8) Porn Star [Hit two gangbangs in a game]
+		if (stat_gangBangsHit == 2)
+		{
+			stat_achievement[ID_PS] = 1;
+		}
+		
+		// (9) Stevie Wonder [Miss ten shots in a row]
+		if (stat_currentMissStreak == 10)
+		{
+			stat_achievement[ID_SW] = 1;
+		}
+		
+		// (13) Bill Buckner [Commit two errors in a game]
+		if (stat_errorsCommitted == 2)
+		{
+			stat_achievement[ID_BB] = 1;
+		}
+		
+		downButNotOutAchievement();
+	}
+	
+	// Function to check whether a player has
+	// sent the game to overtime for the second
+	// time in one game.
+	private void downButNotOutAchievement()
+	{
+		// (11) Down But Not Out [Send the game to overtime twice in a game]
+		if (stat_redemptionSuccesses == 2)
+		{
+			stat_achievement[ID_DBNO] = 1;
+		}
+	}
+	
+	// Function to check whether the player
+	// is down by a deficit of five cups
+	// or more.
+	private void updateHeartbreakCityStatus()
+	{
+		// Don't reset the status if the team catchs up
+		// after being down by the required deficit.
+		if (_heartbreakCity == false)
+		{
+			if ((_opponentCupsRemaining - _ownCupsRemaining) >= 5)
+			{
+				_heartbreakCity = true;
+			}
+		}
+	}
+	
+	// Function to update the Bitch Cup Achievement
+	public void updateBitchCup()
+	{
+		stat_achievement[ID_BC] = 1;
 	}
 	
 	private boolean isRedemption()
@@ -706,7 +840,39 @@ public class PongPlayer
 	
 	public void processFinalStats()
 	{
+		///////////////////////
+		// Achievement Stuff //
+		///////////////////////
+		
+		// (4) Bankruptcy [Sink no cups in a game]
+		if (stat_shotsHit == 0)
+		{
+			stat_achievement[ID_BANK] = 1;
+		}
+		
+		// (10) Perfection [Shoot one-hundred percent in a game]
+		if (stat_shotsTaken <= stat_shotsHit)
+		{
+			stat_achievement[ID_PER] = 1;
+		}
+		
+		// (15) Marathon [Compete in a game that goes to triple overtime]
+		if (_gameRef.getOvertimeCount() >= 3)
+		{
+			stat_achievement[ID_MAR] = 1;
+		}
+		
 		fillStats();
+	}
+	
+	// Function to check for the Can I Buy A Vowel? Achievement.
+	// Only called if this team wins.
+	private void updateCanIBuyAVowelAchievement()
+	{
+		if (_gameRef.getPartnerCups(_playerID) == 0)
+		{
+			stat_achievement[ID_CIBAV] = 1;
+		}
 	}
 	
 	private void updateStatsDatabase()
@@ -835,6 +1001,18 @@ public class PongPlayer
 				/* The game outcome (win, loss, ot loss). */
 				if (_ownCupsRemaining > 0)
 				{
+					///////////////////////
+					// Achievement Stuff //
+					///////////////////////
+					
+					// (6) Heartbreak City [Win a game after being down by five or more cups]
+					if (_heartbreakCity)
+					{
+						stat_achievement[ID_HC] = 1;
+					}
+					
+					updateCanIBuyAVowelAchievement();
+					
 					tempStats.set(ID_WINS, (float) 1);
 					
 					if (!_hasEnteredOvertime)

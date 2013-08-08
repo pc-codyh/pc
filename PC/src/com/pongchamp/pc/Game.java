@@ -743,6 +743,23 @@ public class Game
 				{
 					if (checkForActiveShooter(ID_TEAM_TWO))
 					{
+						///////////////////////
+						// Achievement Stuff //
+						///////////////////////
+						
+						// (14) Bitch Cup [Hit the middle cup first on a ten-cup rack]
+						if ((btn == _teamOneCups.get(4)) && (_teamOneCupsRemaining == 10))
+						{
+							// If this is the middle cup on a ten rack.
+							for (PongPlayer player : _players)
+							{
+								if (player.isActiveShooter())
+								{
+									player.updateBitchCup();
+								}
+							}
+						}
+						
 						_cupsLeftToRemove--;
 						_teamOneCupsRemaining--;
 						
@@ -776,6 +793,23 @@ public class Game
 				{
 					if (checkForActiveShooter(ID_TEAM_ONE))
 					{
+						///////////////////////
+						// Achievement Stuff //
+						///////////////////////
+						
+						// (14) Bitch Cup [Hit the middle cup first on a ten-cup rack]
+						if ((btn == _teamTwoCups.get(4)) && (_teamTwoCupsRemaining == 10))
+						{
+							// If this is the middle cup on a ten rack.
+							for (PongPlayer player : _players)
+							{
+								if (player.isActiveShooter())
+								{
+									player.updateBitchCup();
+								}
+							}
+						}
+							
 						_cupsLeftToRemove--;
 						_teamTwoCupsRemaining--;
 						
@@ -799,6 +833,37 @@ public class Game
 					updateStatsTab();
 				}
 			});
+		}
+	}
+	
+	// Function to return the amount of cups made
+	// by a team member's partner.
+	public int getPartnerCups(int partnerId)
+	{
+		switch (partnerId)
+		{
+			case 0:
+			{
+				return _players.get(1).getHits();
+			}
+			
+			case 1:
+			{
+				return _players.get(0).getHits();
+			}
+			
+			case 2:
+			{
+				return _players.get(3).getHits();
+			}
+			
+			case 3:
+			{
+				return _players.get(2).getHits();
+			}
+			
+			default:
+				return -1;
 		}
 	}
 	
