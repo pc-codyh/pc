@@ -212,6 +212,12 @@ select
     visibility:hidden;
 }
 
+#player_rank b
+{
+    font-size: 40px;
+    font-family: "calibri";
+}
+
 
 /* CLASSES */
 .achievement_title
@@ -220,8 +226,10 @@ select
     font-family: "calibri";
     font-style: italic;
 
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: 5px;
 }
+
 .achievement_table td
 {
     table-layout: fixed;
@@ -235,7 +243,24 @@ select
     margin-right: 10px;
 }
 
+.achievement_group td
+{
+    table-layout: fixed;
+    width: 380px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
 .stats_table
+{
+    margin-top: 2px;
+    border: 1px solid #000000;
+    background-color: #999999;
+
+    width: 800px;
+}
+
+.stats_table_ach
 {
     margin-top: 2px;
     border: 1px solid #000000;

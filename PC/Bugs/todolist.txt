@@ -14,8 +14,7 @@ _______________
 CHECKLIST (WEBSITE)
 ___________________
 
-1) Make Game Results sortable in Team Profiles.
-2) Allow reverse order sorting.
+1) Allow reverse order sorting.
 
 
 
@@ -33,3 +32,5 @@ ____________________
 
 1) Added Action Menu to gameplay (which includes remove cup).
 2) Added Achievements.
+3) Added Player Profiles.
+4) Made Game Results sortable in Player/Team Profiles.

@@ -3,6 +3,7 @@
 $username = $_GET['username'];
 $playerOne = $_GET['player_one'];
 $playerTwo = $_GET['player_two'];
+$sortby = $_GET['sortby'];
 
  ?>
 
@@ -212,7 +213,14 @@ if ($runQueryID = mysql_query($queryID))
 
 <?php
 
-    $selectedGameQuery = "SELECT * FROM `games` WHERE `id_registrations`='".$id_registrations."' AND ((`team_one_player_one`='".$playerOne."' AND `team_one_player_two`='".$playerTwo."') OR (`team_one_player_one`='".$playerTwo."' AND `team_one_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerTwo."' AND `team_two_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerOne."' AND `team_two_player_two`='".$playerTwo."'))";
+    if ($sortby == "team_one_name" or $sortby == "team_two_name" or $sortby == "winning_team")
+    {
+        $selectedGameQuery = "SELECT * FROM `games` WHERE `id_registrations`='".$id_registrations."' AND ((`team_one_player_one`='".$playerOne."' AND `team_one_player_two`='".$playerTwo."') OR (`team_one_player_one`='".$playerTwo."' AND `team_one_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerTwo."' AND `team_two_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerOne."' AND `team_two_player_two`='".$playerTwo."')) ORDER BY `".$sortby."` ASC";   
+    }
+    else
+    {
+        $selectedGameQuery = "SELECT * FROM `games` WHERE `id_registrations`='".$id_registrations."' AND ((`team_one_player_one`='".$playerOne."' AND `team_one_player_two`='".$playerTwo."') OR (`team_one_player_one`='".$playerTwo."' AND `team_one_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerTwo."' AND `team_two_player_two`='".$playerOne."') OR (`team_two_player_one`='".$playerOne."' AND `team_two_player_two`='".$playerTwo."')) ORDER BY `".$sortby."` DESC";   
+    }
 
     if ($runSelectedGameQuery = mysql_query($selectedGameQuery))
     {
@@ -248,13 +256,41 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
-    <td class="stat_column"><?php echo $f2; ?></td>
-    <td><?php echo $f3; ?></td>
-    <td class="stat_column"><?php echo $f4; ?></td>
-    <td class="stat_column"><?php echo $f5; ?></td>
-    <td class="stat_column"><?php echo $f6; ?></td>
-    <td class="stat_column"><?php echo $f7; ?></td>
+    <?php if ($sortby == "team_one_name") { ?>
+        <td class="stat_column_name_selected"><?php echo $f1; ?></td>
+    <?php } else { ?>
+        <td><?php echo $f1; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "team_one_cups_remaining") { ?>
+        <td class="stat_column_selected"><?php echo $f2; ?></td>
+    <?php } else { ?>
+        <td class="stat_column"><?php echo $f2; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "team_two_name") { ?>
+        <td class="stat_column_name_selected"><?php echo $f3; ?></td>
+    <?php } else { ?>
+        <td><?php echo $f3; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "team_two_cups_remaining") { ?>
+        <td class="stat_column_selected"><?php echo $f4; ?></td>
+    <?php } else { ?>
+        <td class="stat_column"><?php echo $f4; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "number_of_ots") { ?>
+        <td class="stat_column_selected"><?php echo $f5; ?></td>
+    <?php } else { ?>
+        <td class="stat_column"><?php echo $f5; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "winning_team") { ?>
+        <td class="stat_column_selected"><?php echo $f6; ?></td>
+    <?php } else { ?>
+        <td class="stat_column"><?php echo $f6; ?></td>
+    <?php } ?>
+    <?php if ($sortby == "date") { ?>
+        <td class="stat_column_selected"><?php echo $f7; ?></td>
+    <?php } else { ?>
+        <td class="stat_column"><?php echo $f7; ?></td>
+    <?php } ?>
 </tr>
 
 <?php

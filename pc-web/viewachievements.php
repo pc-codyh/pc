@@ -48,7 +48,7 @@ $username = $_GET['username'];
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Sharpshooter</td>
         <td class="stat_header">Count</td>
@@ -124,7 +124,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Michael Jordan</td>
         <td class="stat_header">Count</td>
@@ -182,7 +182,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Can I Buy A Vowel?</td>
         <td class="stat_header">Count</td>
@@ -240,7 +240,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Heartbreak City</td>
         <td class="stat_header">Count</td>
@@ -298,7 +298,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Caught With Their Pants Down</td>
         <td class="stat_header">Count</td>
@@ -356,7 +356,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Porn Star</td>
         <td class="stat_header">Count</td>
@@ -414,7 +414,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Perfection</td>
         <td class="stat_header">Count</td>
@@ -472,7 +472,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Down But Not Out</td>
         <td class="stat_header">Count</td>
@@ -530,7 +530,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Marathon</td>
         <td class="stat_header">Count</td>
@@ -592,7 +592,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Comeback Kill</td>
         <td class="stat_header">Count</td>
@@ -650,7 +650,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bill Buckner</td>
         <td class="stat_header">Count</td>
@@ -708,7 +708,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bitch Cup</td>
         <td class="stat_header">Count</td>
@@ -770,7 +770,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bankruptcy</td>
         <td class="stat_header">Count</td>
@@ -828,7 +828,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
-<table class="stats_table achievement_table" cellspacing="0" cellpadding="5">
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Stevie Wonder</td>
         <td class="stat_header">Count</td>
