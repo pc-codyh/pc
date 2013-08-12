@@ -1273,7 +1273,7 @@ public class Game
 		
 		_shotHistory.setGravity(Gravity.LEFT);
 		
-		_shotHistoryString = "Achievements Earned\n-------------------\n";
+		_shotHistoryString = "Achievements Earned\n-----------------------------\n\n";
 		
 		for (PongPlayer player : _players)
 		{
@@ -1298,7 +1298,7 @@ public class Game
 				_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
 			}
 			
-			_shotHistoryString += "\n";
+			_shotHistoryString += "\n\n";
 		}
 		
 		_shotHistory.setText(_shotHistoryString);
