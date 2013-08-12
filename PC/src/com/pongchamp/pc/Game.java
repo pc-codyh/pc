@@ -14,6 +14,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -1186,12 +1187,131 @@ public class Game
 		_shouldEnterOvertime = true;
 	}
 	
+	private String addAchievementToString(int id)
+	{
+		switch (id)
+		{
+			case 0:
+			{
+				return "Sharpshooter";
+			}
+			
+			case 1:
+			{
+				return "Michael Jordan";
+			}
+			
+			case 2:
+			{
+				return "Can I Buy A Vowel?";
+			}
+			
+			case 3:
+			{
+				return "Bankruptcy";
+			}
+			
+			case 4:
+			{
+				return "Comeback Kill";
+			}
+			
+			case 5:
+			{
+				return "Heartbreak City";
+			}
+			
+			case 6:
+			{
+				return "Caught With Their Pants Down";
+			}
+			
+			case 7:
+			{
+				return "Porn Star";
+			}
+			
+			case 8:
+			{
+				return "Stevie Wonder";
+			}
+			
+			case 9:
+			{
+				return "Perfection";
+			}
+			
+			case 10:
+			{
+				return "Down But Not Out";
+			}
+			
+			case 12:
+			{
+				return "Bill Buckner";
+			}
+			
+			case 13:
+			{
+				return "Bitch Cup";
+			}
+			
+			case 14:
+			{
+				return "Marathon";
+			}
+			
+			default:
+				return "";
+		}
+	}
+	
+	private void showAchievements()
+	{
+		int[] achievements = null;
+		boolean gotAchievement = false;
+		
+		_shotHistory.setGravity(Gravity.LEFT);
+		
+		_shotHistoryString = "Achievements Earned\n-------------------\n";
+		
+		for (PongPlayer player : _players)
+		{
+			gotAchievement = false;
+			
+			achievements = player.getAchievements();
+			
+			_shotHistoryString += player.getName() + ": ";
+			
+			for (int i = 0; i < achievements.length; i++)
+			{
+				if (achievements[i] > 0)
+				{
+					gotAchievement = true;
+					
+					_shotHistoryString += addAchievementToString(i) + ", ";
+				}
+			}
+			
+			if (gotAchievement)
+			{
+				_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
+			}
+			
+			_shotHistoryString += "\n";
+		}
+		
+		_shotHistory.setText(_shotHistoryString);
+	}
+	
 	private void processFinalStats()
 	{
 		for (PongPlayer player : _players)
 		{
 			player.processFinalStats();
 		}
+		
+		showAchievements();
 	}
 	
 	public void saveGameResult()

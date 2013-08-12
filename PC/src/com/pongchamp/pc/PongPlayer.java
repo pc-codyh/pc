@@ -900,7 +900,7 @@ public class PongPlayer
 			if (_statsAlreadyUploaded == false)
 			{
 				HTTPHelper httpHelper = new HTTPHelper();
-				ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(42);
+				ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(56);
 				String name = _display.getTextView().getText().toString();
 				int count = 0;
 				
@@ -921,6 +921,15 @@ public class PongPlayer
 				else
 				{
 					nameValuePairs.add(new BasicNameValuePair("ot_count", "0"));
+				}
+				
+				count = 0;
+				
+				for (int value : stat_achievement)
+				{
+					nameValuePairs.add(new BasicNameValuePair("ach_" + Integer.toString(count), Integer.toString(value)));
+					
+					count++;
 				}
 				
 				result = httpHelper.executeHttpPost(nameValuePairs, _updateStatsURL);
@@ -1313,6 +1322,11 @@ public class PongPlayer
 		return _rank;
 	}
 	
+	public int[] getAchievements()
+	{
+		return stat_achievement;
+	}
+	
 	public void storeVariablesForSaveState(Bundle savedInstanceState)
 	{
 		switch (_playerID)
@@ -1356,6 +1370,9 @@ public class PongPlayer
 				savedInstanceState.putIntegerArrayList("stat_hitsPerCup0", stat_hitsPerCup);
 				
 				savedInstanceState.putBoolean("stat_redemptionInProgress0", stat_redemptionInProgress);
+				
+				savedInstanceState.putIntArray("stat_achievement0", stat_achievement);
+				savedInstanceState.putBoolean("_heartbreakCity0", _heartbreakCity);
 			}
 				break;
 				
@@ -1398,6 +1415,9 @@ public class PongPlayer
 				savedInstanceState.putIntegerArrayList("stat_hitsPerCup1", stat_hitsPerCup);
 				
 				savedInstanceState.putBoolean("stat_redemptionInProgress1", stat_redemptionInProgress);
+				
+				savedInstanceState.putIntArray("stat_achievement1", stat_achievement);
+				savedInstanceState.putBoolean("_heartbreakCity1", _heartbreakCity);
 			}
 				break;
 				
@@ -1440,6 +1460,9 @@ public class PongPlayer
 				savedInstanceState.putIntegerArrayList("stat_hitsPerCup2", stat_hitsPerCup);
 				
 				savedInstanceState.putBoolean("stat_redemptionInProgress2", stat_redemptionInProgress);
+				
+				savedInstanceState.putIntArray("stat_achievement2", stat_achievement);
+				savedInstanceState.putBoolean("_heartbreakCity2", _heartbreakCity);
 			}
 				break;
 				
@@ -1482,6 +1505,9 @@ public class PongPlayer
 				savedInstanceState.putIntegerArrayList("stat_hitsPerCup3", stat_hitsPerCup);
 				
 				savedInstanceState.putBoolean("stat_redemptionInProgress3", stat_redemptionInProgress);
+				
+				savedInstanceState.putIntArray("stat_achievement3", stat_achievement);
+				savedInstanceState.putBoolean("_heartbreakCity3", _heartbreakCity);
 			}
 				break;
 				
@@ -1534,6 +1560,9 @@ public class PongPlayer
 				stat_hitsPerCup = savedInstanceState.getIntegerArrayList("stat_hitsPerCup0");
 				
 				stat_redemptionInProgress = savedInstanceState.getBoolean("stat_redemptionInProgress0");
+				
+				stat_achievement = savedInstanceState.getIntArray("stat_achievement0");
+				_heartbreakCity = savedInstanceState.getBoolean("_heartbreakCity0");
 			}
 				break;
 			
@@ -1576,6 +1605,9 @@ public class PongPlayer
 				stat_hitsPerCup = savedInstanceState.getIntegerArrayList("stat_hitsPerCup1");
 				
 				stat_redemptionInProgress = savedInstanceState.getBoolean("stat_redemptionInProgress1");
+				
+				stat_achievement = savedInstanceState.getIntArray("stat_achievement1");
+				_heartbreakCity = savedInstanceState.getBoolean("_heartbreakCity1");
 			}
 				break;
 			
@@ -1618,6 +1650,9 @@ public class PongPlayer
 				stat_hitsPerCup = savedInstanceState.getIntegerArrayList("stat_hitsPerCup2");
 				
 				stat_redemptionInProgress = savedInstanceState.getBoolean("stat_redemptionInProgress2");
+				
+				stat_achievement = savedInstanceState.getIntArray("stat_achievement2");
+				_heartbreakCity = savedInstanceState.getBoolean("_heartbreakCity2");
 			}
 				break;
 				
@@ -1660,6 +1695,9 @@ public class PongPlayer
 				stat_hitsPerCup = savedInstanceState.getIntegerArrayList("stat_hitsPerCup3");
 				
 				stat_redemptionInProgress = savedInstanceState.getBoolean("stat_redemptionInProgress3");
+				
+				stat_achievement = savedInstanceState.getIntArray("stat_achievement3");
+				_heartbreakCity = savedInstanceState.getBoolean("_heartbreakCity3");
 			}
 				break;
 				

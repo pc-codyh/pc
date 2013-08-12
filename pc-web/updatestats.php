@@ -187,6 +187,28 @@ if ($runQueryID = mysql_query($queryID))
                     $rank++;
                 }
             }
+
+            $achievementQueryName = "SELECT `a_shs`, `a_mj`, `a_cibav`, `a_bank`, `a_ck`, `a_hc`, `a_cwtpd`, `a_ps`, `a_sw`, `a_per`, `a_dbno`, `a_bb`, `a_bc`, `a_mar` FROM `players` WHERE `id_registrations`='".$id_registrations."' AND `name`='".$_POST['name']."'";
+
+            if ($achievementQuery = mysql_query($achievementQueryName))
+            {
+                $a_shs = mysql_result($achievementQuery, 0, "a_shs") + $_POST['ach_0'];
+                $a_mj = mysql_result($achievementQuery, 0, "a_mj") + $_POST['ach_1'];
+                $a_cibav = mysql_result($achievementQuery, 0, "a_cibav") + $_POST['ach_2'];
+                $a_bank = mysql_result($achievementQuery, 0, "a_bank") + $_POST['ach_3'];
+                $a_ck = mysql_result($achievementQuery, 0, "a_ck") + $_POST['ach_4'];
+                $a_hc = mysql_result($achievementQuery, 0, "a_hc") + $_POST['ach_5'];
+                $a_cwtpd = mysql_result($achievementQuery, 0, "a_cwtpd") + $_POST['ach_6'];
+                $a_ps = mysql_result($achievementQuery, 0, "a_ps") + $_POST['ach_7'];
+                $a_sw = mysql_result($achievementQuery, 0, "a_sw") + $_POST['ach_8'];
+                $a_per = mysql_result($achievementQuery, 0, "a_per") + $_POST['ach_9'];
+                $a_dbno = mysql_result($achievementQuery, 0, "a_dbno") + $_POST['ach_10'];
+                $a_bb = mysql_result($achievementQuery, 0, "a_bb") + $_POST['ach_12'];
+                $a_bc = mysql_result($achievementQuery, 0, "a_bc") + $_POST['ach_13'];
+                $a_mar = mysql_result($achievementQuery, 0, "a_mar") + $_POST['ach_14'];
+
+                mysql_query("UPDATE `players` SET `a_shs`='".$a_shs."', `a_mj`='".$a_mj."', `a_cibav`='".$a_cibav."', `a_bank`='".$a_bank."', `a_ck`='".$a_ck."', `a_hc`='".$a_hc."', `a_cwtpd`='".$a_cwtpd."', `a_ps`='".$a_ps."', `a_sw`='".$a_sw."', `a_per`='".$a_per."', `a_dbno`='".$a_dbno."', `a_bb`='".$a_bb."', `a_bc`='".$a_bc."', `a_mar`='".$a_mar."' WHERE `name`='".$_POST['name']."' AND `id_registrations`='".$id_registrations."'");
+            }
         
             echo 1;
         }

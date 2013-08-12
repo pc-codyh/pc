@@ -7,7 +7,6 @@ _______________
    app is killed in background.
 4) Game result uploaded twice (occurred once in 100+ games).
 
-5) Add Achievements. Need to upload achievements to the database.
 
 
 
@@ -33,3 +32,4 @@ ADDED TO NEW RELEASE
 ____________________
 
 1) Added Action Menu to gameplay (which includes remove cup).
+2) Added Achievements.

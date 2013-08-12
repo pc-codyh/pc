@@ -185,7 +185,7 @@ select
 /* CLASSES */
 .stats_table
 {
-    margin-top: -5px;
+    margin-top: 2px;
     border: 1px solid #000000;
     background-color: #999999;
 }
