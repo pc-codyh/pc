@@ -23,6 +23,9 @@ $sortby = $_GET['sortby'];
     <li id="main_menu_playerstats"><a href="viewstats.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/playerstats.png" /></a></li>
 </ul>
 <ul>
+    <li id="main_menu_playerprofiles"><a href="viewplayerprofiles.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/playerprofiles.png" /></a></li>
+</ul>
+<ul>
     <li id="main_menu_teamstats"><a href="viewteamstats.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/teamstats.png" /></a></li>
 </ul>
 <ul>
@@ -30,6 +33,9 @@ $sortby = $_GET['sortby'];
 </ul>
 <ul>
     <li id="main_menu_gameresults"><a href="viewresults.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/gameresults_selected.png" /></a></li>
+</ul>
+<ul>
+    <li id="main_menu_achievements"><a href="viewachievements.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/achievements.png" /></a></li>
 </ul>
 </div>
 

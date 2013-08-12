@@ -182,7 +182,59 @@ select
 	visibility:hidden;
 }      
 
+#main_menu_playerprofiles
+{
+    background:url(imgs/playerprofiles_selected.png) no-repeat;
+}
+
+#main_menu_playerprofiles a, .main_menu_playerprofiles a:link, .main_menu_playerprofiles a:visited
+{
+    display:block;
+}
+
+#main_menu_playerprofiles a:hover img
+{
+    visibility:hidden;
+}     
+
+#main_menu_achievements
+{
+    background:url(imgs/achievements_selected.png) no-repeat;
+}
+
+#main_menu_achievements a, .main_menu_achievements a:link, .main_menu_achievements a:visited
+{
+    display:block;
+}
+
+#main_menu_achievements a:hover img
+{
+    visibility:hidden;
+}
+
+
 /* CLASSES */
+.achievement_title
+{
+    font-size: 30px;
+    font-family: "calibri";
+    font-style: italic;
+
+    margin-bottom: 5px;
+}
+.achievement_table td
+{
+    table-layout: fixed;
+    width: 120px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.achievement_table
+{
+    margin-right: 10px;
+}
+
 .stats_table
 {
     margin-top: 2px;
