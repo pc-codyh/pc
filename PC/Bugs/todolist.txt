@@ -3,9 +3,7 @@ _______________
 
 1) Fix shrinking play area.
 2) Move pregame odds request to background thread.
-3) Null pointer crash on login/main screen (likely to do with saving the rules) after 
-   app is killed in background.
-4) Game result uploaded twice (occurred once in 100+ games).
+3) Game result uploaded twice (occurred once in 100+ games).
 
 
 
@@ -30,7 +28,6 @@ _______________________________
 ADDED TO NEW RELEASE
 ____________________
 
-1) Added Action Menu to gameplay (which includes remove cup).
-2) Added Achievements.
-3) Added Player Profiles.
-4) Made Game Results sortable in Player/Team Profiles.
+1) Implemented "Head-to-Head History" screen (shows before game starts).
+   Includes previous game results as well.
+2) Fixed null pointer crash on login screen.

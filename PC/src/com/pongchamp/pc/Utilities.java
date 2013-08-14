@@ -24,4 +24,9 @@ public class Utilities
 			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF"));
 		}
 	}
+	
+	public String replaceSpacesWithEntities(String str)
+	{
+		return str.replace(" ", "%20");
+	}
 }

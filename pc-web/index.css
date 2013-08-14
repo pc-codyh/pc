@@ -17,9 +17,12 @@ h4
     margin-right: auto;   
     margin-bottom: -5px;
     background-color: #FFC90E;
-    padding: 2px;
+    padding: 5px;
     padding-left: 5px;
-    box-shadow: 0 0 10px #000000;
+    /*box-shadow: 0 0 10px #000000;*/
+    border: 2px solid #000000;
+
+    font-family: "calibri";
 }
 
 /* DIV TAGS*/
@@ -81,6 +84,8 @@ h4
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
+
+    font-family: "calibri";
 }
 
 #footer
@@ -94,8 +99,8 @@ h4
 /* CLASSES */
 .login_column
 {
-    border: 1px solid #000000;
-    box-shadow: 0 0 10px #000000;
+    border: 3px double #000000;
+    /*box-shadow: 0 0 10px #000000;*/
     /*background-color: #F71A1A;*/
     /*background-color: #FFC90E;*/
     background-color: #FFFFFF;
@@ -115,6 +120,7 @@ h4
 .login_help
 {
     font-size: x-large;
+    font-family: "calibri";
 }
 
 .text_box

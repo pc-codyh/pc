@@ -1266,6 +1266,14 @@ public class Game
 		}
 	}
 	
+	public void updatePartnerHeartbreakCityStatus()
+	{
+		for (PongPlayer player : _players)
+		{
+			player.updateHeartbreakCityStatus();
+		}
+	}
+	
 	private void showAchievements()
 	{
 		int[] achievements = null;
@@ -1310,8 +1318,6 @@ public class Game
 		{
 			player.processFinalStats();
 		}
-		
-		showAchievements();
 	}
 	
 	public void saveGameResult()
@@ -1444,6 +1450,8 @@ public class Game
 				Toast.makeText(_context, R.string.stats_updated_successfully, Toast.LENGTH_LONG).show();
 				
 				_endGame.setBackgroundResource(R.drawable.exit);
+				
+				showAchievements();
 			}
 			else
 			{

@@ -144,7 +144,8 @@ public class ChooseTeamsActivity extends Activity
 	{
 		Bundle extras = getIntent().getExtras();
 		
-		Intent intent = new Intent(ChooseTeamsActivity.this, PlayGameActivity.class);
+//		Intent intent = new Intent(ChooseTeamsActivity.this, PlayGameActivity.class);
+		Intent intent = new Intent(ChooseTeamsActivity.this, HeadToHeadHistoryActivity.class);
 		
 		intent.putExtra("TeamOnePlayerOne", _teamOnePlayerOne.getSelectedItem().toString());
 		intent.putExtra("TeamOnePlayerTwo", _teamOnePlayerTwo.getSelectedItem().toString());

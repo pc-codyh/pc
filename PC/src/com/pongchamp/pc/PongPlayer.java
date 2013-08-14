@@ -722,7 +722,7 @@ public class PongPlayer
 	// Function to check whether the player
 	// is down by a deficit of five cups
 	// or more.
-	private void updateHeartbreakCityStatus()
+	public void updateHeartbreakCityStatus()
 	{
 		// Don't reset the status if the team catchs up
 		// after being down by the required deficit.
@@ -731,6 +731,8 @@ public class PongPlayer
 			if ((_opponentCupsRemaining - _ownCupsRemaining) >= 5)
 			{
 				_heartbreakCity = true;
+				
+				_gameRef.updatePartnerHeartbreakCityStatus();
 			}
 		}
 	}

@@ -15,6 +15,11 @@ td
     font-size: small;
 }
 
+blockquote
+{
+    font-family: "calibri";
+}
+
 a
 {
     color: #000000;
@@ -102,17 +107,19 @@ select
 
 #main_info p
 {
-    
     font-size: medium;
+    font-weight: bold;
+    font-family: "calibri";
+
     margin-top: 30px;
     /*color: #FFFFFF;*/
     color: #000000;
     /*background-color: #000000;*/
     background-color: #FFC90E;
     padding: 5px;
-    box-shadow: 0 0 10px #000000;
+    /*box-shadow: 0 0 10px #000000;*/
+    border: 2px solid #000000;
     padding-left: 10px;
-    font-weight: bold;
 }
 
 #footer
@@ -258,6 +265,8 @@ select
     background-color: #999999;
 
     width: 800px;
+
+    font-family: "calibri";
 }
 
 .stats_table_ach
@@ -265,6 +274,8 @@ select
     margin-top: 2px;
     border: 1px solid #000000;
     background-color: #999999;
+
+    font-family: "calibri";
 }
 
 .stat_column

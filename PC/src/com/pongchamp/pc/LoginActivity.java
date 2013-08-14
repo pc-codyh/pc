@@ -95,6 +95,8 @@ public class LoginActivity extends Activity
 			_password.setBackgroundResource(R.drawable.rounded_textfield_disabled);
 		}
 		
+		_submitLogin.setEnabled(true);
+		
 		_submitLogin.setOnClickListener(new View.OnClickListener()
 		{	
 			public void onClick(View v)
@@ -205,6 +207,8 @@ public class LoginActivity extends Activity
 		
 		protected void onPostExecute(String result)
 	    {
+			_submitLogin.setEnabled(false);
+			
 			if (result != null)
 			{
 				_loginResultImage.setVisibility(View.VISIBLE);
@@ -221,7 +225,6 @@ public class LoginActivity extends Activity
 					_activeUsername = _username.getText().toString();
 					
 					fetchPlayersForUsername();
-					onSubmitLoginPressed();
 				}
 				else
 				{
@@ -267,6 +270,8 @@ public class LoginActivity extends Activity
 				CustomJSONParser JSONParser = new CustomJSONParser();
 				
 				_players = JSONParser.parseJSONString(result);
+				
+				onSubmitLoginPressed();
 			}
 			else
 			{
