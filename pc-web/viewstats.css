@@ -219,14 +219,60 @@ select
     visibility:hidden;
 }
 
+#main_menu_headtohead
+{
+    background:url(imgs/headtohead_selected.png) no-repeat;
+}
+
+#main_menu_headtohead a, .main_menu_headtohead a:link, .main_menu_headtohead a:visited
+{
+    display:block;
+}
+
+#main_menu_headtohead a:hover img
+{
+    visibility:hidden;
+}
+
+#main_menu_leagueleaders
+{
+    background:url(imgs/leagueleaders_selected.png) no-repeat;
+}
+
+#main_menu_leagueleaders a, .main_menu_leagueleaders a:link, .main_menu_leagueleaders a:visited
+{
+    display:block;
+}
+
+#main_menu_leagueleaders a:hover img
+{
+    visibility:hidden;
+}
+
 #player_rank b
 {
     font-size: 40px;
     font-family: "calibri";
 }
 
+#history_vs
+{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
 
 /* CLASSES */
+.min_width
+{
+    min-width: 40px;
+}
+
+.extra_space
+{
+    margin-bottom: 50px;
+}
+
 .achievement_title
 {
     font-size: 30px;
@@ -280,7 +326,7 @@ select
 
 .stat_column
 {
-    text-align: center; 
+    text-align: center;
 }
 
 .stat_column_selected

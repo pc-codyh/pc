@@ -34,6 +34,12 @@ $username = $_GET['username'];
     <li id="main_menu_gameresults"><a href="viewresults.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/gameresults_selected.png" /></a></li>
 </ul>
 <ul>
+    <li id="main_menu_headtohead"><a href="viewheadtohead.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/headtohead.png" /></a></li>
+</ul>
+<ul>
+    <li id="main_menu_leagueleaders"><a href="viewleagueleaders.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/leagueleaders.png" /></a></li>
+</ul>
+<ul>
     <li id="main_menu_achievements"><a href="viewachievements.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/achievements.png" /></a></li>
 </ul>
 </div>
@@ -109,13 +115,13 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f2; ?></td>
-    <td><?php echo $f3; ?></td>
+    <td><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f3; ?></a></td>
     <td class="stat_column"><?php echo $f4; ?></td>
     <td class="stat_column"><?php echo $f5; ?></td>
     <td class="stat_column"><?php echo $f6; ?></td>
-    <td class="stat_column"><?php echo $f7; ?></td>
+    <td class="stat_column"><a href="viewheadtohead_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>&player_three=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_four=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f7; ?></a></td>
 </tr>
 
 <?php

@@ -34,6 +34,12 @@ $username = $_GET['username'];
     <li id="main_menu_gameresults"><a href="viewresults.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/gameresults.png" /></a></li>
 </ul>
 <ul>
+    <li id="main_menu_headtohead"><a href="viewheadtohead.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/headtohead.png" /></a></li>
+</ul>
+<ul>
+    <li id="main_menu_leagueleaders"><a href="viewleagueleaders.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/leagueleaders.png" /></a></li>
+</ul>
+<ul>
     <li id="main_menu_achievements"><a href="viewachievements.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/achievements_selected.png" /></a></li>
 </ul>
 </div>
@@ -105,7 +111,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -164,7 +170,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -222,7 +228,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -280,7 +286,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -338,7 +344,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -396,7 +402,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -454,7 +460,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -512,7 +518,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -570,7 +576,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -632,7 +638,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -690,7 +696,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -748,7 +754,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -810,7 +816,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 
@@ -870,7 +876,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
     <td class="stat_column"><?php echo $f2; ?></td>
 </tr>
 

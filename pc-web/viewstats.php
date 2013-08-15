@@ -34,6 +34,12 @@ $username = $_GET['username'];
     <li id="main_menu_gameresults"><a href="viewresults.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/gameresults.png" /></a></li>
 </ul>
 <ul>
+    <li id="main_menu_headtohead"><a href="viewheadtohead.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/headtohead.png" /></a></li>
+</ul>
+<ul>
+    <li id="main_menu_leagueleaders"><a href="viewleagueleaders.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/leagueleaders.png" /></a></li>
+</ul>
+<ul>
     <li id="main_menu_achievements"><a href="viewachievements.php?username=<?php echo $username; ?>&submit=Submit"><img src="imgs/achievements.png" /></a></li>
 </ul>
 </div>
@@ -126,7 +132,7 @@ if ($runQueryID = mysql_query($queryID))
         } 
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f2; ?></td>
     <td class="stat_column"><?php echo $f3; ?></td>
     <td class="stat_column"><?php echo $f4; ?></td>
@@ -202,7 +208,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f15; ?></td>
     <td class="stat_column"><?php echo $f16; ?></td>
     <td class="stat_column"><?php echo $f17; ?></td>
@@ -265,7 +271,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f22; ?></td>
     <td class="stat_column"><?php echo $f23; ?></td>
     <td class="stat_column"><?php echo $f24; ?></td>
@@ -335,7 +341,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f27; ?></td>
     <td class="stat_column"><?php echo $f28; ?></td>
     <td class="stat_column"><?php echo $f29; ?></td>

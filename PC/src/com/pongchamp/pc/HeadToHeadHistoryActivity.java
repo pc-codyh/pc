@@ -156,6 +156,12 @@ public class HeadToHeadHistoryActivity extends Activity
 						       result.get(3).getValue() + " and " + result.get(4).getValue() + " by " +
 						       result.get(ID_TEAM_ONE_CUPS).getValue() + " cups";
 				
+				// Trim the 's' if the victory was by one cup.
+				if (Integer.parseInt(result.get(ID_TEAM_ONE_CUPS).getValue()) == 1)
+				{
+					gameResults = gameResults.substring(0, gameResults.length() - 1);
+				}
+				
 				if (result.get(0).getValue().equals(teamOne[0]) || result.get(0).getValue().equals(teamOne[1]))
 				{
 					teamOneWins++;
@@ -197,6 +203,12 @@ public class HeadToHeadHistoryActivity extends Activity
 				gameResults += result.get(3).getValue() + " and " + result.get(4).getValue() + " def. " +
 						       result.get(0).getValue() + " and " + result.get(1).getValue() + " by " +
 						       result.get(ID_TEAM_TWO_CUPS).getValue() + " cups";
+				
+				// Trim the 's' if the victory was by one cup.
+				if (Integer.parseInt(result.get(ID_TEAM_TWO_CUPS).getValue()) == 1)
+				{
+					gameResults = gameResults.substring(0, gameResults.length() - 1);
+				}
 				
 				if (result.get(3).getValue().equals(teamOne[0]) || result.get(3).getValue().equals(teamOne[1]))
 				{
