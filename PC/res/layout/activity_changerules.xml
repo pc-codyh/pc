@@ -26,23 +26,25 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
+
         <TextView
             android:id="@+id/changerules_cupstostart_prompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FFE794"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:text="Cups To Start"
             android:textColor="#000000"
             android:textStyle="bold" />
-
+
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFF2C4"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
 
@@ -65,23 +67,25 @@
                 android:textColor="#222222" />
 
         </TableRow>
-
+
         <TextView
             android:id="@+id/changerules_bouncesworth_prompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FFE794"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:text="Bounces Worth"
             android:textColor="#000000"
             android:textStyle="bold" />
-
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFF2C4"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
 
@@ -104,23 +108,25 @@
                 android:textColor="#222222" />
 
         </TableRow>
-
+
         <TextView
             android:id="@+id/changerules_bounceinredemp_prompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#FFE794"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:text="Bounce In Redemption Sends Game Straight To Overtime"
             android:textColor="#000000"
             android:textStyle="bold" />
-
+
         <TableRow
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFF2C4"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
 
@@ -143,22 +149,24 @@
                 android:textColor="#222222" />
 
         </TableRow>
-
+
         <TextView
             android:id="@+id/changerules_nbajam_prompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFE794"
             android:paddingBottom="5dp"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:text="NBA Jam Rule"
             android:textColor="#000000"
             android:textStyle="bold" />
-
+
         <TableRow
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFF2C4"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
 

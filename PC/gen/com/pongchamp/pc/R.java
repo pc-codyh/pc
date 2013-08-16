@@ -124,15 +124,15 @@ public final class R {
         public static final int changerules_nbaJam_On=0x7f080010;
         public static final int changerules_nbajam_prompt=0x7f08000e;
         public static final int changerules_prompt=0x7f080001;
-        public static final int chooseteams_currentrules_prompt=0x7f08001a;
-        public static final int chooseteams_currentrules_text=0x7f08001b;
+        public static final int chooseteams_currentrules_prompt=0x7f08001b;
+        public static final int chooseteams_layout=0x7f080013;
         public static final int chooseteams_playgame=0x7f08001c;
-        public static final int chooseteams_teamOne_playerOne=0x7f080014;
-        public static final int chooseteams_teamOne_playerTwo=0x7f080015;
-        public static final int chooseteams_teamTwo_playerOne=0x7f080018;
-        public static final int chooseteams_teamTwo_playerTwo=0x7f080019;
-        public static final int chooseteams_teamone_prompt=0x7f080013;
-        public static final int chooseteams_teamtwo_prompt=0x7f080017;
+        public static final int chooseteams_teamOne_playerOne=0x7f080015;
+        public static final int chooseteams_teamOne_playerTwo=0x7f080016;
+        public static final int chooseteams_teamTwo_playerOne=0x7f080019;
+        public static final int chooseteams_teamTwo_playerTwo=0x7f08001a;
+        public static final int chooseteams_teamone_prompt=0x7f080014;
+        public static final int chooseteams_teamtwo_prompt=0x7f080018;
         public static final int createplayer_ResultImage=0x7f08001f;
         public static final int createplayer_ResultText=0x7f080020;
         public static final int createplayer_name=0x7f08001e;
@@ -223,15 +223,18 @@ public final class R {
         public static final int playgame_teamTwoRow2=0x7f080052;
         public static final int playgame_teamTwoRow3=0x7f080055;
         public static final int playgame_teamTwoRow4=0x7f080059;
-        public static final int randomizeteams_addPlayerButton=0x7f080080;
-        public static final int randomizeteams_add_prompt=0x7f08007e;
+        public static final int randomize_menu_clear=0x7f080094;
+        public static final int randomize_menu_randomize=0x7f080095;
+        public static final int randomize_menu_viewlist=0x7f080093;
         public static final int randomizeteams_in_raffle_prompt=0x7f080081;
+        public static final int randomizeteams_layout=0x7f08007e;
+        public static final int randomizeteams_list=0x7f08007f;
         public static final int randomizeteams_playerFour=0x7f080088;
         public static final int randomizeteams_playerOne=0x7f080084;
         public static final int randomizeteams_playerThree=0x7f080087;
         public static final int randomizeteams_playerTwo=0x7f080085;
         public static final int randomizeteams_spinnerInRaffle=0x7f080082;
-        public static final int randomizeteams_spinnerToAdd=0x7f08007f;
+        public static final int randomizeteams_sublayout=0x7f080080;
         public static final int randomizeteams_submitRandomization=0x7f080083;
         public static final int randomizeteams_versus_prompt=0x7f080086;
         public static final int registration_ResultImage=0x7f08008f;
@@ -250,7 +253,7 @@ public final class R {
         public static final int tableRow4=0x7f08000f;
         public static final int tableRow5=0x7f08003c;
         public static final int textView1=0x7f08004f;
-        public static final int textView2=0x7f080016;
+        public static final int textView2=0x7f080017;
     }
     public static final class layout {
         public static final int activity_changerules=0x7f030000;
@@ -267,6 +270,7 @@ public final class R {
     }
     public static final class menu {
         public static final int activity_menu=0x7f070000;
+        public static final int randomize_menu=0x7f070001;
     }
     public static final class raw {
         public static final int heating_up=0x7f040000;

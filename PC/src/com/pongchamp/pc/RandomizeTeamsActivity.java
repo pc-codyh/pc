@@ -3,18 +3,21 @@ package com.pongchamp.pc;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.StrictMode;
+import android.util.SparseBooleanArray;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,17 +25,24 @@ import android.widget.Toast;
 public class RandomizeTeamsActivity extends Activity
 {
 	PCUser _activeUser = null;
-	Spinner _spinnerToAdd = null;
+	
 	Spinner _spinnerInRaffle = null;
-	Button _addToRaffleButton = null;
+	
 	Button _randomizeButton = null;
+	
 	TextView _playerOne = null;
 	TextView _playerTwo = null;
 	TextView _playerThree = null;
 	TextView _playerFour = null;
-	TextView _addToRafflePrompt = null;
 	TextView _inRafflePrompt = null;
 	TextView _versusPrompt = null;
+	
+	LinearLayout _layout;
+	ScrollView _subLayout;
+	
+	ListView _playersList;
+	
+	ArrayList<String> _selectedItems;
 	
 	ArrayAdapter<String> _playersInRaffle = null;
 		
@@ -44,53 +54,46 @@ public class RandomizeTeamsActivity extends Activity
 		
 		Bundle extras = getIntent().getExtras();
 		
-		_spinnerToAdd = (Spinner) findViewById(R.id.randomizeteams_spinnerToAdd);
 		_spinnerInRaffle = (Spinner) findViewById(R.id.randomizeteams_spinnerInRaffle);
-		_addToRaffleButton = (Button) findViewById(R.id.randomizeteams_addPlayerButton);
+		
 		_randomizeButton = (Button) findViewById(R.id.randomizeteams_submitRandomization);
+		
 		_playerOne = (TextView) findViewById(R.id.randomizeteams_playerOne);
 		_playerTwo = (TextView) findViewById(R.id.randomizeteams_playerTwo);
 		_playerThree = (TextView) findViewById(R.id.randomizeteams_playerThree);
 		_playerFour = (TextView) findViewById(R.id.randomizeteams_playerFour);
-		_addToRafflePrompt = (TextView) findViewById(R.id.randomizeteams_add_prompt);
 		_inRafflePrompt = (TextView) findViewById(R.id.randomizeteams_in_raffle_prompt);
 		_versusPrompt = (TextView) findViewById(R.id.randomizeteams_versus_prompt);
 		
-		_playersInRaffle = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+		_layout = (LinearLayout) findViewById(R.id.randomizeteams_layout);
+		_subLayout = (ScrollView) findViewById(R.id.randomizeteams_sublayout);
+		
+		// Initially hide the visibility of everything
+		// except the ListView.
+		_layout.removeView(_subLayout);
+		
+		_playersList = (ListView) findViewById(R.id.randomizeteams_list);
+		
+		_selectedItems = new ArrayList<String>();
+		
+		_playersInRaffle = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item);
 		
 		String username = extras.getString("ActiveUsername");
 		
 		_activeUser = new PCUser(username);
 		
-		loadPlayerToAddSpinner();
-		onAddPlayerToRaffleButtonPressed();
 		onRandomizeButtonPressed();
+		loadPlayers();
+		
+		setOnListViewClickListener();
 		
 		new Utilities().setFont(getApplicationContext(),
 				                _playerOne,
 				                _playerTwo,
 				                _playerThree,
 				                _playerFour,
-				                _addToRafflePrompt,
 				                _inRafflePrompt,
 				                _versusPrompt);
-	}
-	
-	public void onAddPlayerToRaffleButtonPressed()
-	{
-		_addToRaffleButton.setOnClickListener(new View.OnClickListener()
-		{	
-			public void onClick(View v)
-			{
-				String playerName = _spinnerToAdd.getSelectedItem().toString();
-				
-				_playersInRaffle.add(playerName);
-				_playersInRaffle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				
-				_spinnerInRaffle.setAdapter(_playersInRaffle);
-				_spinnerInRaffle.setSelection(_playersInRaffle.getCount() - 1);
-			}
-		});
 	}
 	
 	public void onRandomizeButtonPressed()
@@ -225,26 +228,112 @@ public class RandomizeTeamsActivity extends Activity
 		}.start();
 	}
 	
-	public void loadPlayerToAddSpinner()
+	public void loadPlayers()
 	{
+		Toast.makeText(getApplicationContext(), "Choose players to add in the raffle.", Toast.LENGTH_LONG).show();
+		
 		Bundle extras = getIntent().getExtras();
 		
 		ArrayList<String> players = extras.getStringArrayList("Players");
 		
-		addPlayersToSpinner(players);
+		addPlayersToList(players);
 	}
 	
-	private void addPlayersToSpinner(ArrayList<String> players)
+	private void addPlayersToList(ArrayList<String> players)
 	{
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+		ArrayAdapter<String> adapter = new CustomArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice);
 		
 		for (String player : players)
 		{
 			adapter.add(player);
 		}
 		
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_list_item_multiple_choice);
 		
-		_spinnerToAdd.setAdapter(adapter);
+		_playersList.setAdapter(adapter);
+	}
+	
+	private void setOnListViewClickListener()
+	{
+		_playersList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+		
+		_playersList.setOnItemClickListener(new OnItemClickListener()
+		{
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
+			{
+				_selectedItems.clear();
+				_playersInRaffle.clear();
+				
+				SparseBooleanArray a = _playersList.getCheckedItemPositions();
+				
+				for (int i = 0; i < a.size(); i++)
+				{
+					if (a.valueAt(i))
+					{
+						_selectedItems.add(_playersList.getAdapter().getItem(a.keyAt(i)).toString());
+					}
+				}
+				
+				for (String p : _selectedItems)
+				{
+					_playersInRaffle.add(p);
+				}
+				
+				_spinnerInRaffle.setAdapter(_playersInRaffle);
+			}
+		});
+	}
+	
+	private void clearPlayersInRaffle()
+	{
+		_playersList.clearChoices();
+		_selectedItems.clear();
+		_playersInRaffle.clear();
+		
+		_layout.removeAllViews();
+		_layout.addView(_playersList);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		super.onCreateOptionsMenu(menu);
+		
+		getMenuInflater().inflate(R.menu.randomize_menu, menu);
+		
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId())
+		{
+			case R.id.randomize_menu_viewlist:
+			{
+				_layout.removeAllViews();
+				_layout.addView(_playersList);
+				
+				return true;
+			}
+			
+			case R.id.randomize_menu_randomize:
+			{
+				_layout.removeAllViews();
+				_layout.addView(_subLayout);
+				
+				return true;
+			}
+			
+			case R.id.randomize_menu_clear:
+			{
+				clearPlayersInRaffle();
+				
+				return true;
+			}
+			
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 }

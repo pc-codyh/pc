@@ -28,7 +28,4 @@ _______________________________
 ADDED TO NEW RELEASE
 ____________________
 
-1) Implemented "Head-to-Head History" screen (shows before game starts).
-   Includes previous game results as well.
-2) Fixed null pointer crash on login screen.
-3) Added Head-To-Head Results to the website.
+1) Reworked the "Random Teams" screen.

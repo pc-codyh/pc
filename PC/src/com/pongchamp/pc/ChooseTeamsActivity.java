@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +24,8 @@ public class ChooseTeamsActivity extends Activity
 	TextView _teamOnePrompt = null;
 	TextView _teamTwoPrompt = null;
 	TextView _currentRulesPrompt = null;
-	TextView _currentRules = null;
+	
+	LinearLayout _layout = null;
 	
 	final String _left = "left";
 	final String _right = "right";
@@ -44,7 +47,10 @@ public class ChooseTeamsActivity extends Activity
 		_teamTwoPrompt = (TextView) findViewById(R.id.chooseteams_teamtwo_prompt);
 		
 		_currentRulesPrompt = (TextView) findViewById(R.id.chooseteams_currentrules_prompt);
-		_currentRules = (TextView) findViewById(R.id.chooseteams_currentrules_text);
+
+		_layout = (LinearLayout) findViewById(R.id.chooseteams_layout);
+		
+		_layout.removeView(_playGameButton);
 		
 		populateSpinners();
 		onPlayGameButtonPressed();
@@ -53,26 +59,69 @@ public class ChooseTeamsActivity extends Activity
 		new Utilities().setFont(getApplicationContext(),
 								_teamOnePrompt,
 								_teamTwoPrompt,
-								_currentRulesPrompt,
-								_currentRules);
+								_currentRulesPrompt);
 	}
 	
 	private void displayCurrentRules()
 	{
 		String str, startingCups, bouncesWorth, bounceInRedemp, nbaJam = "";
+		TextView rule = null;
 		
 		startingCups = getIntent().getExtras().getString("StartingCups").equals(_left) ? "6" : "10";
 		bouncesWorth = getIntent().getExtras().getString("BouncesWorth").equals(_left) ? "1" : "2";
 		bounceInRedemp = getIntent().getExtras().getString("BounceInRedemption").equals(_left) ? "Yes" : "No";
 		nbaJam = getIntent().getExtras().getString("NBAJam").equals(_left) ? "On" : "Off";
 		
-		str = "Starting Cups: " + startingCups +
-			  "\n------------------------------------------\nBounces Worth: " + bouncesWorth +
-			  "\n------------------------------------------\nBounce In Redemption Sends Game To OT: " + bounceInRedemp +
-			  "\n------------------------------------------\nNBA Jam Rule: " + nbaJam +
-			  "\n------------------------------------------";
+		for (int i = 0; i < 4; i++)
+		{
+			rule = new TextView(getApplicationContext());
+			
+			rule.setPadding(10, 5, 10, 5);
+			rule.setTextColor(Color.BLACK);
+			
+			rule.setBackgroundColor((Color.parseColor((i % 2 == 0) ? "#FFE794" : "#FFF2C4")));
+			
+			switch (i)
+			{
+				case 0:
+				{
+					str = "Starting Cups: " + startingCups;
+				}
+					break;
+					
+				case 1:
+				{
+					str = "Bounces Worth: " + bouncesWorth;
+				}
+					break;
+					
+				case 2:
+				{
+					str = "Bounce In Redemption Sends Game To OT: " + bounceInRedemp;
+				}
+					break;
+					
+				case 3:
+				{
+					str = "NBA Jam Rule: " + nbaJam;
+				}
+					break;
+					
+				default:
+				{
+					str = "";
+				}
+					break;
+			}
+			
+			rule.setText(str);
+			
+			new Utilities().setFont(getApplicationContext(), rule);
+			
+			_layout.addView(rule);
+		}
 		
-		_currentRules.setText(str);
+		_layout.addView(_playGameButton);
 	}
 	
 	private void populateSpinners()
