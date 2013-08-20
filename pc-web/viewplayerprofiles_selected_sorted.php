@@ -767,6 +767,194 @@ if ($runQueryID = mysql_query($queryID))
 </tr>
 </table>
 
+<h4>Unlocked Achievements</h4>
+<table class="achievement_group">
+<tr>
+<td>
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
+    <tr>
+        <td class="stat_header_name" title="Achievement">Achievement</td>
+        <td class="stat_header" title="Count">Count</td>
+        <td class="stat_header" title="How To Unlock">How To Unlock</td>
+    </tr>
+
+<?php
+        $i = 0;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 500) { echo "Alcoholic"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 500) { echo mysql_result($runAchievementQuery, 0, "ua_alc"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "games_played") < 500) { ?><td class="stat_column">Complete the "Games Played" milestone.</td><?php } else { ?><td class="stat_column" title="Play in consecutive overtime games.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 500) { echo "On A Heater"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 500) { echo mysql_result($runAchievementQuery, 0, "ua_oah"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "wins") < 500) { ?><td class="stat_column">Complete the "Wins" milestone.</td><?php } else { ?><td class="stat_column" title="Win five games in a row.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "hits") >= 1000) { echo "Count 'Em"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "hits") >= 1000) { echo mysql_result($runAchievementQuery, 0, "ua_ce"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "hits") < 1000) { ?><td class="stat_column">Complete the "Cups Hit" milestone.</td><?php } else { ?><td class="stat_column" title="Hit ten cups in a game.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 100) { echo "Slippery"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_slip"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "bounces") < 100) { ?><td class="stat_column">Complete the "Bounces Hit" milestone.</td><?php } else { ?><td class="stat_column" title="Hit two consecutive bounce shots without missing.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 100) { echo "Don't Call It A Comeback"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_dciac"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") < 100) { ?><td class="stat_column">Complete the "Redemption Successes" milestone.</td><?php } else { ?><td class="stat_column" title="Successfully complete a redemption and go on to win the game in the first overtime.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "h1") >= 100) { echo "Dropping The Hammer"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "h1") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_dth"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "h1") < 100) { ?><td class="stat_column">Complete the "Last Cups Hit" milestone.</td><?php } else { ?><td class="stat_column" title="Hit three last cups in a game.">Unlocked</td><?php } ?>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
+    <td><?php if ((mysql_result($runSelectedPlayerQuery, 0, "a_shs") + mysql_result($runSelectedPlayerQuery, 0, "a_mj") + mysql_result($runSelectedPlayerQuery, 0, "a_cibav") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_hc") + mysql_result($runSelectedPlayerQuery, 0, "a_cwtpd") + mysql_result($runSelectedPlayerQuery, 0, "a_ps") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_per") + mysql_result($runSelectedPlayerQuery, 0, "a_dbno") + mysql_result($runSelectedPlayerQuery, 0, "a_mar") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_ck") + mysql_result($runSelectedPlayerQuery, 0, "a_bb") + mysql_result($runSelectedPlayerQuery, 0, "a_bc") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_bank") + mysql_result($runSelectedPlayerQuery, 0, "a_sw") + mysql_result($runSelectedPlayerQuery, 0, "a_fdm") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_skunk") + mysql_result($runSelectedPlayerQuery, 0, "ua_alc") + mysql_result($runSelectedPlayerQuery, 0, "ua_oah") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_ce") + mysql_result($runSelectedPlayerQuery, 0, "ua_slip") + mysql_result($runSelectedPlayerQuery, 0, "ua_dciac") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_dth") + mysql_result($runSelectedPlayerQuery, 0, "ua_show")) >= 100) { echo "Showman"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if ((mysql_result($runSelectedPlayerQuery, 0, "a_shs") + mysql_result($runSelectedPlayerQuery, 0, "a_mj") + mysql_result($runSelectedPlayerQuery, 0, "a_cibav") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_hc") + mysql_result($runSelectedPlayerQuery, 0, "a_cwtpd") + mysql_result($runSelectedPlayerQuery, 0, "a_ps") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_per") + mysql_result($runSelectedPlayerQuery, 0, "a_dbno") + mysql_result($runSelectedPlayerQuery, 0, "a_mar") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_ck") + mysql_result($runSelectedPlayerQuery, 0, "a_bb") + mysql_result($runSelectedPlayerQuery, 0, "a_bc") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_bank") + mysql_result($runSelectedPlayerQuery, 0, "a_sw") + mysql_result($runSelectedPlayerQuery, 0, "a_fdm") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_skunk") + mysql_result($runSelectedPlayerQuery, 0, "ua_alc") + mysql_result($runSelectedPlayerQuery, 0, "ua_oah") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_ce") + mysql_result($runSelectedPlayerQuery, 0, "ua_slip") + mysql_result($runSelectedPlayerQuery, 0, "ua_dciac") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_dth") + mysql_result($runSelectedPlayerQuery, 0, "ua_show")) >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_show"); } else { echo "*"; } ?></td>
+    <?php if ((mysql_result($runSelectedPlayerQuery, 0, "a_shs") + mysql_result($runSelectedPlayerQuery, 0, "a_mj") + mysql_result($runSelectedPlayerQuery, 0, "a_cibav") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_hc") + mysql_result($runSelectedPlayerQuery, 0, "a_cwtpd") + mysql_result($runSelectedPlayerQuery, 0, "a_ps") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_per") + mysql_result($runSelectedPlayerQuery, 0, "a_dbno") + mysql_result($runSelectedPlayerQuery, 0, "a_mar") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_ck") + mysql_result($runSelectedPlayerQuery, 0, "a_bb") + mysql_result($runSelectedPlayerQuery, 0, "a_bc") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_bank") + mysql_result($runSelectedPlayerQuery, 0, "a_sw") + mysql_result($runSelectedPlayerQuery, 0, "a_fdm") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_skunk") + mysql_result($runSelectedPlayerQuery, 0, "ua_alc") + mysql_result($runSelectedPlayerQuery, 0, "ua_oah") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_ce") + mysql_result($runSelectedPlayerQuery, 0, "ua_slip") + mysql_result($runSelectedPlayerQuery, 0, "ua_dciac") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_dth") + mysql_result($runSelectedPlayerQuery, 0, "ua_show")) < 100) { ?><td class="stat_column">Complete the "Achievements Earned" milestone.</td><?php } else { ?><td class="stat_column" title="Earn three achievements in a game.">Unlocked</td><?php } ?>
+</tr>
+</table>
+</td>
+<td>
+<blockquote><center>* Achievement descriptions are available by hovering over the "How To Unlock" section once the achievement has been unlocked.</center></blockquote>
+</td>
+</tr>
+</table>
+
+
 <?php 
     function getMilestoneRangeHigh($value)
     {
@@ -917,13 +1105,13 @@ if ($runQueryID = mysql_query($queryID))
 <h5>Games Played</h5>
     <?php
         $value = mysql_result($runSelectedPlayerQuery, 0, "games_played");
-        $max = getMilestoneRangeHigh($value);
+        $max = getMilestoneRangeMedium($value);
      ?>
      <table class="milestone_table">
         <tr>
             <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
             <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
-            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelHigh($value); } else { echo "Binge Drinker"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/binge_drinker.jpg" class="top_3" /></center><?php } ?></td>
+            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelMedium($value); } else { echo "Binge Drinker"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/binge_drinker.jpg" class="top_3" /></center><?php } ?></td>
         </tr>
     </table>
 
@@ -989,6 +1177,26 @@ if ($runQueryID = mysql_query($queryID))
             <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
             <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
             <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelLow($value); } else { echo "Marksman"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/marksman.jpg" class="top_3" /></center><?php } ?></td>
+        </tr>
+    </table>
+
+<h5>Achievements Earned</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "a_shs") + mysql_result($runSelectedPlayerQuery, 0, "a_mj") + mysql_result($runSelectedPlayerQuery, 0, "a_cibav") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_hc") + mysql_result($runSelectedPlayerQuery, 0, "a_cwtpd") + mysql_result($runSelectedPlayerQuery, 0, "a_ps") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_per") + mysql_result($runSelectedPlayerQuery, 0, "a_dbno") + mysql_result($runSelectedPlayerQuery, 0, "a_mar") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_ck") + mysql_result($runSelectedPlayerQuery, 0, "a_bb") + mysql_result($runSelectedPlayerQuery, 0, "a_bc") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_bank") + mysql_result($runSelectedPlayerQuery, 0, "a_sw") + mysql_result($runSelectedPlayerQuery, 0, "a_fdm") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_skunk") + mysql_result($runSelectedPlayerQuery, 0, "ua_alc") + mysql_result($runSelectedPlayerQuery, 0, "ua_oah") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_ce") + mysql_result($runSelectedPlayerQuery, 0, "ua_slip") + mysql_result($runSelectedPlayerQuery, 0, "ua_dciac") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "ua_dth") + mysql_result($runSelectedPlayerQuery, 0, "ua_show");
+        $max = getMilestoneRangeLow($value);
+     ?>
+    <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelLow($value); } else { echo "Seen It All"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/seen_it_all.jpg" class="top_3" /></center><?php } ?></td>
         </tr>
     </table>
 

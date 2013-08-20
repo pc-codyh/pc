@@ -5,7 +5,6 @@ _______________
 2) Move pregame odds request to background thread.
 3) Game result uploaded twice (occurred once in 100+ games).
 
-* If new Achievements are added, remember to update "Achievements Earned" milestone.
 
 
 
@@ -29,6 +28,4 @@ _______________________________
 ADDED TO NEW RELEASE
 ____________________
 
-1) Reworked the "Random Teams" screen.
-2) Added Milestones to the website.
-3) Added "First Degree Murder" and "Skunked" achievements.
+1) Added milestones and unlockable achievements.

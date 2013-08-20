@@ -1308,6 +1308,13 @@ public class Game
 					gotAchievement = true;
 					
 					_shotHistoryString += addAchievementToString(i) + ", ";
+					
+					// If an unlockable achievement is earned, don't
+					// add it to the list.
+					if (addAchievementToString(i).equals(""))
+					{
+						_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
+					}
 				}
 			}
 			
@@ -1318,6 +1325,8 @@ public class Game
 			
 			_shotHistoryString += "\n\n";
 		}
+		
+		_shotHistoryString += "*Note: Unlockable achievements do not appear here. They can be viewed on the website.";
 		
 		_shotHistory.setText(_shotHistoryString);
 	}

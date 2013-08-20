@@ -6,6 +6,8 @@ $databaseUsername = "pchitmanhart33";
 $databasePassword = "Cooors33!";
 $id_registrations = 0;
 
+$achievementsThisGame = 0;
+
 $ID_WINS = '0';
 $ID_LOSSES = '1';
 $ID_OT_LOSSES = '2';
@@ -69,9 +71,28 @@ if ($runQueryID = mysql_query($queryID))
         if ($_POST['ot_count'] > 0)
         {
             $otGamesPlayed++;
+
+            $lastGameOT = 1;
+
+            if (mysql_result($runQueryName, 0, "last_game_ot") == 1)
+            {
+                $ua_alc = 1 + mysql_result($runQueryName, 0, "ua_alc");
+
+                $achievementsThisGame++;
+            }
+            else
+            {
+                $ua_alc = mysql_result($runQueryName, 0, "ua_alc");
+            }
+        }
+        else
+        {
+            $lastGameOT = 0;
+
+            $ua_alc = mysql_result($runQueryName, 0, "ua_alc");
         }
         
-	    $statsQuery = "UPDATE `players` SET `wins`='".$_POST[$ID_WINS]."',`losses`='".$_POST[$ID_LOSSES]."',`ot_losses`='".$_POST[$ID_OT_LOSSES]."',`cup_dif`='".$_POST[$ID_CUP_DIF]."',`win_streak`='".$_POST[$ID_WIN_STREAK]."',`loss_streak`='".$_POST[$ID_LOSS_STREAK]."',`shots`='".$_POST[$ID_SHOTS]."',`hits`='".$_POST[$ID_HITS]."',`hit_streak`='".$_POST[$ID_HIT_STREAK]."',`miss_streak`='".$_POST[$ID_MISS_STREAK]."',`bounces`='".$_POST[$ID_BOUNCES]."',`gang_bangs`='".$_POST[$ID_GANG_BANGS]."',`errors`='".$_POST[$ID_ERRORS]."',`redemp_shots`='".$_POST[$ID_REDEMP_SHOTS]."',`redemp_hits`='".$_POST[$ID_REDEMP_HITS]."',`redemp_atmps`='".$_POST[$ID_REDEMP_ATMPS]."',`redemp_succs`='".$_POST[$ID_REDEMP_SUCCS]."',`elo_rating`='".$_POST[$ID_ELO_RATING]."',`s10`='".$_POST[$ID_S10]."',`h10`='".$_POST[$ID_H10]."',`s9`='".$_POST[$ID_S9]."',`h9`='".$_POST[$ID_H9]."',`s8`='".$_POST[$ID_S8]."',`h8`='".$_POST[$ID_H8]."',`s7`='".$_POST[$ID_S7]."',`h7`='".$_POST[$ID_H7]."',`s6`='".$_POST[$ID_S6]."',`h6`='".$_POST[$ID_H6]."',`s5`='".$_POST[$ID_S5]."',`h5`='".$_POST[$ID_H5]."',`s4`='".$_POST[$ID_S4]."',`h4`='".$_POST[$ID_H4]."',`s3`='".$_POST[$ID_S3]."',`h3`='".$_POST[$ID_H3]."',`s2`='".$_POST[$ID_S2]."',`h2`='".$_POST[$ID_H2]."',`s1`='".$_POST[$ID_S1]."',`h1`='".$_POST[$ID_H1]."',`cur_win_streak`='".$_POST[$ID_CUR_WIN_STREAK]."',`cur_loss_streak`='".$_POST[$ID_CUR_LOSS_STREAK]."',`heating_up`='".$_POST[$ID_HEATING_UP]."',`on_fire`='".$_POST[$ID_ON_FIRE]."', `ot_games_played`='".$otGamesPlayed."' WHERE `name`='".$_POST['name']."' AND `id_registrations`='".$id_registrations."'";     
+	    $statsQuery = "UPDATE `players` SET `wins`='".$_POST[$ID_WINS]."',`losses`='".$_POST[$ID_LOSSES]."',`ot_losses`='".$_POST[$ID_OT_LOSSES]."',`cup_dif`='".$_POST[$ID_CUP_DIF]."',`win_streak`='".$_POST[$ID_WIN_STREAK]."',`loss_streak`='".$_POST[$ID_LOSS_STREAK]."',`shots`='".$_POST[$ID_SHOTS]."',`hits`='".$_POST[$ID_HITS]."',`hit_streak`='".$_POST[$ID_HIT_STREAK]."',`miss_streak`='".$_POST[$ID_MISS_STREAK]."',`bounces`='".$_POST[$ID_BOUNCES]."',`gang_bangs`='".$_POST[$ID_GANG_BANGS]."',`errors`='".$_POST[$ID_ERRORS]."',`redemp_shots`='".$_POST[$ID_REDEMP_SHOTS]."',`redemp_hits`='".$_POST[$ID_REDEMP_HITS]."',`redemp_atmps`='".$_POST[$ID_REDEMP_ATMPS]."',`redemp_succs`='".$_POST[$ID_REDEMP_SUCCS]."',`elo_rating`='".$_POST[$ID_ELO_RATING]."',`s10`='".$_POST[$ID_S10]."',`h10`='".$_POST[$ID_H10]."',`s9`='".$_POST[$ID_S9]."',`h9`='".$_POST[$ID_H9]."',`s8`='".$_POST[$ID_S8]."',`h8`='".$_POST[$ID_H8]."',`s7`='".$_POST[$ID_S7]."',`h7`='".$_POST[$ID_H7]."',`s6`='".$_POST[$ID_S6]."',`h6`='".$_POST[$ID_H6]."',`s5`='".$_POST[$ID_S5]."',`h5`='".$_POST[$ID_H5]."',`s4`='".$_POST[$ID_S4]."',`h4`='".$_POST[$ID_H4]."',`s3`='".$_POST[$ID_S3]."',`h3`='".$_POST[$ID_H3]."',`s2`='".$_POST[$ID_S2]."',`h2`='".$_POST[$ID_H2]."',`s1`='".$_POST[$ID_S1]."',`h1`='".$_POST[$ID_H1]."',`cur_win_streak`='".$_POST[$ID_CUR_WIN_STREAK]."',`cur_loss_streak`='".$_POST[$ID_CUR_LOSS_STREAK]."',`heating_up`='".$_POST[$ID_HEATING_UP]."',`on_fire`='".$_POST[$ID_ON_FIRE]."', `ot_games_played`='".$otGamesPlayed."', `last_game_ot`='".$lastGameOT."' WHERE `name`='".$_POST['name']."' AND `id_registrations`='".$id_registrations."'";     
         
         if ($runStatsQuery = mysql_query($statsQuery))
         {
@@ -188,7 +209,7 @@ if ($runQueryID = mysql_query($queryID))
                 }
             }
 
-            $achievementQueryName = "SELECT `a_shs`, `a_mj`, `a_cibav`, `a_bank`, `a_ck`, `a_hc`, `a_cwtpd`, `a_ps`, `a_sw`, `a_per`, `a_dbno`, `a_bb`, `a_bc`, `a_mar`, `a_fdm`, `a_skunk` FROM `players` WHERE `id_registrations`='".$id_registrations."' AND `name`='".$_POST['name']."'";
+            $achievementQueryName = "SELECT * FROM `players` WHERE `id_registrations`='".$id_registrations."' AND `name`='".$_POST['name']."'";
 
             if ($achievementQuery = mysql_query($achievementQueryName))
             {
@@ -209,7 +230,77 @@ if ($runQueryID = mysql_query($queryID))
                 $a_fdm = mysql_result($achievementQuery, 0, "a_fdm") + $_POST['ach_15'];
                 $a_skunk = mysql_result($achievementQuery, 0, "a_skunk") + $_POST['ach_16'];
 
-                mysql_query("UPDATE `players` SET `a_shs`='".$a_shs."', `a_mj`='".$a_mj."', `a_cibav`='".$a_cibav."', `a_bank`='".$a_bank."', `a_ck`='".$a_ck."', `a_hc`='".$a_hc."', `a_cwtpd`='".$a_cwtpd."', `a_ps`='".$a_ps."', `a_sw`='".$a_sw."', `a_per`='".$a_per."', `a_dbno`='".$a_dbno."', `a_bb`='".$a_bb."', `a_bc`='".$a_bc."', `a_mar`='".$a_mar."', `a_fdm`='".$a_fdm."', `a_skunk`='".$a_skunk."' WHERE `name`='".$_POST['name']."' AND `id_registrations`='".$id_registrations."'");
+                if ((mysql_result($achievementQuery, 0, "cur_win_streak") >= 5) && (mysql_result($achievementQuery, 0, "cur_win_streak") % 5) == 0)
+                {
+                    $ua_oah = 1 + mysql_result($achievementQuery, 0, "ua_oah");
+
+                    $achievementsThisGame++;
+                }
+                else
+                {
+                    $ua_oah = mysql_result($achievementQuery, 0, "ua_oah");
+                }
+
+                $ua_ce = mysql_result($achievementQuery, 0, "ua_ce") + $_POST['ach_19'];
+                $ua_slip = mysql_result($achievementQuery, 0, "ua_slip") + $_POST['ach_20'];
+                $ua_dciac = mysql_result($achievementQuery, 0, "ua_dciac") + $_POST['ach_21'];
+                $ua_dth = mysql_result($achievementQuery, 0, "ua_dth") + $_POST['ach_22'];
+
+                $achievementsThisGame += $_POST['ach_0'] + $_POST['ach_1'] + $_POST['ach_2'] + $_POST['ach_3'] + $_POST['ach_4'] + $_POST['ach_5'] + $_POST['ach_6'] + $_POST['ach_7'] + $_POST['ach_8'] + $_POST['ach_9'] + $_POST['ach_10'] + $_POST['ach_12'] + $_POST['ach_13'] + $_POST['ach_14'] + $_POST['ach_15'] + $_POST['ach_16'] + $_POST['ach_19'] + $_POST['ach_20'] + $_POST['ach_21'] + $_POST['ach_22']; 
+
+                if ($achievementsThisGame >= 3)
+                {
+                    $ua_show = 1 + mysql_result($achievementQuery, 0, "ua_show");
+                }
+                else
+                {
+                    $ua_show = mysql_result($achievementQuery, 0, "ua_show");
+                }
+
+                // Checks to see if milestonse are passed.
+                if (mysql_result($achievementQuery, 0, "games_played") < 500)
+                {
+                    $ua_alc = 0;
+                }
+
+                if (mysql_result($achievementQuery, 0, "wins") < 500)
+                {
+                    $ua_oah = 0;
+                }
+
+                if (mysql_result($achievementQuery, 0, "hits") < 1000)
+                {
+                    $ua_ce = 0;
+                }
+
+                if (mysql_result($achievementQuery, 0, "bounces") < 100)
+                {
+                    $ua_slip = 0;
+                }
+
+                if (mysql_result($achievementQuery, 0, "redemp_succs") < 100)
+                {
+                    $ua_dciac = 0;
+                }
+
+                if (mysql_result($achievementQuery, 0, "h1") < 100)
+                {
+                    $ua_dth = 0;
+                }
+
+                if ((mysql_result($achievementQuery, 0, "a_shs") + mysql_result($achievementQuery, 0, "a_mj") + mysql_result($achievementQuery, 0, "a_cibav") + 
+                 mysql_result($achievementQuery, 0, "a_hc") + mysql_result($achievementQuery, 0, "a_cwtpd") + mysql_result($achievementQuery, 0, "a_ps") + 
+                 mysql_result($achievementQuery, 0, "a_per") + mysql_result($achievementQuery, 0, "a_dbno") + mysql_result($achievementQuery, 0, "a_mar") +
+                 mysql_result($achievementQuery, 0, "a_ck") + mysql_result($achievementQuery, 0, "a_bb") + mysql_result($achievementQuery, 0, "a_bc") +
+                 mysql_result($achievementQuery, 0, "a_bank") + mysql_result($achievementQuery, 0, "a_sw") + mysql_result($achievementQuery, 0, "a_fdm") + 
+                 mysql_result($achievementQuery, 0, "a_skunk") + mysql_result($achievementQuery, 0, "ua_alc") + mysql_result($achievementQuery, 0, "ua_oah") + 
+                 mysql_result($achievementQuery, 0, "ua_ce") + mysql_result($achievementQuery, 0, "ua_slip") + mysql_result($achievementQuery, 0, "ua_dciac") + 
+                 mysql_result($achievementQuery, 0, "ua_dth") + mysql_result($achievementQuery, 0, "ua_show")) < 100)
+                {
+                    $ua_show = 0;
+                }
+
+                mysql_query("UPDATE `players` SET `a_shs`='".$a_shs."', `a_mj`='".$a_mj."', `a_cibav`='".$a_cibav."', `a_bank`='".$a_bank."', `a_ck`='".$a_ck."', `a_hc`='".$a_hc."', `a_cwtpd`='".$a_cwtpd."', `a_ps`='".$a_ps."', `a_sw`='".$a_sw."', `a_per`='".$a_per."', `a_dbno`='".$a_dbno."', `a_bb`='".$a_bb."', `a_bc`='".$a_bc."', `a_mar`='".$a_mar."', `a_fdm`='".$a_fdm."', `a_skunk`='".$a_skunk."', `ua_alc`='".$ua_alc."', `ua_oah`='".$ua_oah."', `ua_ce`='".$ua_ce."', `ua_slip`='".$ua_slip."', `ua_dciac`='".$ua_dciac."', `ua_dth`='".$ua_dth."', `ua_show`='".$ua_show."' WHERE `name`='".$_POST['name']."' AND `id_registrations`='".$id_registrations."'");
             }
         
             echo 1;

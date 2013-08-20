@@ -101,6 +101,7 @@ public class PongPlayer
 	ArrayList<Integer> stat_hitsPerCup = null;
 	
 	boolean _heartbreakCity = false;
+	boolean _lastShotBounce = false;
 	
 	// ID's for achievements
 	final int ID_SHS 			= 0; 	// Sharpshooter
@@ -120,7 +121,14 @@ public class PongPlayer
 	final int ID_MAR			= 14;	// Marathon
 	final int ID_FDM			= 15;	// First Degree Murder
 	final int ID_SKUNK			= 16;	// Skunked
-	final int ID_ACH_COUNT		= 17;
+	final int ID_ALC			= 17;	// Alcoholic
+	final int ID_OAH			= 18;	// On A Heater
+	final int ID_CE				= 19;	// Count 'Em
+	final int ID_SLIP			= 20; 	// Slippery
+	final int ID_DCIAC			= 21; 	// Don't Call It A Comeback
+	final int ID_DTH			= 22;	// Dropping The Hammer
+	final int ID_SHOW			= 23;	// Showman
+	final int ID_ACH_COUNT		= 24;
 	
 	// Achievements earned this game.
 	int[] stat_achievement = new int[ID_ACH_COUNT];
@@ -489,6 +497,8 @@ public class PongPlayer
 		// Used for Achievements.
 		int missStreakBeforeShot = stat_currentMissStreak;
 		
+		_lastShotBounce = false;
+		
 		updateHeartbreakCityStatus();
 		
 		if (addToShotHistory)
@@ -547,6 +557,8 @@ public class PongPlayer
 	
 	public void miss()
 	{
+		_lastShotBounce = false;
+		
 		updateHeartbreakCityStatus();
 		
 		resetPlayerIcon();
@@ -582,6 +594,12 @@ public class PongPlayer
 	
 	public void bounce()
 	{
+		// (21) Slippery [Hit two consecutive bounce shots without missing]
+		if (_lastShotBounce == true)
+		{
+			stat_achievement[ID_SLIP] = 1;
+		}
+		
 		updateHeartbreakCityStatus();
 		
 		addStringToShotHistory(ID_BOUNCE);
@@ -634,6 +652,8 @@ public class PongPlayer
 				_gameRef.bounceInRedemption();
 			}
 		}
+		
+		_lastShotBounce = true;
 		
 		updateAchievements(-1);
 	}
@@ -878,6 +898,18 @@ public class PongPlayer
 			stat_achievement[ID_SKUNK] = 1;
 		}
 		
+		// (20) Count 'Em [Hit ten cups in a game]
+		if (stat_shotsHit >= 10)
+		{
+			stat_achievement[ID_CE] = 1;
+		}
+		
+		// (23) Dropping The Hammer [Hit three last cups in a game]
+		if (stat_hitsPerCup.get(0) >= 3)
+		{
+			stat_achievement[ID_DTH] = 1;
+		}
+		
 		fillStats();
 	}
 	
@@ -1034,6 +1066,13 @@ public class PongPlayer
 					if (_heartbreakCity)
 					{
 						stat_achievement[ID_HC] = 1;
+					}
+					
+					// (22) Don't Call It A Comeback [Sucessfully complete a redemption and
+					//		go on to win the game in the first overtime]
+					if (stat_redemptionSuccesses == 1 && _gameRef.getOvertimeCount() == 1)
+					{
+						stat_achievement[ID_DCIAC] = 1;
 					}
 					
 					updateCanIBuyAVowelAchievement();
