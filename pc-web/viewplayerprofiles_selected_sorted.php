@@ -634,6 +634,26 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
+    <td><?php echo "First Degree Murder"; ?></td>
+    <td class="stat_column"><?php echo mysql_result($runAchievementQuery, 0, "a_fdm"); ?></td>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
     <td><?php echo "Comeback Kill"; ?></td>
     <td class="stat_column"><?php echo mysql_result($runAchievementQuery, 0, "a_ck"); ?></td>
 </tr>
@@ -714,6 +734,26 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
+    <td><?php echo "Skunked"; ?></td>
+    <td class="stat_column"><?php echo mysql_result($runAchievementQuery, 0, "a_skunk"); ?></td>
+</tr>
+<?php
+        $i++;
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+<?php
+        }
+        else
+        {
+?>
+<tr class="odd_row">
+<?php
+        }
+?>
     <td><?php echo "Stevie Wonder"; ?></td>
     <td class="stat_column"><?php echo mysql_result($runAchievementQuery, 0, "a_sw"); ?></td>
 </tr>
@@ -726,6 +766,293 @@ if ($runQueryID = mysql_query($queryID))
 <td><blockquote><center>* Achievement descriptions are available on the "Achievements" page.</center></blockquote></td>
 </tr>
 </table>
+
+<?php 
+    function getMilestoneRange($value)
+    {
+        if ($value < 10)
+        {
+            return 10;
+        }
+        else if ($value < 50)
+        {
+            return 50;
+        }
+        else if ($value < 100)
+        {
+            return 100;
+        }
+        else
+        {
+            return 500;
+        }
+    }
+
+    function getGamesPlayedLevel($gamesPlayed)
+    {
+        if ($gamesPlayed < 10)
+        {
+            return "Level 1 - Rookie";
+        }
+        else if ($gamesPlayed < 50)
+        {
+            return "Level 2 - Sophomore";
+        }
+        else if ($gamesPlayed < 100)
+        {
+            return "Level 3 - Pro";
+        }
+        else if ($gamesPlayed < 500)
+        {
+            return "Level 4 - Binge Drinker";
+        }
+        else
+        {
+            return "Level 5 - Alcoholic";
+        }
+    }
+
+    function getWinsLevel($wins)
+    {
+        if ($wins < 10)
+        {
+            return "Level 1 - Cupcake";
+        }
+        else if ($wins < 50)
+        {
+            return "Level 2 - Victor";
+        }
+        else if ($wins < 100)
+        {
+            return "Level 3 - Champ";
+        }
+        else if ($wins < 500)
+        {
+            return "Level 4 - Floyd Mayweather";
+        }
+        else
+        {
+            return "Level 5 - Superstar";
+        }
+    }
+
+    function getCupsHitLevel($hits)
+    {
+        if ($hits < 10)
+        {
+            return "Level 1 - Chris Brown";
+        }
+        else if ($hits < 50)
+        {
+            return "Level 2 - Mel Gibson";
+        }
+        else if ($hits < 100)
+        {
+            return "Level 3 - Ichiro";
+        }
+        else if ($hits < 500)
+        {
+            return "Level 4 - Pete Rose";
+        }
+        else
+        {
+            return "Level 5 - Serial Killer";
+        }
+    }
+
+    function getBouncesHitLevel($bounces)
+    {
+        if ($bounces < 10)
+        {
+            return "Level 1 - No Style";
+        }
+        else if ($bounces < 50)
+        {
+            return "Level 2 - Sneaky Snake";
+        }
+        else if ($bounces < 100)
+        {
+            return "Level 3 - Magician";
+        }
+        else if ($bounces < 500)
+        {
+            return "Level 4 - David Copperfield";
+        }
+        else
+        {
+            return "Level 5 - Criss Angel";
+        }
+    }
+
+    function getRedemptionSuccessesLevel($redempSuccs)
+    {
+        if ($redempSuccs < 10)
+        {
+            return "Level 1 - Jobber";
+        }
+        else if ($redempSuccs < 50)
+        {
+            return "Level 2 - Fighter";
+        }
+        else if ($redempSuccs < 100)
+        {
+            return "Level 3 - Nine Lives";
+        }
+        else if ($redempSuccs < 500)
+        {
+            return "Level 4 - Russell Hantz";
+        }
+        else
+        {
+            return "Level 5 - Immortal";
+        }
+    }
+
+    function getLastCupsHitLevel($hits)
+    {
+        if ($hits < 10)
+        {
+            return "Level 1 - Chump";
+        }
+        else if ($hits < 50)
+        {
+            return "Level 2 - Marksman";
+        }
+        else if ($hits < 100)
+        {
+            return "Level 3 - Sniper";
+        }
+        else if ($hits < 500)
+        {
+            return "Level 4 - Dick Cheney";
+        }
+        else
+        {
+            return "Level 5 - Lee Harvey Oswald";
+        }
+    }
+
+    function getAchievementsLevel($achievements)
+    {
+        if ($achievements < 10)
+        {
+            return "Level 1 - No Show";
+        }
+        else if ($achievements < 50)
+        {
+            return "Level 2 - Flashy";
+        }
+        else if ($achievements < 100)
+        {
+            return "Level 3 - Thrillseeker";
+        }
+        else if ($achievements < 500)
+        {
+            return "Level 4 - Party Master";
+        }
+        else
+        {
+            return "Level 5 - Seen It All";
+        }
+    }
+?>
+
+<p>Milestones for <?php echo $playerOne; ?></p> <!-- $runSelectedPlayerQuery -->
+<h5>Games Played</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "games_played");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getGamesPlayedLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Wins</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "wins");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getWinsLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Cups Hit</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "hits");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getCupsHitLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Bounces Hit</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "bounces");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getBouncesHitLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Redemption Successes</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "redemp_succs");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getRedemptionSuccessesLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Last Cups Hit</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "h1");
+        $max = getMilestoneRange($value);
+     ?>
+     <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getLastCupsHitLevel($value); ?></div></td>
+        </tr>
+    </table>
+
+<h5>Achievements Earned</h5>
+    <?php
+        $value = mysql_result($runSelectedPlayerQuery, 0, "a_shs") + mysql_result($runSelectedPlayerQuery, 0, "a_mj") + mysql_result($runSelectedPlayerQuery, 0, "a_cibav") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_hc") + mysql_result($runSelectedPlayerQuery, 0, "a_cwtpd") + mysql_result($runSelectedPlayerQuery, 0, "a_ps") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_per") + mysql_result($runSelectedPlayerQuery, 0, "a_dbno") + mysql_result($runSelectedPlayerQuery, 0, "a_mar") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_ck") + mysql_result($runSelectedPlayerQuery, 0, "a_bb") + mysql_result($runSelectedPlayerQuery, 0, "a_bc") +
+                 mysql_result($runSelectedPlayerQuery, 0, "a_bank") + mysql_result($runSelectedPlayerQuery, 0, "a_sw") + mysql_result($runSelectedPlayerQuery, 0, "a_fdm") + 
+                 mysql_result($runSelectedPlayerQuery, 0, "a_skunk");
+        $max = getMilestoneRange($value);
+     ?>
+    <table class="milestone_table">
+        <tr>
+            <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
+            <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
+            <td><div class="milestone_medal"><?php echo getAchievementsLevel($value); ?></div></td>
+        </tr>
+    </table>
 
 <p>Game results for <?php echo $playerOne; ?></p>
 <table class="stats_table" cellspacing="0" cellpadding="5">

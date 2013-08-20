@@ -1261,6 +1261,16 @@ public class Game
 				return "Marathon";
 			}
 			
+			case 15:
+			{
+				return "First Degree Murder";
+			}
+			
+			case 16:
+			{
+				return "Skunked";
+			}
+			
 			default:
 				return "";
 		}

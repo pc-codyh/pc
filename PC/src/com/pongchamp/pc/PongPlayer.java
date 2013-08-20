@@ -100,9 +100,6 @@ public class PongPlayer
 	ArrayList<Integer> stat_shotsPerCup = null;
 	ArrayList<Integer> stat_hitsPerCup = null;
 	
-	// Achievements earned this game.
-	int[] stat_achievement = new int[15];
-	
 	boolean _heartbreakCity = false;
 	
 	// ID's for achievements
@@ -121,7 +118,12 @@ public class PongPlayer
 	final int ID_BB				= 12; 	// Bill Buckner
 	final int ID_BC				= 13;	// Bitch Cup
 	final int ID_MAR			= 14;	// Marathon
-	final int ID_ACH_COUNT		= 15;
+	final int ID_FDM			= 15;	// First Degree Murder
+	final int ID_SKUNK			= 16;	// Skunked
+	final int ID_ACH_COUNT		= 17;
+	
+	// Achievements earned this game.
+	int[] stat_achievement = new int[ID_ACH_COUNT];
 	
 	
 	boolean stat_redemptionInProgress = false;
@@ -737,7 +739,7 @@ public class PongPlayer
 		}
 	}
 	
-	// Function to update the Bitch Cup Achievement
+	// Function to update the Bitch Cup Achievement.
 	public void updateBitchCup()
 	{
 		stat_achievement[ID_BC] = 1;
@@ -862,6 +864,18 @@ public class PongPlayer
 		if (_gameRef.getOvertimeCount() >= 3)
 		{
 			stat_achievement[ID_MAR] = 1;
+		}
+		
+		// (16) First Degree Murder [Win a game before the other team gets a rerack (10-cup start)]
+		if (_ownCupsRemaining >= 7)
+		{
+			stat_achievement[ID_FDM] = 1;
+		}
+		
+		// (17) Skunked [Lose a game before getting a rerack (10-cup start)]
+		if (_opponentCupsRemaining >= 7)
+		{
+			stat_achievement[ID_SKUNK] = 1;
 		}
 		
 		fillStats();

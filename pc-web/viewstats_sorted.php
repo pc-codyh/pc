@@ -140,7 +140,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
 <?php if ($sortby == "games_played") { ?>
     <td class="stat_column_selected"><?php echo $f2; ?></td>
 <?php } else { ?>

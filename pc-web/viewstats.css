@@ -20,6 +20,11 @@ blockquote
     font-family: "calibri";
 }
 
+h5
+{
+    margin-bottom: 2px;
+}
+
 a
 {
     color: #000000;
@@ -263,6 +268,33 @@ select
 
 
 /* CLASSES */
+.milestone_table
+{
+    text-align: left;
+}
+
+.milestone_value
+{
+    width: 80px;
+    margin-left: 5px;
+
+    font-family: "calibri";
+    font-size: 12px;
+}
+
+.milestone_medal
+{
+    font-family: "calibri";
+    font-size: 13px;
+}
+
+.milestone_meter
+{
+    width: 400px;
+
+    border: 1px solid #000000;
+}
+
 .min_width
 {
     min-width: 40px;

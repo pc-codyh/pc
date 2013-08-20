@@ -124,9 +124,9 @@ if ($runQueryID = mysql_query($queryID))
 ?>
     
 <?php if ($sortby == "team_one_name") { ?>
-    <td class="stat_column_name_selected"><?php echo $f1; ?></td>
+    <td class="stat_column_name_selected"><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>"><?php echo $f1; ?></a></td>
 <?php } else { ?>
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>"><?php echo $f1; ?></a></td>
 <?php } ?>
 <?php if ($sortby == "team_one_cups_remaining") { ?>
     <td class="stat_column_selected"><?php echo $f2; ?></td>
@@ -134,9 +134,9 @@ if ($runQueryID = mysql_query($queryID))
     <td class="stat_column"><?php echo $f2; ?></td>
 <?php } ?>
 <?php if ($sortby == "team_two_name") { ?>
-    <td class="stat_column_name_selected"><?php echo $f3; ?></td>
+    <td class="stat_column_name_selected"><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f3; ?></a></td>
 <?php } else { ?>
-    <td><?php echo $f3; ?></td>
+    <td><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f3; ?></a></td>
 <?php } ?>
 <?php if ($sortby == "team_two_cups_remaining") { ?>
     <td class="stat_column_selected"><?php echo $f4; ?></td>
@@ -154,9 +154,9 @@ if ($runQueryID = mysql_query($queryID))
     <td class="stat_column"><?php echo $f6; ?></td>
 <?php } ?>
 <?php if ($sortby == "date") { ?>
-    <td class="stat_column_selected"><?php echo $f7; ?></td>
+    <td class="stat_column_selected"><a href="viewheadtohead_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>&player_three=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_four=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f7; ?></a></td>
 <?php } else { ?>
-    <td class="stat_column"><?php echo $f7; ?></td>
+    <td class="stat_column"><a href="viewheadtohead_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runGameQuery, $i, "team_one_player_one"); ?>&player_two=<?php echo mysql_result($runGameQuery, $i, "team_one_player_two"); ?>&player_three=<?php echo mysql_result($runGameQuery, $i, "team_two_player_one"); ?>&player_four=<?php echo mysql_result($runGameQuery, $i, "team_two_player_two"); ?>"><?php echo $f7; ?></a></td>
 <?php } ?>
 
 </tr>

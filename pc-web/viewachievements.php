@@ -591,6 +591,64 @@ if ($runQueryID = mysql_query($queryID))
 </tr>
 </table>
 
+<table class="achievement_group">
+<tr>
+<td>
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
+    <tr>
+        <td class="stat_header_name">First Degree Murder</td>
+        <td class="stat_header">Count</td>
+    </tr>
+
+<?php
+
+    $SHSQuery = "SELECT `name`, `a_fdm` FROM `players` WHERE `id_registrations`='".$id_registrations."' ORDER BY `a_fdm` DESC";
+
+    if ($runSHSQuery = mysql_query($SHSQuery))
+    {
+        $SHSQueryNumRows = mysql_num_rows($runSHSQuery);
+    }
+
+    $i = 0;
+
+    while ($i < 3)
+    {
+        $f1 = mysql_result($runSHSQuery, $i, "name");
+        $f2 = mysql_result($runSHSQuery, $i, "a_fdm");
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+
+<?php
+        }
+        else
+        {
+?>
+
+<tr class="odd_row">
+
+<?php
+        }
+?>
+
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
+    <td class="stat_column"><?php echo $f2; ?></td>
+</tr>
+
+<?php
+
+        $i++;
+    }
+?>
+</table>
+</td>
+<td><blockquote>Win a game before the other team gets a re-rack (10-cup start).</blockquote></td>
+</tr>
+</table>
+
 <div class="achievement_title">
     The Bad
 </div>
@@ -828,6 +886,64 @@ if ($runQueryID = mysql_query($queryID))
 </table>
 </td>
 <td><blockquote>Sink no cups in a game.</blockquote></td>
+</tr>
+</table>
+
+<table class="achievement_group">
+<tr>
+<td>
+<table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
+    <tr>
+        <td class="stat_header_name">Skunked</td>
+        <td class="stat_header">Count</td>
+    </tr>
+
+<?php
+
+    $SHSQuery = "SELECT `name`, `a_skunk` FROM `players` WHERE `id_registrations`='".$id_registrations."' ORDER BY `a_skunk` DESC";
+
+    if ($runSHSQuery = mysql_query($SHSQuery))
+    {
+        $SHSQueryNumRows = mysql_num_rows($runSHSQuery);
+    }
+
+    $i = 0;
+
+    while ($i < 3)
+    {
+        $f1 = mysql_result($runSHSQuery, $i, "name");
+        $f2 = mysql_result($runSHSQuery, $i, "a_skunk");
+
+        if (($i % 2) == 0)
+        {
+?>
+
+<tr class="even_row">
+
+<?php
+        }
+        else
+        {
+?>
+
+<tr class="odd_row">
+
+<?php
+        }
+?>
+
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></td>
+    <td class="stat_column"><?php echo $f2; ?></td>
+</tr>
+
+<?php
+
+        $i++;
+    }
+?>
+</table>
+</td>
+<td><blockquote>Lose a game before getting a re-rack (10-cup start).</blockquote></td>
 </tr>
 </table>
 
