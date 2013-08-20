@@ -273,7 +273,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
 <?php if ($sortby == "win_streak") { ?>
     <td class="stat_column_selected"><?php echo $f15; ?></td>
 <?php } else { ?>
@@ -365,7 +365,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
 <?php if ($sortby == "redemp_shots") { ?>
     <td class="stat_column_selected"><?php echo $f22; ?></td>
 <?php } else { ?>
@@ -456,7 +456,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
-    <td><?php echo $f1; ?></td>
+    <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
 <?php if ($sortby == "p10") { ?>
     <td class="stat_column_selected"><?php echo $f27; ?></td>
 <?php } else { ?>
