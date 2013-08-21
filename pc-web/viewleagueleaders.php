@@ -47,6 +47,8 @@ $username = $_GET['username'];
 <div id="main_info">
 <p>League Leaders</p>
 
+<div id="note">*Note: Each table can be clicked on to expand the view to the entire league.</div>
+
 <table class="achievement_group">
 <tr>
 <td>

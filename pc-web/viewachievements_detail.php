@@ -194,7 +194,7 @@ if ($runQueryID = mysql_query($queryID))
 ?>
 </table>
 </td>
-<td><blockquote><?php echo "Overall standings for the ".$achievementInDetail." achievement." ?></blockquote></td>
+<td><blockquote><center><?php echo "Overall standings for the ".$achievementInDetail." achievement." ?></center></blockquote></td>
 </tr>
 </table>
 

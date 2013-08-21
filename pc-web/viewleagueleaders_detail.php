@@ -175,7 +175,7 @@ if ($runQueryID = mysql_query($queryID))
 </table>
 </a>
 </td>
-<td><blockquote><?php echo "Overall standings for ".$leagueLeaderInDetail."."; ?></blockquote></td>
+<td><blockquote><center><?php echo "Overall standings for ".$leagueLeaderInDetail."."; ?></center></blockquote></td>
 </tr>
 </table>
 
