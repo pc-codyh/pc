@@ -50,6 +50,7 @@ $username = $_GET['username'];
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=hits&sort2=shots">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Shooting Percentage</td>
@@ -118,6 +119,7 @@ if ($runQueryID = mysql_query($queryID))
 }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Overall shooting percentage.</blockquote></td>
 </tr>
@@ -126,6 +128,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=wins&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Winning Percentage</td>
@@ -223,6 +226,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Overall winning percentage.</blockquote></td>
 </tr>
@@ -231,6 +235,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=hits&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Hits / Game</td>
@@ -328,6 +333,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Average number of cups made per game.</blockquote></td>
 </tr>
@@ -336,6 +342,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=bounces&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bounces / Game</td>
@@ -433,6 +440,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Average number of bounce shots made per game.</blockquote></td>
 </tr>
@@ -441,6 +449,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=heating_up&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Heating Up / Game</td>
@@ -538,6 +547,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Average number of times "Heating Up" per game.</blockquote></td>
 </tr>
@@ -546,6 +556,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=on_fire&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">On Fire / Game</td>
@@ -643,6 +654,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Average number of times "On Fire" per game.</blockquote></td>
 </tr>
@@ -651,6 +663,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=on_fire&sort2=heating_up">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">On Fire Conversion Rate</td>
@@ -748,6 +761,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Percentage that you go "On Fire" after "Heating Up".</blockquote></td>
 </tr>
@@ -756,6 +770,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=h1&sort2=games_played">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Last Cups / Game</td>
@@ -853,6 +868,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Average number of last cups made per game.</blockquote></td>
 </tr>
@@ -861,6 +877,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewleagueleaders_detail.php?username=<?php echo $username; ?>&sort1=redemp_succs&sort2=redemp_atmps">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Redemption Conversion Rate</td>
@@ -958,6 +975,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Percentage that you successfully send the game into overtime.</blockquote></td>
 </tr>

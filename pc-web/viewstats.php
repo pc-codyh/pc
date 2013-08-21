@@ -48,6 +48,7 @@ $username = $_GET['username'];
 <p>Win/Loss records, shooting percentages, and shot-types hit.</p>
 <table class="stats_table" cellspacing="0" cellpadding="5">
     <tr>
+        <td class="stat_header_name">Row</td>
         <td class="stat_header_name">Name</td>
         <td class="stat_header"><a title="Games Played" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=games_played">GP</a></td>
         <td class="stat_header"><a title="Wins" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=wins">W</a></td>
@@ -132,6 +133,7 @@ if ($runQueryID = mysql_query($queryID))
         } 
 ?>
 
+    <td><?php echo ($i + 1); ?></td>
     <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f2; ?></td>
     <td class="stat_column"><?php echo $f3; ?></td>
@@ -159,6 +161,7 @@ if ($runQueryID = mysql_query($queryID))
 <p>Win/Loss streaks, hit/miss streaks, and overall rank.</p>
 <table class="stats_table" cellspacing="0" cellpadding="5">
     <tr>
+        <td class="stat_header_name">Row</td>
         <td class="stat_header_name">Name</td>
         <td class="stat_header"><a title="Highest Win Streak" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=win_streak">Win Streak</a></td>
         <td class="stat_header"><a title="Highest Loss Streak" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=loss_streak">Loss Streak</a></td>
@@ -208,6 +211,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
+    <td><?php echo ($i + 1); ?></td>
     <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f15; ?></td>
     <td class="stat_column"><?php echo $f16; ?></td>
@@ -229,6 +233,7 @@ if ($runQueryID = mysql_query($queryID))
 <p>Redemption statistics.</p>
 <table class="stats_table" cellspacing="0" cellpadding="5">
     <tr>
+        <td class="stat_header_name">Row</td>
         <td class="stat_header_name">Name</td>
         <td class="stat_header"><a title="Redemption Shots" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=redemp_shots">Redemption Shots</a></td>
         <td class="stat_header"><a title="Redemption Hits" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=redemp_hits">Redemption Hits</a></td>
@@ -271,6 +276,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
+    <td><?php echo ($i + 1); ?></td>
     <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f22; ?></td>
     <td class="stat_column"><?php echo $f23; ?></td>
@@ -290,6 +296,7 @@ if ($runQueryID = mysql_query($queryID))
 <p>Shooting percentages for each rack (number of cups remaining).</p>
 <table class="stats_table" cellspacing="0" cellpadding="5">
     <tr>
+        <td class="stat_header_name">Row</td>
         <td class="stat_header_name">Name</td>
         <td class="stat_header"><a title="Ten Cups" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=p10">10</a></td>
         <td class="stat_header"><a title="Nine Cups" href="viewstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=p9">9</a></td>
@@ -341,6 +348,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
+    <td><?php echo ($i + 1); ?></td>
     <td><a href="viewplayerprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo $f1; ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f27; ?></td>
     <td class="stat_column"><?php echo $f28; ?></td>

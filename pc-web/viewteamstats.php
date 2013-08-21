@@ -48,6 +48,7 @@ $username = $_GET['username'];
 <p>Overall team stats.</p>
 <table class="stats_table" cellspacing="0" cellpadding="5">
     <tr>
+        <td class="stat_header_name">Row</td>
         <td class="stat_header_name">Team Name</td>
         <td class="stat_header"><a title="Games Played" href="viewteamstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=games_played">GP</a></td>
         <td class="stat_header"><a title="Wins" href="viewteamstats_sorted.php?username=<?php echo $username; ?>&submit=Submit&sortby=wins">W</a></td>
@@ -117,6 +118,7 @@ if ($runQueryID = mysql_query($queryID))
         }
 ?>
 
+    <td><?php echo ($i + 1); ?></td>
     <td><a href="viewteamprofiles_selected.php?username=<?php echo $username; ?>&submit=Submit&player_one=<?php echo mysql_result($runTeamQuery, $i, "player_one"); ?>&player_two=<?php echo mysql_result($runTeamQuery, $i, "player_two"); ?>"><?php echo $f1; ?></a></td>
     <td class="stat_column"><?php echo $f2; ?></td>
     <td class="stat_column"><?php echo $f3; ?></td>

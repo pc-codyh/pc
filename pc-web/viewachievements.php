@@ -51,9 +51,11 @@ $username = $_GET['username'];
     The Good
 </div>
 
+
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=shs">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Sharpshooter</td>
@@ -122,6 +124,7 @@ if ($runQueryID = mysql_query($queryID))
 }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Hit five cups in a row in a game.</blockquote></td>
 </tr>
@@ -130,6 +133,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=mj">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Michael Jordan</td>
@@ -180,6 +184,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Go "On Fire" two or more times in a game.</blockquote></td>
 </tr>
@@ -188,6 +193,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=cibav">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Can I Buy A Vowel?</td>
@@ -238,6 +244,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Sink all the cups for your team in a game (your team must win).</blockquote></td>
 </tr>
@@ -246,6 +253,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=hc">    
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Heartbreak City</td>
@@ -296,6 +304,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Win a game after being down by five or more cups.</blockquote></td>
 </tr>
@@ -304,6 +313,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=cwtpd">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Caught With Their Pants Down</td>
@@ -354,6 +364,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Hit two or more bounce shots in a game.</blockquote></td>
 </tr>
@@ -362,6 +373,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=ps">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Porn Star</td>
@@ -412,6 +424,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Hit two or more gangbangs in a game.</blockquote></td>
 </tr>
@@ -420,6 +433,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=per">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Perfection</td>
@@ -470,6 +484,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Shoot one-hundred percent in a game.</blockquote></td>
 </tr>
@@ -478,6 +493,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=dbno">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Down But Not Out</td>
@@ -528,6 +544,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>As an individual, successfully complete two or more redemptions in a game.</blockquote></td>
 </tr>
@@ -536,6 +553,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=mar">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Marathon</td>
@@ -586,6 +604,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Compete in a game that goes to triple overtime.</blockquote></td>
 </tr>
@@ -594,6 +613,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=fdm">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">First Degree Murder</td>
@@ -644,6 +664,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Win a game before the other team gets a re-rack (10-cup start).</blockquote></td>
 </tr>
@@ -656,6 +677,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=ck">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Comeback Kill</td>
@@ -706,6 +728,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Sink a cup after missing five or more shots in a row.</blockquote></td>
 </tr>
@@ -714,6 +737,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=bb">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bill Buckner</td>
@@ -764,6 +788,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Commit two or more errors in a game.</blockquote></td>
 </tr>
@@ -772,6 +797,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=bc">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bitch Cup</td>
@@ -822,6 +848,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Hit the middle cup first on a ten-cup rack.</blockquote></td>
 </tr>
@@ -834,6 +861,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=bank">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Bankruptcy</td>
@@ -884,6 +912,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Sink no cups in a game.</blockquote></td>
 </tr>
@@ -892,6 +921,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=skunk">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Skunked</td>
@@ -942,6 +972,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Lose a game before getting a re-rack (10-cup start).</blockquote></td>
 </tr>
@@ -950,6 +981,7 @@ if ($runQueryID = mysql_query($queryID))
 <table class="achievement_group">
 <tr>
 <td>
+<a href="viewachievements_detail.php?username=<?php echo $username; ?>&sortby=sw">
 <table class="stats_table_ach achievement_table" cellspacing="0" cellpadding="5">
     <tr>
         <td class="stat_header_name">Stevie Wonder</td>
@@ -1002,6 +1034,7 @@ if ($runQueryID = mysql_query($queryID))
     }
 ?>
 </table>
+</a>
 </td>
 <td><blockquote>Miss ten shots in a row in a game.</blockquote></td>
 </tr>
