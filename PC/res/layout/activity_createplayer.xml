@@ -3,9 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="10dp" >
-
+    android:orientation="vertical" >
+
     <TextView
         android:id="@+id/createplayer_name_prompt"
         android:layout_width="fill_parent"
@@ -15,7 +14,9 @@
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:text="New Player Name"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/createplayer_name"
@@ -27,22 +28,33 @@
         android:lines="1"
         android:maxLength="20"
         android:padding="10dp" />
-
+
+    <Button
+        android:id="@+id/createplayer_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/icn_create_player"
+        android:minHeight="120dp"
+        android:minWidth="120dp"
+        android:textColor="#FFFFFF" />
+
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center" >
-
+
         <ImageView
-            android:id="@+id/createplayer_ResultImage"
+            android:id="@+id/createplayer_result_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/checkmark" />
-
+
         <TextView
-            android:id="@+id/createplayer_ResultText"
+            android:id="@+id/createplayer_result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -50,16 +62,5 @@
             android:textColor="#000000" />
 
     </TableRow>
-
-    <Button
-        android:id="@+id/createplayer_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/icn_create_player"
-        android:minHeight="120dp"
-        android:minWidth="120dp"
-        android:textColor="#FFFFFF" />
 
 </LinearLayout>

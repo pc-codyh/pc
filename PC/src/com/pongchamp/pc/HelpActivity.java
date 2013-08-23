@@ -5,6 +5,8 @@ import java.io.InputStream;
 
 import android.app.Activity;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -17,7 +19,6 @@ public class HelpActivity extends Activity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_help);
 		
 		_prompt = (TextView) findViewById(R.id.help_prompt);

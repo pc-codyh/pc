@@ -8,7 +8,9 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -43,12 +45,12 @@ public class RegisterActivity extends Activity
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         
-        _submitRegistration = (Button) findViewById(R.id.registration_submitRegistrationButton);
+        _submitRegistration = (Button) findViewById(R.id.registration_submit);
         _usernameField = (EditText) findViewById(R.id.registration_newUsername);
         _passwordField = (EditText) findViewById(R.id.registration_newPassword);
         _confirmPasswordField = (EditText) findViewById(R.id.registration_confirmPassword);
-        _registrationResultImage = (ImageView) findViewById(R.id.registration_ResultImage);
-        _registrationResultText = (TextView) findViewById(R.id.registration_ResultText);
+        _registrationResultImage = (ImageView) findViewById(R.id.registration_result_image);
+        _registrationResultText = (TextView) findViewById(R.id.registration_result_text);
         _usernamePrompt = (TextView) findViewById(R.id.registration_username_prompt);
         _passwordPrompt = (TextView) findViewById(R.id.registration_password_prompt);
         _confirmPasswordPrompt = (TextView) findViewById(R.id.registration_confirmpassword_prompt);

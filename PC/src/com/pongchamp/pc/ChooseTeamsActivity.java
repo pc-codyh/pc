@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -76,7 +77,7 @@ public class ChooseTeamsActivity extends Activity
 		{
 			rule = new TextView(getApplicationContext());
 			
-			rule.setPadding(10, 5, 10, 5);
+			rule.setPadding(20, 5, 20, 5);
 			rule.setTextColor(Color.BLACK);
 			
 			rule.setBackgroundColor((Color.parseColor((i % 2 == 0) ? "#FFE794" : "#FFF2C4")));

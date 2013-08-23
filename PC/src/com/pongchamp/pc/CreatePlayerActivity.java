@@ -9,7 +9,9 @@ import org.apache.http.message.BasicNameValuePair;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -45,8 +47,8 @@ public class CreatePlayerActivity extends Activity
         
         _submitButton = (Button) findViewById(R.id.createplayer_submit);
         _newPlayerName = (EditText) findViewById(R.id.createplayer_name);
-        _createPlayerResultImage = (ImageView) findViewById(R.id.createplayer_ResultImage);
-        _createPlayerResultText = (TextView) findViewById(R.id.createplayer_ResultText);
+        _createPlayerResultImage = (ImageView) findViewById(R.id.createplayer_result_image);
+        _createPlayerResultText = (TextView) findViewById(R.id.createplayer_result_text);
         _namePrompt = (TextView) findViewById(R.id.createplayer_name_prompt);
         
         _createPlayerResultImage.setVisibility(View.INVISIBLE);

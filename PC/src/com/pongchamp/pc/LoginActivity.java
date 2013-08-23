@@ -11,7 +11,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -50,11 +52,11 @@ public class LoginActivity extends Activity
         
         _username = (EditText) findViewById(R.id.login_Username);
         _password = (EditText) findViewById(R.id.login_Password);
-        _loginResultImage = (ImageView) findViewById(R.id.login_ResultImage);
-        _loginResultText = (TextView) findViewById(R.id.login_ResultText);
+        _loginResultImage = (ImageView) findViewById(R.id.login_result_image);
+        _loginResultText = (TextView) findViewById(R.id.login_result_text);
         _usernamePrompt = (TextView) findViewById(R.id.login_username_prompt);
         _passwordPrompt = (TextView) findViewById(R.id.login_password_prompt);
-        _submitLogin = (Button) findViewById(R.id.login_SubmitButton);
+        _submitLogin = (Button) findViewById(R.id.login_submit);
         
         onSubmitLoginPressed();
         loadPersistentUsername();

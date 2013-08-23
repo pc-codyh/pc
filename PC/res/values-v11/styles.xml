@@ -1,5 +1,24 @@
 <resources>
 
-    <style name="AppTheme" parent="android:Theme.Holo.Light" />
+    <color name="white_opaque">#FFFFFFFF</color>
+	<color name="pitch_black">#FF000000</color>
+
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+    	<item name="android:actionBarStyle">@style/CustomActionBar</item>
+      	<item name="android:actionOverflowButtonStyle">@style/CustomOverflow</item>
+      	<item name="android:titleTextStyle">@style/CustomActionBarTitle</item>
+    </style>
+    
+    <style name="CustomOverflow">
+        <item name="android:src">@drawable/action_help</item>
+    </style>
+    
+    <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/white_opaque</item>
+    </style>
+    
+    <style name="CustomActionBarTitle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white_opaque</item>
+    </style>
 
 </resources>

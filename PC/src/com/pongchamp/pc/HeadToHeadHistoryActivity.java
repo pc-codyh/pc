@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -38,7 +39,6 @@ public class HeadToHeadHistoryActivity extends Activity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_headtohead_history);
 		
 		_headtoheadLayout = (LinearLayout) findViewById(R.id.headtohead_layout);

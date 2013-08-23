@@ -14,9 +14,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +27,9 @@ import android.widget.Toast;
 public class MenuActivity extends Activity
 {
 	PCUser _activeUser = null;
-	Button _registerButton = null;
-	Button _loginButton = null;
-	Button _createPlayerButton = null;
-	Button _randomizeTeamsButton = null;
-	Button _changeRulesButton = null;
-	Button _playGameButton = null;
-	Button _helpButton = null;
 	TextView _activeUsername = null;
+	
+	ListView _mainMenu;
 	
 	/* 
 	 * The following array holds the values of the selected rules
@@ -46,6 +44,17 @@ public class MenuActivity extends Activity
 	final int ID_RULES = 2;
 	final int ID_PLAY = 3;
 	final int ID_CREATE_PLAYER = 4;
+	
+	final int REGISTER 		= 0;
+	final int LOGIN			= 1;
+	final int HELP			= 2;
+	
+	final int LOGOUT		= 0;
+	final int VIEWSTATS		= 1;
+	final int CREATEPLAYER	= 3;
+	final int RANDOMTEAMS	= 4;
+	final int CHANGERULES	= 5;
+	final int PLAYGAME		= 6;
 	
 	public enum RulesEnum
 	{
@@ -70,28 +79,35 @@ public class MenuActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+    	setTitle("");
+        setTheme(R.style.AppTheme);
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         
-        _registerButton = (Button) findViewById(R.id.menu_registerButton);
-        _loginButton = (Button) findViewById(R.id.menu_loginButton);
-        _createPlayerButton = (Button) findViewById(R.id.menu_createPlayerButton);
-        _randomizeTeamsButton = (Button) findViewById(R.id.menu_teamRandomizerButton);
-        _changeRulesButton = (Button) findViewById(R.id.menu_changeRulesButton);
-        _playGameButton = (Button) findViewById(R.id.menu_playGameButton);
-        _helpButton = (Button) findViewById(R.id.menu_helpButton);
-        
         _activeUsername = (TextView) findViewById(R.id.menu_activeUsername);
         
-        onRegisterButtonPressed();
-        onLoginButtonPressed();
-        onCreatePlayerButtonPressed();
-        onRandomizeTeamsButtonPressed();
-        onChangeRulesButtonPressed();
-        onPlayGameButtonPressed();
-        onHelpButtonPressed();
+        _mainMenu = (ListView) findViewById(R.id.mainmenu_list);
+       
+//        ArrayList<String> rows = new ArrayList<String>();
+//        
+//        rows.add("Register");
+//        rows.add("Login");
+//        rows.add("Help");
+//        
+//        ArrayAdapter<String> adapter = new CustomListAdapter(this, android.R.layout.simple_list_item_1, rows);
+//        
+//        for (int i = 0; i < rows.size(); i++)
+//        {
+//        	adapter.add("Placeholder");
+//        }
+//        
+//        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+//        
+//        _mainMenu.setAdapter(adapter);
         
-        disableButtons();
+        onListViewItemClick();
+        
         handleInputParams(null);
         applyRuleChanges(null);
         
@@ -146,32 +162,132 @@ public class MenuActivity extends Activity
     	}
     }
     
+    // Function to handle the click event
+    // of the ListView.
+    private void onListViewItemClick()
+    {
+    	_mainMenu.setOnItemClickListener(new OnItemClickListener()
+    	{
+			public void onItemClick(AdapterView<?> adapter, View view, int position, long id)
+			{
+				// The user is not logged in.
+				if (_activeUser == null)
+				{
+					switch (position)
+					{
+						case REGISTER:
+						{
+							onRegisterButtonPressed();
+						}
+							break;
+							
+						case LOGIN:
+						{
+							onLoginButtonPressed();
+						}
+							break;
+							
+						case HELP:
+						{
+							onHelpButtonPressed();
+						}
+							break;
+							
+						default:
+							break;
+					}
+				}
+				else
+				{
+					switch (position)
+					{
+						case LOGOUT:
+						{
+							onLogoutButtonPressed();
+						}
+							break;
+							
+						case VIEWSTATS:
+						{
+							onViewStatsButtonPressed();
+						}
+							break;
+							
+						case HELP:
+						{
+							onHelpButtonPressed();
+						}
+							break;
+							
+						case CREATEPLAYER:
+						{
+							onCreatePlayerButtonPressed();
+						}
+							break;
+							
+						case RANDOMTEAMS:
+						{
+							onRandomizeTeamsButtonPressed();
+						}
+							break;
+							
+						case CHANGERULES:
+						{
+							onChangeRulesButtonPressed();
+						}
+							break;
+							
+						case PLAYGAME:
+						{
+							onPlayGameButtonPressed();
+						}
+							break;
+							
+						default:
+							break;
+					}
+				}
+			}
+    	});
+    }
+    
     private void handleInputParams(String username)
     {
+    	ArrayList<String> rows = new ArrayList<String>();
+        
     	if (username != null)
     	{
-    		_activeUsername.setText("Logged in as: " + username);
+    		_activeUsername.setText("Welcome, " + username);
     		
     		_activeUser = new PCUser(username);
     		
-    		setupLogoutButton();
-    		enableButtons();
-    		toggleRegisterButton(true);
-    		
-    		_activeUsername.setBackgroundColor(Color.parseColor("#FFCC33"));
+    		rows.add("Logout");
+            rows.add("View Stats");
+            rows.add("Help");
+            rows.add("Create Player");
+            rows.add("Random Teams");
+            rows.add("Change Rules");
+            rows.add("Play Game");
     	}
     	else
     	{
     		_activeUsername.setText(R.string.menu_not_logged_in);
+    		
+    		rows.add("Register");
+            rows.add("Login");
+            rows.add("Help");
     	}
-    }
-    
-    // Function to toggle the "Register" button into
-    // a "View Stats" button when the user is logged
-    // in.
-    private void toggleRegisterButton(boolean isLoggedIn)
-    {
-    	_registerButton.setBackgroundResource((isLoggedIn) ? R.drawable.icn_view_stats : R.drawable.icn_register);
+    	
+    	ArrayAdapter<String> adapter = new CustomListAdapter(this, android.R.layout.simple_list_item_1, rows);
+        
+        for (int i = 0; i < rows.size(); i++)
+        {
+        	adapter.add("Placeholder");
+        }
+        
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        
+        _mainMenu.setAdapter(adapter);
     }
     
     private void loadCachedPlayers(ArrayList<String> players)
@@ -215,129 +331,59 @@ public class MenuActivity extends Activity
     	Collections.sort(_players);
     }
     
-    private void disableButtons()
-    {
-        _createPlayerButton.setBackgroundResource(R.drawable.icn_create_player_down);
-        _randomizeTeamsButton.setBackgroundResource(R.drawable.icn_randomizer_down);
-        _changeRulesButton.setBackgroundResource(R.drawable.icn_rules_down);
-        _playGameButton.setBackgroundResource(R.drawable.icn_play_game_down);
-//        _helpButton.setBackgroundResource(R.drawable.icn_help_down);
-        
-        ArrayList<Button> buttons = new ArrayList<Button>();
-        
-        buttons.add(_createPlayerButton);
-        buttons.add(_randomizeTeamsButton);
-        buttons.add(_changeRulesButton);
-        buttons.add(_playGameButton);
-//        buttons.add(_helpButton);
-        
-        for (Button btn : buttons)
-        {
-        	btn.setEnabled(false);
-        	btn.setTextColor(Color.parseColor("#8F8F8F"));
-        }
-    }
-    
-    private void enableButtons()
-    {
-    	_createPlayerButton.setBackgroundResource(R.drawable.icn_create_player);
-        _randomizeTeamsButton.setBackgroundResource(R.drawable.icn_randomizer);
-        _changeRulesButton.setBackgroundResource(R.drawable.icn_rules);
-        _playGameButton.setBackgroundResource(R.drawable.icn_play_game);
-        
-        ArrayList<Button> buttons = new ArrayList<Button>();
-        
-        buttons.add(_createPlayerButton);
-        buttons.add(_randomizeTeamsButton);
-        buttons.add(_changeRulesButton);
-        buttons.add(_playGameButton);
-        
-        for (Button btn : buttons)
-        {
-        	btn.setEnabled(true);
-        	btn.setTextColor(Color.parseColor("#FFFFFF"));
-        }
-    }
-    
-    private void setupLogoutButton()
-    {
-    	_loginButton.setBackgroundResource(R.drawable.icn_logout);
-		
-		onLogoutButtonPressed();
-    }
-    
-    private void setupLoginButton()
-    {
-    	_loginButton.setBackgroundResource(R.drawable.icn_login);
-    	
-    	onLoginButtonPressed();
-    }
-    
     public void onRegisterButtonPressed()
     {
-    	_registerButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				// The user is not logged in.
-				if (_activeUser == null)
-				{
-					openRegisterWindow();
-				}
-				else
-				{
-					Uri uri = Uri.parse("http://www.pongchamp.com/viewstats.php?username=" + _activeUser.getUsername() + "&submit=View+Stats");
-					
-					Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-					
-					startActivity(intent);
-				}
-			}
-		});
+		// The user is not logged in.
+		if (_activeUser == null)
+		{
+			openRegisterWindow();
+		}
+		else
+		{
+			onViewStatsButtonPressed();
+		}
+    }
+    
+    // Function that opens the user's stats
+    // in a separate browser window.
+    private void onViewStatsButtonPressed()
+    {
+    	Uri uri = Uri.parse("http://www.pongchamp.com/viewstats.php?username=" + _activeUser.getUsername() + "&submit=View+Stats");
+		
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		
+		startActivity(intent);
     }
     
     public void onLoginButtonPressed()
     {
-    	_loginButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				openLoginWindow();
-			}
-		});
+		openLoginWindow();
     }
     
     private void onLogoutButtonPressed()
     {
-    	_loginButton.setOnClickListener(new View.OnClickListener()
-    	{   		
-			public void onClick(View v)
+		AlertDialog.Builder alert = new AlertDialog.Builder(_mainMenu.getContext());
+		
+		alert.setTitle(R.string.logout_button_title);
+		alert.setMessage(R.string.logout_alert_message);
+		
+		alert.setNegativeButton(R.string.no_button_title, new DialogInterface.OnClickListener()
+		{	
+			public void onClick(DialogInterface dialog, int which)
 			{
-				AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
-				
-				alert.setTitle(R.string.logout_button_title);
-				alert.setMessage(R.string.logout_alert_message);
-				
-				alert.setNegativeButton(R.string.no_button_title, new DialogInterface.OnClickListener()
-				{	
-					public void onClick(DialogInterface dialog, int which)
-					{
-						// Do nothing when the window is dismissed.
-					}
-				});
-				
-				alert.setPositiveButton(R.string.yes_button_title, new DialogInterface.OnClickListener()
-				{	
-					public void onClick(DialogInterface dialog, int which)
-					{
-						disableButtons();
-						logout();
-					}
-				});
-				
-				alert.show();
+				// Do nothing when the window is dismissed.
 			}
 		});
+		
+		alert.setPositiveButton(R.string.yes_button_title, new DialogInterface.OnClickListener()
+		{	
+			public void onClick(DialogInterface dialog, int which)
+			{
+				logout();
+			}
+		});
+		
+		alert.show();
     }
     
     private void logout()
@@ -348,70 +394,40 @@ public class MenuActivity extends Activity
     	
     	_activeUser = null;
     	
-    	toggleRegisterButton(false);
-    	setupLoginButton();
+    	handleInputParams(null);
     }
     
     public void onCreatePlayerButtonPressed()
     {
-    	_createPlayerButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				openCreatePlayerWindow();
-			}
-		});
+		openCreatePlayerWindow();
     }
     
     public void onRandomizeTeamsButtonPressed()
     {
-    	_randomizeTeamsButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				openRandomizeTeamsWindow();
-			}
-		});
+		openRandomizeTeamsWindow();
     }
     
     public void onChangeRulesButtonPressed()
     {
-    	_changeRulesButton.setOnClickListener(new View.OnClickListener()
-    	{    		
-			public void onClick(View v)
-			{
-				openChangeRulesWindow();
-			}
-		});
+		openChangeRulesWindow();
     }
     
     public void onPlayGameButtonPressed()
     {
-    	_playGameButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				if (_rules != null)
-				{
-					openPlayGameWindow();
-				}
-				else
-				{
-					Toast.makeText(getApplicationContext(), R.string.rules_not_set, Toast.LENGTH_LONG).show();
-				}
-			}
-		});
+		if (_rules != null)
+		{
+			openPlayGameWindow();
+		}
+		else
+		{
+			Toast.makeText(getApplicationContext(), R.string.rules_not_set, Toast.LENGTH_LONG).show();
+		}
     }
     
     public void onHelpButtonPressed()
     {
-    	_helpButton.setOnClickListener(new View.OnClickListener()
-    	{	
-			public void onClick(View v)
-			{
-				openHelpWindow();
-			}
-		});
+		openHelpWindow();
+
     }
     
     public void openRegisterWindow()

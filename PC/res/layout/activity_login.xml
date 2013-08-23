@@ -3,9 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="10dp" >
-
+    android:orientation="vertical" >
+
     <TextView
         android:id="@+id/login_username_prompt"
         android:layout_width="fill_parent"
@@ -15,7 +14,9 @@
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:text="Username"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/login_Username"
@@ -28,7 +29,7 @@
         android:lines="1"
         android:maxLength="20"
         android:padding="10dp" />
-
+
     <TextView
         android:id="@+id/login_password_prompt"
         android:layout_width="fill_parent"
@@ -38,7 +39,9 @@
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:text="Password"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/login_Password"
@@ -50,22 +53,33 @@
         android:inputType="textPassword"
         android:maxLength="20"
         android:padding="10dp" />
-
+
+    <Button
+        android:id="@+id/login_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/icn_login"
+        android:minHeight="120dp"
+        android:minWidth="120dp"
+        android:textColor="#FFFFFF" />
+
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center" >
 
         <ImageView
-            android:id="@+id/login_ResultImage"
+            android:id="@+id/login_result_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/checkmark" />
-
+
         <TextView
-            android:id="@+id/login_ResultText"
+            android:id="@+id/login_result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -73,16 +87,5 @@
             android:textColor="#000000" />
 
     </TableRow>
-
-    <Button
-        android:id="@+id/login_SubmitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/icn_login"
-        android:minHeight="120dp"
-        android:minWidth="120dp"
-        android:textColor="#FFFFFF" />
 
 </LinearLayout>

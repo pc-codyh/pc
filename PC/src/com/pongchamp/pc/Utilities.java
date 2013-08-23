@@ -21,7 +21,7 @@ public class Utilities
 	{
 		for (TextView view : views)
 		{
-			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF"));
+			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF"), Typeface.BOLD);
 		}
 	}
 	

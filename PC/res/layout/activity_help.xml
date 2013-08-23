@@ -4,15 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#FFFFFF" >
-        
+        
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="10dp" >
-
+    android:orientation="vertical" >
+
     <TextView
         android:id="@+id/help_prompt"
         android:layout_width="fill_parent"
@@ -22,7 +21,9 @@
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:text="Help"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/help_text"
