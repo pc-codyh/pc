@@ -794,9 +794,9 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
-    <td><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 500) { echo "Binge Drinker"; } else { echo "**********"; } ?></td>
-    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 500) { echo mysql_result($runAchievementQuery, 0, "ua_alc"); } else { echo "*"; } ?></td>
-    <?php if (mysql_result($runAchievementQuery, 0, "games_played") < 500) { ?><td class="stat_column">Complete the "Games Played" milestone.</td><?php } else { ?><td class="stat_column" title="Play in consecutive overtime games.">Play in consecutive overtime games.</td><?php } ?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 200) { echo "Binge Drinker"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "games_played") >= 200) { echo mysql_result($runAchievementQuery, 0, "ua_alc"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "games_played") < 200) { ?><td class="stat_column">Complete the "Games Played" milestone.</td><?php } else { ?><td class="stat_column" title="Play in consecutive overtime games.">Play in consecutive overtime games.</td><?php } ?>
 </tr>
 <?php
         $i++;
@@ -815,9 +815,9 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
-    <td><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 500) { echo "Superstar"; } else { echo "**********"; } ?></td>
-    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 500) { echo mysql_result($runAchievementQuery, 0, "ua_oah"); } else { echo "*"; } ?></td>
-    <?php if (mysql_result($runAchievementQuery, 0, "wins") < 500) { ?><td class="stat_column">Complete the "Wins" milestone.</td><?php } else { ?><td class="stat_column" title="Win five games in a row.">Win five games in a row.</td><?php } ?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 100) { echo "Superstar"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "wins") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_oah"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "wins") < 100) { ?><td class="stat_column">Complete the "Wins" milestone.</td><?php } else { ?><td class="stat_column" title="Win five games in a row.">Win five games in a row.</td><?php } ?>
 </tr>
 <?php
         $i++;
@@ -857,9 +857,9 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
-    <td><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 100) { echo "Magician"; } else { echo "**********"; } ?></td>
-    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_slip"); } else { echo "*"; } ?></td>
-    <?php if (mysql_result($runAchievementQuery, 0, "bounces") < 100) { ?><td class="stat_column">Complete the "Bounces Hit" milestone.</td><?php } else { ?><td class="stat_column" title="Hit two consecutive bounce shots without missing.">Hit two consecutive bounce shots without missing.</td><?php } ?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 50) { echo "Magician"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "bounces") >= 50) { echo mysql_result($runAchievementQuery, 0, "ua_slip"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "bounces") < 50) { ?><td class="stat_column">Complete the "Bounces Hit" milestone.</td><?php } else { ?><td class="stat_column" title="Hit two consecutive bounce shots without missing.">Hit two consecutive bounce shots without missing.</td><?php } ?>
 </tr>
 <?php
         $i++;
@@ -878,9 +878,9 @@ if ($runQueryID = mysql_query($queryID))
 <?php
         }
 ?>
-    <td><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 100) { echo "Immortal"; } else { echo "**********"; } ?></td>
-    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 100) { echo mysql_result($runAchievementQuery, 0, "ua_dciac"); } else { echo "*"; } ?></td>
-    <?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") < 100) { ?><td class="stat_column">Complete the "Redemption Successes" milestone.</td><?php } else { ?><td class="stat_column" title="Successfully complete a redemption and go on to win the game in the first overtime.">Successfully complete a redemption and go on to win the game in the first overtime.</td><?php } ?>
+    <td><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 50) { echo "Immortal"; } else { echo "**********"; } ?></td>
+    <td class="stat_column"><?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") >= 50) { echo mysql_result($runAchievementQuery, 0, "ua_dciac"); } else { echo "*"; } ?></td>
+    <?php if (mysql_result($runAchievementQuery, 0, "redemp_succs") < 50) { ?><td class="stat_column">Complete the "Redemption Successes" milestone.</td><?php } else { ?><td class="stat_column" title="Successfully complete a redemption and go on to win the game in the first overtime.">Successfully complete a redemption and go on to win the game in the first overtime.</td><?php } ?>
 </tr>
 <?php
         $i++;
