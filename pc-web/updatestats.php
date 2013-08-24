@@ -258,12 +258,12 @@ if ($runQueryID = mysql_query($queryID))
                 }
 
                 // Checks to see if milestonse are passed.
-                if (mysql_result($achievementQuery, 0, "games_played") < 500)
+                if (mysql_result($achievementQuery, 0, "games_played") < 200)
                 {
                     $ua_alc = 0;
                 }
 
-                if (mysql_result($achievementQuery, 0, "wins") < 500)
+                if (mysql_result($achievementQuery, 0, "wins") < 100)
                 {
                     $ua_oah = 0;
                 }
@@ -273,12 +273,12 @@ if ($runQueryID = mysql_query($queryID))
                     $ua_ce = 0;
                 }
 
-                if (mysql_result($achievementQuery, 0, "bounces") < 100)
+                if (mysql_result($achievementQuery, 0, "bounces") < 50)
                 {
                     $ua_slip = 0;
                 }
 
-                if (mysql_result($achievementQuery, 0, "redemp_succs") < 100)
+                if (mysql_result($achievementQuery, 0, "redemp_succs") < 50)
                 {
                     $ua_dciac = 0;
                 }

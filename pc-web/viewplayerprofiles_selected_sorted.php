@@ -986,6 +986,10 @@ if ($runQueryID = mysql_query($queryID))
         {
             return 10;
         }
+        else if ($value < 25)
+        {
+            return 25;
+        }
         else if ($value < 50)
         {
             return 50;
@@ -994,13 +998,9 @@ if ($runQueryID = mysql_query($queryID))
         {
             return 100;
         }
-        else if ($value < 200)
-        {
-            return 200;
-        }
         else
         {
-            return 500;
+            return 200;
         }
     }
 
@@ -1025,6 +1025,30 @@ if ($runQueryID = mysql_query($queryID))
         else
         {
             return 100;
+        }
+    }
+
+    function getMilestoneRangeExtraLow($value)
+    {
+        if ($value < 2)
+        {
+            return 2;
+        }
+        else if ($value < 5)
+        {
+            return 5;
+        }
+        else if ($value < 10)
+        {
+            return 10;
+        }
+        else if ($value < 25)
+        {
+            return 25;
+        }
+        else
+        {
+            return 50;
         }
     }
 
@@ -1058,15 +1082,15 @@ if ($runQueryID = mysql_query($queryID))
         {
             return "Level 1";
         }
-        else if ($value < 50)
+        else if ($value < 25)
         {
             return "Level 2";
         }
-        else if ($value < 100)
+        else if ($value < 50)
         {
             return "Level 3";
         }
-        else if ($value < 200)
+        else if ($value < 100)
         {
             return "Level 4";
         }
@@ -1099,6 +1123,30 @@ if ($runQueryID = mysql_query($queryID))
             return "Level 5";
         }
     }
+
+    function getLevelExtraLow($value)
+    {
+        if ($value < 2)
+        {
+            return "Level 1";
+        }
+        else if ($value < 5)
+        {
+            return "Level 2";
+        }
+        else if ($value < 10)
+        {
+            return "Level 3";
+        }
+        else if ($value < 25)
+        {
+            return "Level 4";
+        }
+        else
+        {
+            return "Level 5";
+        }
+    }
 ?>
 
 <p>Milestones for <?php echo $playerOne; ?></p> <!-- $runSelectedPlayerQuery -->
@@ -1118,13 +1166,13 @@ if ($runQueryID = mysql_query($queryID))
 <h5>Wins</h5>
     <?php
         $value = mysql_result($runSelectedPlayerQuery, 0, "wins");
-        $max = getMilestoneRangeMedium($value);
+        $max = getMilestoneRangeLow($value);
      ?>
      <table class="milestone_table">
         <tr>
             <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
             <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
-            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelMedium($value); } else { echo "Superstar"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/superstar.jpg" class="top_3" /></center><?php } ?></td>
+            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelLow($value); } else { echo "Superstar"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/superstar.jpg" class="top_3" /></center><?php } ?></td>
         </tr>
     </table>
 
@@ -1144,26 +1192,26 @@ if ($runQueryID = mysql_query($queryID))
 <h5>Bounces Hit</h5>
     <?php
         $value = mysql_result($runSelectedPlayerQuery, 0, "bounces");
-        $max = getMilestoneRangeLow($value);
+        $max = getMilestoneRangeExtraLow($value);
      ?>
      <table class="milestone_table">
         <tr>
             <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
             <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
-            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelLow($value); } else { echo "Magician"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/magician.jpg" class="top_3" /></center><?php } ?></td>
+            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelExtraLow($value); } else { echo "Magician"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/magician.jpg" class="top_3" /></center><?php } ?></td>
         </tr>
     </table>
 
 <h5>Redemption Successes</h5>
     <?php
         $value = mysql_result($runSelectedPlayerQuery, 0, "redemp_succs");
-        $max = getMilestoneRangeLow($value);
+        $max = getMilestoneRangeExtraLow($value);
      ?>
      <table class="milestone_table">
         <tr>
             <td><meter value="<?php echo $value; ?>" min="0" max="<?php echo $max; ?>" class="milestone_meter"></meter></td>
             <td><div class="milestone_value"><?php if ($value < $max) { echo $value." / ".$max; } else { echo $max." / ".$max; } ?></div></td>
-            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelLow($value); } else { echo "Immortal"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/immortal.jpg" class="top_3" /></center><?php } ?></td>
+            <td><div class="milestone_medal"><?php if ($value < $max) { echo getLevelExtraLow($value); } else { echo "Immortal"; } ?></div><?php if ($value >= $max) { ?><center><img src="imgs/immortal.jpg" class="top_3" /></center><?php } ?></td>
         </tr>
     </table>
 
