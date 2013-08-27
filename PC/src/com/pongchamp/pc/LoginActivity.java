@@ -86,15 +86,10 @@ public class LoginActivity extends Activity
 	{
 		if (_isLoggedIn)
 		{
-			_submitLogin.setBackgroundResource(R.drawable.back);
-			_submitLogin.setText("");
-			_submitLogin.setMinimumHeight(60);
-			
 			_username.setEnabled(false);
 			_password.setEnabled(false);
 			
-			_username.setBackgroundResource(R.drawable.rounded_textfield_disabled);
-			_password.setBackgroundResource(R.drawable.rounded_textfield_disabled);
+			endActivity();
 		}
 		
 		_submitLogin.setEnabled(true);
@@ -106,10 +101,6 @@ public class LoginActivity extends Activity
 				if (!_isLoggedIn)
 				{
 					new PerformBackgroundTaskLogin().execute();
-				}
-				else
-				{
-					endActivity();
 				}
 			}
 		});
@@ -232,6 +223,8 @@ public class LoginActivity extends Activity
 				{
 					_loginResultImage.setImageResource(R.drawable.xmark);
 					_loginResultText.setText(R.string.login_failure);
+					
+					_submitLogin.setEnabled(true);
 				}
 			}
 			else

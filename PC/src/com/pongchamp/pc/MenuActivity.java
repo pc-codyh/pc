@@ -435,6 +435,8 @@ public class MenuActivity extends Activity
     	Intent intent = new Intent(MenuActivity.this, RegisterActivity.class);
     	
     	MenuActivity.this.startActivity(intent);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openLoginWindow()
@@ -442,6 +444,8 @@ public class MenuActivity extends Activity
     	Intent intent = new Intent(this, LoginActivity.class);
     	
     	MenuActivity.this.startActivityForResult(intent, ID_LOGIN);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openCreatePlayerWindow()
@@ -451,6 +455,8 @@ public class MenuActivity extends Activity
     	intent.putExtra("ActiveUsername", _activeUser.getUsername());
     	
     	MenuActivity.this.startActivityForResult(intent, ID_CREATE_PLAYER);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openRandomizeTeamsWindow()
@@ -461,6 +467,8 @@ public class MenuActivity extends Activity
     	intent.putStringArrayListExtra("Players", _players);
     	
     	MenuActivity.this.startActivity(intent);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openChangeRulesWindow()
@@ -476,6 +484,7 @@ public class MenuActivity extends Activity
     	}
     	
     	MenuActivity.this.startActivityForResult(intent, ID_RULES);
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openPlayGameWindow()
@@ -491,6 +500,7 @@ public class MenuActivity extends Activity
 		intent.putStringArrayListExtra("Players", _players);
 		
 		MenuActivity.this.startActivityForResult(intent, ID_PLAY);
+		overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     public void openHelpWindow()
@@ -498,6 +508,8 @@ public class MenuActivity extends Activity
     	Intent intent = new Intent(MenuActivity.this, HelpActivity.class);
     	
     	MenuActivity.this.startActivity(intent);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     
     @Override

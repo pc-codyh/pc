@@ -28,5 +28,4 @@ _______________________________
 ADDED TO NEW RELEASE
 ____________________
 
-1) Added milestones and unlockable achievements.
-2) Added League Leader in detail and Achievements in detail.
+1) Updated UI.

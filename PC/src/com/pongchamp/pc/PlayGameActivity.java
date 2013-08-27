@@ -79,8 +79,6 @@ public class PlayGameActivity extends Activity
 	TextView _teamTwoPlayerOneShooting = null;
 	TextView _teamTwoPlayerTwoShooting = null;
 	
-	TextView _shotHistory = null;
-	
 	MediaPlayer _heatingUpSound = null;
 	MediaPlayer _onFireSound = null;
 	
@@ -89,6 +87,9 @@ public class PlayGameActivity extends Activity
 	
 	LinearLayout _gameLayout = null;
 	LinearLayout _statsLayout = null;
+	LinearLayout _historyLayout = null;
+	
+	TextView _historySeparator = null;
 	
 	ArrayList<TableRow> _teamOneRows = null;
 	ArrayList<TableRow> _teamTwoRows = null;
@@ -108,6 +109,9 @@ public class PlayGameActivity extends Activity
 		_tabHost = (TabHost) findViewById(R.id.playgame_tabHost);
 		_gameLayout = (LinearLayout) findViewById(R.id.playgame_gameTab);
 		_statsLayout = (LinearLayout) findViewById(R.id.playgame_statsTab);
+		_historyLayout = (LinearLayout) findViewById(R.id.playgame_historyTab);
+		
+		_historySeparator = (TextView) findViewById(R.id.playgame_history_separator);
 		
 		setupRows();
 		
@@ -162,7 +166,6 @@ public class PlayGameActivity extends Activity
 		/* * * * * * * * * * * * * * * * * * * * * * * * * * */
 		
 		_endGame = (Button) findViewById(R.id.playgame_endGameButton);
-		_shotHistory = (TextView) findViewById(R.id.playgame_shotHistory);
 		
 		_heatingUpSound = MediaPlayer.create(getApplicationContext(), R.raw.heating_up);
 		_onFireSound = MediaPlayer.create(getApplicationContext(), R.raw.on_fire);
@@ -189,7 +192,6 @@ public class PlayGameActivity extends Activity
 								_teamOnePlayerTwoShooting,
 								_teamTwoPlayerOneShooting,
 								_teamTwoPlayerTwoShooting,
-								_shotHistory,
 								_teamOnePlayerOneButton,
 								_teamOnePlayerTwoButton,
 								_teamTwoPlayerOneButton,
@@ -500,10 +502,11 @@ public class PlayGameActivity extends Activity
 						 _teamOneRows,
 						 _teamTwoRows,
 						 _endGame,
-						 _shotHistory,
 						 this,
 						 _heatingUpSound,
-						 _onFireSound);
+						 _onFireSound,
+						 _historyLayout,
+						 _historySeparator);
 
 		_game.startGame();
 		

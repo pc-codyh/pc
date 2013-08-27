@@ -42,7 +42,7 @@
                         android:id="@+id/tableRow1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <TextView
                             android:id="@+id/playgame_teamOnePlayerOneStatsName"
                             android:layout_width="fill_parent"
@@ -57,7 +57,7 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
+
                         <TextView
                             android:id="@+id/playgame_teamOnePlayerOneNBAJam"
                             android:layout_width="fill_parent"
@@ -74,7 +74,6 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
                     </TableRow>
 
                     <TextView
@@ -89,7 +88,7 @@
                         android:id="@+id/TableRow01"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <TextView
                             android:id="@+id/playgame_teamOnePlayerTwoStatsName"
                             android:layout_width="fill_parent"
@@ -103,7 +102,7 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
+
                         <TextView
                             android:id="@+id/playgame_teamOnePlayerTwoNBAJam"
                             android:layout_width="fill_parent"
@@ -119,7 +118,6 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
                     </TableRow>
 
                     <TextView
@@ -134,7 +132,7 @@
                         android:id="@+id/TableRow02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <TextView
                             android:id="@+id/playgame_teamTwoPlayerOneStatsName"
                             android:layout_width="fill_parent"
@@ -148,7 +146,7 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
+
                         <TextView
                             android:id="@+id/playgame_teamTwoPlayerOneNBAJam"
                             android:layout_width="fill_parent"
@@ -164,7 +162,6 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
                     </TableRow>
 
                     <TextView
@@ -179,7 +176,7 @@
                         android:id="@+id/TableRow03"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <TextView
                             android:id="@+id/playgame_teamTwoPlayerTwoStatsName"
                             android:layout_width="fill_parent"
@@ -193,7 +190,7 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
+
                         <TextView
                             android:id="@+id/playgame_teamTwoPlayerTwoNBAJam"
                             android:layout_width="fill_parent"
@@ -209,7 +206,6 @@
                             android:textColor="#000000"
                             android:textSize="20dp"
                             android:textStyle="bold" />
-
                     </TableRow>
 
                     <TextView
@@ -232,21 +228,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/endgame"
                         android:minHeight="80dp"
                         android:minWidth="120dp"
                         android:textColor="#FFFFFF"
                         android:textSize="15dp" />
-
+
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/playgame_history_separator"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:background="#FFCC33"
-                        android:gravity="center" />
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:height="1dp" />
 
                     <ScrollView
                         android:id="@+id/scrollView1"
@@ -256,17 +252,7 @@
                         <LinearLayout
                             android:id="@+id/playgame_achievements_layout"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
-
-                            <TextView
-                                android:id="@+id/playgame_shotHistory"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginTop="5dp"
-                                android:gravity="right"
-                                android:padding="5dp" />
+                            android:layout_height="wrap_content" >
                         </LinearLayout>
                     </ScrollView>
                 </LinearLayout>
@@ -435,7 +421,7 @@
                             android:minHeight="50dp"
                             android:minWidth="40dp" />
                     </TableRow>
-
+
                     <TextView
                         android:id="@+id/textView1"
                         android:layout_width="fill_parent"

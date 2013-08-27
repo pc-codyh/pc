@@ -1327,7 +1327,7 @@ public class PongPlayer
 				break;
 		}
 		
-		str += "\n--------------------------------------------------\n";
+//		str += "\n--------------------------------------------------\n";
 		
 		_gameRef.concatenateShotHistory(str);
 	}

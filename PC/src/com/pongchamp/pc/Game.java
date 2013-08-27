@@ -11,6 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -63,6 +64,8 @@ public class Game
 	
 	int _requestCount = 0;
 	
+	int _shotCount = 0;
+	
 	ArrayList<String> _rules = null;
 	String _left = "left";
 	String _right = "right";
@@ -94,14 +97,15 @@ public class Game
 	
 	Context _context = null;
 	LinearLayout _gameLayout = null;
+	LinearLayout _historyLayout = null;
 	
 	ArrayList<TableRow> _teamOneRows = null;
 	ArrayList<TableRow> _teamTwoRows = null;
 		
 	TableRow _centerRow = null;
 	TextView _centerSeparator = null;
+	TextView _historySeparator = null;
 	
-	TextView _shotHistory = null;
 	String _shotHistoryString = null;
 	
 	boolean _statsUpdatedSuccessfully = false;
@@ -120,21 +124,24 @@ public class Game
 				ArrayList<TableRow> teamOneRows,
 				ArrayList<TableRow> teamTwoRows,
 				Button endGame,
-				TextView shotHistory,
 				Activity activityRef,
 				MediaPlayer heatingUpSound,
-				MediaPlayer onFireSound)
+				MediaPlayer onFireSound,
+				LinearLayout historyLayout,
+				TextView historySeparator)
 	{
 		_context = context;
 		_gameLayout = gameLayout;
 		_teamOneRows = teamOneRows;
 		_teamTwoRows = teamTwoRows;
 		_endGame = endGame;
-		_shotHistory = shotHistory;
 		_activityRef = activityRef;
 		
 		_heatingUpSound = heatingUpSound;
 		_onFireSound = onFireSound;
+		
+		_historyLayout = historyLayout;
+		_historySeparator = historySeparator;
 		
 		_rules = new ArrayList<String>(4);
 		
@@ -200,6 +207,18 @@ public class Game
 		setupCupButtons();
 		setupEndGameButton();
 		setupRules(extras);
+		
+		TextView shotHistoryTitle = new TextView(_context);
+		
+		shotHistoryTitle.setText("Shot History");
+		shotHistoryTitle.setTextColor(Color.BLACK);
+		shotHistoryTitle.setPadding(10, 5, 10, 5);
+		shotHistoryTitle.setBackgroundColor(Color.parseColor("#FFCC00"));
+		shotHistoryTitle.setTextSize(20);
+		
+		new Utilities().setFont(_context, shotHistoryTitle);
+		
+		_historyLayout.addView(shotHistoryTitle);
 	}
 	
 	/* The core method of the Game class. Acts as the 'onCreate()' method
@@ -689,7 +708,6 @@ public class Game
 		String str = null;
 		
 		str = _context.getString(R.string.shot_history_overtime) + _overtimeCount;
-		str += "\n--------------------------------------------------\n";
 		
 		concatenateShotHistory(str);
 	}
@@ -1286,20 +1304,37 @@ public class Game
 	
 	private void showAchievements()
 	{
+		_historyLayout.removeAllViews();
+
+		_historyLayout.addView(_endGame);
+		_historyLayout.addView(_historySeparator);
+		
 		int[] achievements = null;
 		boolean gotAchievement = false;
 		
-		_shotHistory.setGravity(Gravity.LEFT);
+		TextView achievementsEarned = new TextView(_context);
+		TextView achievementPlayer;
+		int count = 0;
 		
-		_shotHistoryString = "Achievements Earned\n-----------------------------\n\n";
+		achievementsEarned.setText("Achievements Earned");
+		achievementsEarned.setTextColor(Color.BLACK);
+		achievementsEarned.setPadding(10, 5, 10, 5);
+		achievementsEarned.setBackgroundColor(Color.parseColor("#FFCC00"));
+		achievementsEarned.setTextSize(20);
+		
+		new Utilities().setFont(_context, achievementsEarned);
+		
+		_historyLayout.addView(achievementsEarned);
 		
 		for (PongPlayer player : _players)
 		{
+			achievementPlayer = new TextView(_context);
+			
 			gotAchievement = false;
 			
 			achievements = player.getAchievements();
 			
-			_shotHistoryString += player.getName() + ": ";
+			_shotHistoryString = player.getName() + ": ";
 			
 			for (int i = 0; i < achievements.length; i++)
 			{
@@ -1323,12 +1358,28 @@ public class Game
 				_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
 			}
 			
-			_shotHistoryString += "\n\n";
+			achievementPlayer.setText(_shotHistoryString);
+			achievementPlayer.setTextColor(Color.BLACK);
+			achievementPlayer.setPadding(10, 5, 10, 5);
+			achievementPlayer.setBackgroundColor((count % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
+			
+			new Utilities().setFont(_context, achievementPlayer);
+			
+			_historyLayout.addView(achievementPlayer);
+			
+			count++;
 		}
 		
-		_shotHistoryString += "*Note: Unlockable achievements do not appear here. They can be viewed on the website.";
+		TextView unlockableAchievements = new TextView(_context);
 		
-		_shotHistory.setText(_shotHistoryString);
+		unlockableAchievements.setText("*Note: Unlockable achievements do not appear here. They can be viewed on the website.");
+		unlockableAchievements.setTextColor(Color.BLACK);
+		unlockableAchievements.setPadding(10, 5, 10, 5);
+		unlockableAchievements.setBackgroundColor(Color.WHITE);
+		
+		new Utilities().setFont(_context, unlockableAchievements);
+		
+		_historyLayout.addView(unlockableAchievements);
 	}
 	
 	private void processFinalStats()
@@ -1407,9 +1458,18 @@ public class Game
 			_shotHistoryString = "";
 		}
 		
-		_shotHistoryString += str;
+		TextView textView = new TextView(_context);
 		
-		_shotHistory.setText(_shotHistoryString);
+		textView.setText(str);
+		textView.setTextColor(Color.BLACK);
+		textView.setBackgroundColor((_shotCount % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
+		textView.setPadding(10, 5, 10, 5);
+		
+		new Utilities().setFont(_context, textView);
+		
+		_shotCount++;
+		
+		_historyLayout.addView(textView);
 	}
 	
 	public boolean getStatsUpdatedSuccessfully()

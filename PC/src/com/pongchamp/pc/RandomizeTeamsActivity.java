@@ -5,11 +5,13 @@ import java.util.Random;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.SparseBooleanArray;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +30,6 @@ public class RandomizeTeamsActivity extends Activity
 {
 	PCUser _activeUser = null;
 	
-	Spinner _spinnerInRaffle = null;
-	
 	Button _randomizeButton = null;
 	
 	TextView _playerOne = null;
@@ -41,12 +41,14 @@ public class RandomizeTeamsActivity extends Activity
 	
 	LinearLayout _layout;
 	ScrollView _subLayout;
+	LinearLayout _subLayoutLinear;
 	
 	ListView _playersList;
 	
 	ArrayList<String> _selectedItems;
 	
 	ArrayAdapter<String> _playersInRaffle = null;
+	ArrayList<TextView> _playerTextViews = null;
 		
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
@@ -55,8 +57,6 @@ public class RandomizeTeamsActivity extends Activity
 		setContentView(R.layout.activity_randomize);
 		
 		Bundle extras = getIntent().getExtras();
-		
-		_spinnerInRaffle = (Spinner) findViewById(R.id.randomizeteams_spinnerInRaffle);
 		
 		_randomizeButton = (Button) findViewById(R.id.randomizeteams_submitRandomization);
 		
@@ -69,6 +69,7 @@ public class RandomizeTeamsActivity extends Activity
 		
 		_layout = (LinearLayout) findViewById(R.id.randomizeteams_layout);
 		_subLayout = (ScrollView) findViewById(R.id.randomizeteams_sublayout);
+		_subLayoutLinear = (LinearLayout) findViewById(R.id.randomizeteams_sublayout_linear);
 		
 		// Initially hide the visibility of everything
 		// except the ListView.
@@ -281,7 +282,38 @@ public class RandomizeTeamsActivity extends Activity
 					_playersInRaffle.add(p);
 				}
 				
-				_spinnerInRaffle.setAdapter(_playersInRaffle);
+				if (_playerTextViews == null)
+				{
+					_playerTextViews = new ArrayList<TextView>();
+				}
+				
+				for (TextView tv : _playerTextViews)
+				{
+					_subLayoutLinear.removeView(tv);
+				}
+				
+				_playerTextViews.clear();
+				
+				TextView playerView;
+				int count = 0;
+				
+				for (String p : _selectedItems)
+				{
+					playerView = new TextView(getApplicationContext());
+					
+					playerView.setText(p);
+					playerView.setTextColor(Color.BLACK);
+					playerView.setPadding(10, 5, 10, 5);
+					playerView.setBackgroundColor((count % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
+					
+					new Utilities().setFont(getApplicationContext(), playerView);
+					
+					_playerTextViews.add(playerView);
+					
+					_subLayoutLinear.addView(playerView, (count + 1));
+					
+					count++;
+				}
 			}
 		});
 	}
