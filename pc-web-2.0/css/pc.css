@@ -1,0 +1,483 @@
+/*TAGS*/
+body
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+
+	font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+/*DIVS*/
+#top
+{
+	padding: 10px;
+}
+
+#top img
+{
+	display: block;
+	margin: 0 auto;
+}
+
+#middle
+{
+	width: 100%;
+	padding-top: 10px;
+	text-align: center;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	height: 60px;
+
+	background: #fc0;
+}
+
+#bottom
+{
+	width: 100%;
+}
+
+#bottom_left
+{
+	width: 180px;
+	float: left;
+}
+
+#bottom_right
+{
+	margin-left: 180px;
+	border-left: 1px solid #000;
+	min-height: 1100px;
+	padding: 15px;
+
+	background-image: url('../imgs/background.png');
+}
+
+#bottom_right a
+{
+	color: #c92200;
+}
+
+#bottom_right a:hover
+{
+	color: #f2ab1e;
+}
+
+#bottom_right ul
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	margin-top: -10px;
+	margin-left: 5px;
+}
+
+#bottom_right li
+{
+	padding-bottom: 5px;
+}
+
+#bottom_right h3
+{
+	color: #c92200;
+}
+
+#stat_list
+{
+	/*float: left;*/
+}
+
+#side_menu_container
+{
+
+}
+
+#side_menu_container ul
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+#side_menu_container ul ul
+{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	display: none;
+}
+
+#side_menu_container ul ul li
+{
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+
+	margin-top: -1px;
+}
+
+#side_menu_container ul li:hover ul
+{
+	display: block;
+}
+
+#side_menu_container li
+{
+	width: 164px;
+	padding: 1ex;
+	position: relative;
+	border-bottom: 1px solid #000;
+
+	/*background: #fff;*/
+}
+
+#side_menu_container li:hover
+{
+	background: #fc0;
+}
+
+#side_menu_container a
+{
+	color: #c92200;
+}
+
+#side_menu_container a:hover
+{
+	color: #000;
+}
+
+#home_imgs
+{
+	text-align: center;
+}
+
+#home_imgs img
+{
+	border: 1px solid #000;
+}
+
+#recent_results
+{
+	height: 30px;
+	border-bottom: 1px solid #000;
+	text-align: center;
+}
+
+#error_msg
+{
+	color: #c92200;
+	text-align: center;
+	width: 500px;
+}
+
+#welcome_msg
+{
+
+}
+
+#logout_form
+{
+	display: inline-block;
+	text-align: center;
+	margin-top: 7px;
+}
+
+#logout_form table td
+{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#login_form
+{
+	font-family: 'Alegreya Sans SC', sans-serif;
+
+	display: inline-block;
+	text-align: center;
+}
+
+#login_form a
+{
+	color: #c92200;
+}
+
+#login_form a:hover
+{
+	color: #f2ab1e;
+}
+
+#welcome
+{
+
+}
+
+#need_account
+{
+	margin-top: -12px;
+	text-align: center;
+}
+
+#footer
+{
+	text-align: center;
+	border-top: 1px solid #000;
+	font-size: 14px;
+	background: #eaeaea;
+	height: 30px;
+}
+
+#footer p
+{
+	margin-top: 5px;
+}
+
+#registration
+{
+	margin-bottom: 10px;
+	width: 500px;
+}
+
+#registration td
+{
+	padding: 5px;
+}
+
+#unlockable_achievement_list
+{
+	padding: 10px;
+	padding-left: 10px;
+	display: inline-block;
+}
+
+#ind_rank
+{
+	margin-bottom: 20px;
+}
+
+#ind_rank span
+{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+/*CLASSES*/
+.stats_table
+{
+	margin-top: 10px;
+}
+
+.stats_table td
+{
+	padding: 5px;
+}
+
+.stats_table th
+{
+	text-align: left;
+	padding: 5px;
+	text-decoration: underline;
+}
+
+.odd
+{
+	background: #ffe794;
+}
+
+.even
+{
+	background-color: #fff2c4;
+}
+
+.milestone td
+{
+	padding: 5px;
+}
+
+.milestone_meter
+{
+	border: 1px solid #000;
+	width: 400px;
+}
+
+.milestone_header
+{
+	margin-bottom: 0px;
+}
+
+.incomplete
+{
+	color: #c92200;
+}
+
+.completed
+{
+	color: #7eb13c;
+}
+
+.get_app img
+{
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.get_app_prompt
+{
+	text-align: center;
+}
+
+.get_app_desc
+{
+	padding: 10px;
+	font-size: 12px;
+}
+
+.boldify
+{
+	background: #eaeaea;
+}
+
+.stats_table_header_row
+{
+	background: #fc0;
+}
+
+.stats_divider
+{
+	margin-bottom: 20px;
+}
+
+.stats_divider table
+{
+	margin-right: 50px;
+}
+
+.fixed_cell
+{
+	width: 50px;
+}
+
+.fixed_cell_large
+{
+	width: 80px;
+}
+
+.highlight_cell:hover
+{
+	background: #fc0;
+	cursor: pointer;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.show_pointer
+{
+	cursor: pointer;
+}
+
+.all_time_stats
+{
+	margin-top: 20px;
+	/*float: left;*/
+}
+
+.all_time_stats td
+{
+	padding: 5px;
+	max-width: 280px;
+}
+
+.all_time_stats th
+{
+	text-align: left;
+	padding: 5px;
+	width: 250px;
+}
+
+.row0
+{
+	background: #ffe794;
+}
+
+.row1
+{
+	background: #fff2c4;
+}
+
+.sub_heading
+{
+	margin-bottom: -5px;
+}
+
+.side_menu_first_child
+{
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+.form_input
+{
+	font-family: 'Alegreya Sans SC', sans-serif;
+
+	height: 30px;
+	vertical-align: middle;
+	padding: 5px;
+	font-size: 15px;
+}
+
+.form_submit
+{
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+	background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f');
+	background-color:#f24537;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #d02718;
+	display:inline-block;
+	color:#ffffff;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:30px;
+	width:110px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #810e05;
+	vertical-align: middle;
+}
+
+.form_submit:hover
+{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+	background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+	background-color:#c62d1f;
+}
+
+.form_submit:active
+{
+	position:relative;
+	top:1px;
+}
+
