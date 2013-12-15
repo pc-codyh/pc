@@ -390,7 +390,7 @@ public class MenuActivity extends Activity
     {
     	_activeUsername.setText(R.string.menu_not_logged_in);
     	
-    	_activeUsername.setBackgroundColor(Color.WHITE);
+    	_activeUsername.setBackgroundColor(Color.parseColor("#FFCC00"));
     	
     	_activeUser = null;
     	
