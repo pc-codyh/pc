@@ -69,15 +69,16 @@ public class RegisterActivity extends Activity
         					    _confirmPasswordPrompt,
         					    _usernameField,
         					    _passwordField,
-        					    _confirmPasswordField);
+        					    _confirmPasswordField,
+        					    _submitRegistration);
     }
 	
 	private void onSubmitRegistrationPressed()
 	{
 		if (_hasRegistered)
 		{
-			_submitRegistration.setBackgroundResource(R.drawable.back);
-			_submitRegistration.setText("");
+			_submitRegistration.setBackgroundResource(R.drawable.button);
+			_submitRegistration.setText("Back");
 			
 			_usernameField.setEnabled(false);
 			_passwordField.setEnabled(false);

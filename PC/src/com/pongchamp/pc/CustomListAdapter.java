@@ -101,25 +101,31 @@ public class CustomListAdapter extends ArrayAdapter<String>
 					
 				case 3:
 				{
-					image.setImageResource(R.drawable.createplayer_icon);
+					image.setImageResource(R.drawable.achievements_icon);
 				}
 					break;
 					
 				case 4:
 				{
-					image.setImageResource(R.drawable.randomteams_icon);
+					image.setImageResource(R.drawable.createplayer_icon);
 				}
 					break;
 					
 				case 5:
 				{
-					image.setImageResource(R.drawable.changerules_icon);
+					image.setImageResource(R.drawable.randomteams_icon);
 				}
 					break;
 					
 				case 6:
 				{
-					image.setImageResource(R.drawable.playgame_icon);
+					image.setImageResource(R.drawable.changerules_icon);
+				}
+					break;
+					
+				case 7:
+				{
+					image.setImageResource(R.drawable.play_icon);
 				}
 					break;
 					

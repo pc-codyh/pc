@@ -63,15 +63,16 @@ public class CreatePlayerActivity extends Activity
         new Utilities().setFont(getApplicationContext(),
         						_createPlayerResultText,
         						_namePrompt,
-        						_newPlayerName);
+        						_newPlayerName,
+        						_submitButton);
 	}
 	
 	public void onSubmitButtonPressed()
 	{
 		if (_didCreatePlayer)
 		{
-			_submitButton.setBackgroundResource(R.drawable.back);
-			_submitButton.setText("");
+			_submitButton.setBackgroundResource(R.drawable.button);
+			_submitButton.setText("Back");
 			
 			_newPlayerName.setEnabled(false);
 			
@@ -84,7 +85,26 @@ public class CreatePlayerActivity extends Activity
 			{
 				if (!_didCreatePlayer)
 				{
-					new PerformBackgroundTaskCreatePlayer().execute();
+					if (_newPlayerName.getText().toString().equals(""))
+					{
+						_createPlayerResultImage.setImageResource(R.drawable.xmark);
+						_createPlayerResultText.setText(R.string.nameless);
+						
+						_createPlayerResultImage.setVisibility(View.VISIBLE);
+				        _createPlayerResultText.setVisibility(View.VISIBLE);
+					}
+					else if (_newPlayerName.getText().toString().equalsIgnoreCase("and"))
+					{
+						_createPlayerResultImage.setImageResource(R.drawable.xmark);
+						_createPlayerResultText.setText(R.string.name_and);
+						
+						_createPlayerResultImage.setVisibility(View.VISIBLE);
+				        _createPlayerResultText.setVisibility(View.VISIBLE);
+					}
+					else
+					{
+						new PerformBackgroundTaskCreatePlayer().execute();
+					}
 				}
 				else
 				{

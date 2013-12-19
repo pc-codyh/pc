@@ -67,9 +67,9 @@ body
 {
 	margin: 0;
 	padding: 0;
-	list-style-type: none;
+	list-style-type: square;
 	margin-top: -10px;
-	margin-left: 5px;
+	margin-left: 20px;
 }
 
 #bottom_right li
@@ -333,6 +333,17 @@ body
 	font-size: 12px;
 }
 
+.season
+{
+	color: #c92200;
+}
+
+.show_all
+{
+	font-size: 12px;
+	padding: 5px;
+}
+
 .boldify
 {
 	background: #eaeaea;
@@ -385,7 +396,12 @@ body
 	/*float: left;*/
 }
 
-.all_time_stats td
+.icon
+{
+	width: 50px;
+}
+
+.desc
 {
 	padding: 5px;
 	max-width: 280px;
@@ -465,6 +481,11 @@ body
 	text-align:center;
 	text-shadow:1px 1px 0px #810e05;
 	vertical-align: middle;
+}
+
+.matchup_submit
+{
+	font-size: 14px;
 }
 
 .form_submit:hover

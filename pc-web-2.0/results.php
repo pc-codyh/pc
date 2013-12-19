@@ -145,7 +145,7 @@ if (isset($_SESSION['username']))
 										echo '<td class="highlight_cell"><a href="team_profiles.php?team='.$losing_team.'">'.$losing_team.'</a></td>';
 										echo '<td class="fixed_cell">'.$cups_remaining.'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_results_query, $i, 'number_of_ots').'</td>';
-										echo '<td class="highlight_cell"><a href="head_to_head.php?team1='.$winning_team.'&team2='.$losing_team.'">'.$result_date.'</a></td>';
+										echo '<td class="highlight_cell"><a href="detail.php?game='.mysql_result($run_results_query, $i, 'id').'">'.$result_date.'</a></td>';
 										echo '</tr>';
 
 										$i++;

@@ -1,43 +1,43 @@
 Registering an account
 
-- You must have a valid Pong Champ account in order to use the app and track stats. An account can be created for free by pressing 'Register' from the main menu and entering the required credentials.
+You must have a valid Pong Champ account in order to use the app and track stats. An account can be created for free by pressing 'Register' from the main menu and entering the required credentials.
 
 
 Logging in
 
-- Once you have created an account, you can log in to that account by pressing 'Login' from the main menu and entering your username and password.
+Once you have created an account, you can log in to that account by pressing 'Login' from the main menu and entering your username and password.
 
 
 Logging out
 
-- If you successfully log in, the 'Login' button will become a 'Logout' button. Upon pressing this, you will be prompted to confirm your logout.
+If you successfully log in, the 'Login' button will become a 'Logout' button. Upon pressing this, you will be prompted to confirm your logout.
 
 
 Viewing Stats
 
-- Once you have successfully logged in, you can view your players' stats at any time by pressing the 'View Stats' button from the main menu of the app, or by accessing www.pongchamp.com and entering your username.
+Once you have successfully logged in, you can view your players' stats at any time by pressing the 'View Stats' button from the main menu of the app, or by accessing www.pongchamp.com and entering your username.
 
 
 Creating a new player
 
-- Without any players you can't play any games. A new player can be created by pressing 'Create Player' from the main menu and entering a new name.
+Without any players you can't play any games. A new player can be created by pressing 'Create Player' from the main menu and entering a new name.
 
 
 Randomizing teams
 
-- When you can't decide for yourselves what the teams are going to be, Pong Champ comes loaded with a team randomizer. The team randomizer can be accessed by pressing 'Random Teams' from the main menu. This screen allows you to add players to a virtual raffle. Upon pressing 'Randomize' four players will be selected out of all the players in the raffle to create two teams. This does not subsequently begin a game, it just allows you to randomize the teams separately.
+When you can't decide for yourselves what the teams are going to be, Pong Champ comes loaded with a team randomizer. The team randomizer can be accessed by pressing 'Random Teams' from the main menu. This screen allows you to add players to a virtual raffle. Upon pressing 'Randomize' four players will be selected out of all the players in the raffle to create two teams. This does not automatically begin a game in case you want to re-shuffle the teams. However, you can begin a new game with the randomized teams by pressing the "Quick Play" button once the teams have been randomized.
 
 
 Changing rules
 
-- Pressing 'Change Rules' from the main menu will allow you to choose which rules to play with from a subset of rules.
+Pressing 'Change Rules' from the main menu will allow you to choose which rules to play with from a subset of rules.
 
 
 Playing a game
 
-- Once you have created at least four players (because you need four players to play a game) you can record a game by pressing 'Play Game' from the main menu. This will initially bring you to the choose teams screen where you will choose the players playing in the game. Once four different players have been selected, you can advance by pressing 'Play Game' once again. This will bring you to the game itself where you will record your stats.
+Once you have created at least four players (because you need four players to play a game) you can record a game by pressing 'Play Game' from the main menu. This will initially bring you to the choose teams screen where you will choose the players playing in the game. Once four different players have been selected, you can advance by pressing 'Play Game' once again. This will bring you to the game itself where you will record your stats.
 
-- To perform an action, click on the icon beside a player's name. This icon shows the player's overall rank, but it also opens up an action window where you can choose from one of five shot types depending on what the player just did. Pressing one of the five options will dismiss the action screen and load that shot type as the active shot type. You then have to "lock that in" by pressing on one of the cups. Choosing "Hit", "Bounce", or "Gang Bang" will allow you to choose from the opponents cups. Pressing your own cups in this case will do nothing. Pressing "Error" will allow you to choose from your own cups. An error is something like a cup spill, dropping the ball into your own cup, etc. Pressing "Miss" will lock a miss in right away.
+To perform an action, click on the icon beside a player's name. This icon shows the player's overall rank, but it also opens up an action window where you can choose from one of five shot types depending on what the player just did. Pressing one of the five options will dismiss the action screen and load that shot type as the active shot type. You then have to "lock that in" by pressing on one of the cups. Choosing "Hit", "Bounce", or "Gang Bang" will allow you to choose from the opponents cups. Pressing your own cups in this case will do nothing. Pressing "Error" will allow you to choose from your own cups. An error is something like a cup spill, dropping the ball into your own cup, etc. Pressing "Miss" will lock a miss in right away.
 
-- Once one team has no cups remaining and redemption shots have (or haven't in the case you don't play with redemptions) been taken, you can upload your game to the website (www.pongchamp.com) by pressing "End Game" from the shot history tab. You can then view your stats by going to the website and entering your username on the home page.
+Once one team has no cups remaining and redemption shots have (or haven't in the case you don't play with redemptions) been taken, you can upload your game to the website (www.pongchamp.com) by pressing "End Game" from the shot history tab. You can then view your stats by going to the website and entering your username on the home page.
 

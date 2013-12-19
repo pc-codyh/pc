@@ -90,6 +90,7 @@ public class PlayGameActivity extends Activity
 	LinearLayout _historyLayout = null;
 	
 	TextView _historySeparator = null;
+	TextView _historyTitle = null;
 	
 	ArrayList<TableRow> _teamOneRows = null;
 	ArrayList<TableRow> _teamTwoRows = null;
@@ -112,6 +113,7 @@ public class PlayGameActivity extends Activity
 		_historyLayout = (LinearLayout) findViewById(R.id.playgame_historyTab);
 		
 		_historySeparator = (TextView) findViewById(R.id.playgame_history_separator);
+		_historyTitle = (TextView) findViewById(R.id.playgame_history_title);
 		
 		setupRows();
 		
@@ -199,7 +201,9 @@ public class PlayGameActivity extends Activity
 								_teamOnePlayerOneName,
 								_teamOnePlayerTwoName,
 								_teamTwoPlayerOneName,
-								_teamTwoPlayerTwoName);
+								_teamTwoPlayerTwoName,
+								_endGame,
+								_historyTitle);
 	}
 	
 	@Override
@@ -506,7 +510,8 @@ public class PlayGameActivity extends Activity
 						 _heatingUpSound,
 						 _onFireSound,
 						 _historyLayout,
-						 _historySeparator);
+						 _historySeparator,
+						 _historyTitle);
 
 		_game.startGame();
 		

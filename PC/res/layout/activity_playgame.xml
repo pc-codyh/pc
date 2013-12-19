@@ -3,11 +3,13 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF" >
-    
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background" >
+    
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     android:orientation="vertical" >
 
     <TabHost
@@ -25,216 +27,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
             </TabWidget>
-
+
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FFFFFF" >
-
-                <LinearLayout
-                    android:id="@+id/playgame_statsTab"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" >
-
-                    <TableRow
-                        android:id="@+id/tableRow1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
-
-                        <TextView
-                            android:id="@+id/playgame_teamOnePlayerOneStatsName"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/playgame_teamOnePlayerOneNBAJam"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:gravity="right"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TextView
-                        android:id="@+id/playgame_teamOnePlayerOneShooting"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FFE794"
-                        android:padding="10dp"
-                        android:text="TextView" />
-
-                    <TableRow
-                        android:id="@+id/TableRow01"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
-
-                        <TextView
-                            android:id="@+id/playgame_teamOnePlayerTwoStatsName"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/playgame_teamOnePlayerTwoNBAJam"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:gravity="right"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TextView
-                        android:id="@+id/playgame_teamOnePlayerTwoShooting"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FFE794"
-                        android:padding="10dp"
-                        android:text="TextView" />
-
-                    <TableRow
-                        android:id="@+id/TableRow02"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
-
-                        <TextView
-                            android:id="@+id/playgame_teamTwoPlayerOneStatsName"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/playgame_teamTwoPlayerOneNBAJam"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:gravity="right"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TextView
-                        android:id="@+id/playgame_teamTwoPlayerOneShooting"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FFE794"
-                        android:padding="10dp"
-                        android:text="TextView" />
-
-                    <TableRow
-                        android:id="@+id/TableRow03"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
-
-                        <TextView
-                            android:id="@+id/playgame_teamTwoPlayerTwoStatsName"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/playgame_teamTwoPlayerTwoNBAJam"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".25"
-                            android:background="#FFCC33"
-                            android:gravity="right"
-                            android:paddingBottom="5dp"
-                            android:paddingLeft="10dp"
-                            android:paddingRight="10dp"
-                            android:paddingTop="5dp"
-                            android:text="Username"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TextView
-                        android:id="@+id/playgame_teamTwoPlayerTwoShooting"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#FFE794"
-                        android:padding="10dp"
-                        android:text="TextView" />
-                </LinearLayout>
+                android:background="#00FFFFFF" >
 
                 <LinearLayout
                     android:id="@+id/playgame_historyTab"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
-
+
                     <Button
                         android:id="@+id/playgame_endGameButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/endgame"
-                        android:minHeight="80dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button"
+                        android:minHeight="40dp"
                         android:minWidth="120dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="15dp" />
-
+                        android:text="End Game"
+                        android:textColor="#FFFFFF" />
+
                     <TextView
                         android:id="@+id/playgame_history_separator"
                         android:layout_width="fill_parent"
@@ -243,6 +61,19 @@
                         android:background="#FFFFFF"
                         android:gravity="center"
                         android:height="1dp" />
+
+                    <TextView
+                        android:id="@+id/playgame_history_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFCC00"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:text="Shot History"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
 
                     <ScrollView
                         android:id="@+id/scrollView1"
@@ -267,7 +98,7 @@
                         android:id="@+id/tableRow5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <Button
                             android:id="@+id/playgame_teamOnePlayerOneButton"
                             android:layout_width="wrap_content"
@@ -278,7 +109,7 @@
                             android:maxWidth="25dp"
                             android:minHeight="50dp"
                             android:minWidth="0dp"
-                            android:paddingBottom="2dp"
+                            android:paddingBottom="4dp"
                             android:text="1"
                             android:textColor="#000000"
                             android:textSize="18dp" />
@@ -289,7 +120,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
                             android:text="Player One" />
-
+
                         <Button
                             android:id="@+id/playgame_teamOnePlayerTwoButton"
                             android:layout_width="wrap_content"
@@ -300,7 +131,7 @@
                             android:maxWidth="25dp"
                             android:minHeight="50dp"
                             android:minWidth="0dp"
-                            android:paddingBottom="2dp"
+                            android:paddingBottom="4dp"
                             android:text="1"
                             android:textColor="#000000"
                             android:textSize="18dp" />
@@ -421,7 +252,7 @@
                             android:minHeight="50dp"
                             android:minWidth="40dp" />
                     </TableRow>
-
+
                     <TextView
                         android:id="@+id/textView1"
                         android:layout_width="fill_parent"
@@ -437,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:minHeight="50dp" >
-
+
                         <Button
                             android:id="@+id/playgame_teamTwoCup1"
                             android:layout_width="wrap_content"
@@ -445,6 +276,7 @@
                             android:background="@drawable/cup_button"
                             android:minHeight="50dp"
                             android:minWidth="40dp" />
+
                     </TableRow>
 
                     <TableRow
@@ -547,7 +379,7 @@
                         android:id="@+id/TableRow05"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
-
+
                         <Button
                             android:id="@+id/playgame_teamTwoPlayerOneButton"
                             android:layout_width="wrap_content"
@@ -558,7 +390,7 @@
                             android:maxWidth="25dp"
                             android:minHeight="50dp"
                             android:minWidth="0dp"
-                            android:paddingBottom="2dp"
+                            android:paddingBottom="4dp"
                             android:text="1"
                             android:textColor="#000000"
                             android:textSize="18dp" />
@@ -569,7 +401,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
                             android:text="Player One" />
-
+
                         <Button
                             android:id="@+id/playgame_teamTwoPlayerTwoButton"
                             android:layout_width="wrap_content"
@@ -580,7 +412,7 @@
                             android:maxWidth="25dp"
                             android:minHeight="50dp"
                             android:minWidth="0dp"
-                            android:paddingBottom="2dp"
+                            android:paddingBottom="4dp"
                             android:text="1"
                             android:textColor="#000000"
                             android:textSize="18dp" />
@@ -592,6 +424,184 @@
                             android:layout_weight="3"
                             android:text="Player Two" />
                     </TableRow>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/playgame_statsTab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TableRow
+                        android:id="@+id/tableRow1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playgame_teamOnePlayerOneStatsName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight=".25"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/playgame_teamOnePlayerOneNBAJam"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight=".25"
+                            android:gravity="right"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/playgame_teamOnePlayerOneShooting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="TextView"
+                        android:textSize="16dp" />
+
+                    <TableRow
+                        android:id="@+id/TableRow01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playgame_teamOnePlayerTwoStatsName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/playgame_teamOnePlayerTwoNBAJam"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:gravity="right"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/playgame_teamOnePlayerTwoShooting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="TextView"
+                        android:textSize="16dp" />
+
+                    <TableRow
+                        android:id="@+id/TableRow02"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playgame_teamTwoPlayerOneStatsName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/playgame_teamTwoPlayerOneNBAJam"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:gravity="right"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/playgame_teamTwoPlayerOneShooting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="TextView"
+                        android:textSize="16dp" />
+
+                    <TableRow
+                        android:id="@+id/TableRow03"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playgame_teamTwoPlayerTwoStatsName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/playgame_teamTwoPlayerTwoNBAJam"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".25"
+                            android:gravity="right"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="Username"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TextView
+                        android:id="@+id/playgame_teamTwoPlayerTwoShooting"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="TextView"
+                        android:textSize="16dp" />
+
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

@@ -21,7 +21,8 @@ public class Utilities
 	{
 		for (TextView view : views)
 		{
-			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF"), Typeface.BOLD);
+//			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "CALIBRI.TTF"), Typeface.BOLD);
+			view.setTypeface(Typeface.createFromAsset(context.getAssets(), "ALEGREYA.ttf"), Typeface.BOLD);
 		}
 	}
 	

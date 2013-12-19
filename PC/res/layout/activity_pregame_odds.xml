@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="10dp" >
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/odds_prompt"
@@ -19,7 +18,7 @@
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold" />
-
+
     <TextView
         android:id="@+id/odds_team_one_names"
         android:layout_width="wrap_content"
@@ -27,8 +26,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Player One and Player Two"
-        android:textSize="15dp" />
-
+        android:textSize="18dp" />
+
     <TextView
         android:id="@+id/odds_team_one_record"
         android:layout_width="wrap_content"
@@ -36,16 +35,16 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="0-0-0"
-        android:textSize="14dp" />
-
+        android:textSize="18dp" />
+
     <TextView
         android:id="@+id/odds_team_one_spread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Spread: +1.5 Odds: 1.91"
-        android:textSize="12dp" />
-
+        android:textSize="14dp" />
+
     <TextView
         android:id="@+id/odds_versus_prompt"
         android:layout_width="wrap_content"
@@ -53,17 +52,18 @@
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:text="VS."
+        android:text="VS"
+        android:textSize="16dp"
         android:textStyle="bold" />
-
+
     <TextView
         android:id="@+id/odds_team_two_spread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Spread: -1.5 Odds: 1.91"
-        android:textSize="12dp" />
-
+        android:textSize="14dp" />
+
     <TextView
         android:id="@+id/odds_team_two_record"
         android:layout_width="wrap_content"
@@ -71,14 +71,14 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="0-0-0"
-        android:textSize="14dp" />
-
+        android:textSize="18dp" />
+
     <TextView
         android:id="@+id/odds_team_two_names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Player Three and Player Four"
-        android:textSize="15dp" />
+        android:textSize="18dp" />
 
 </LinearLayout>

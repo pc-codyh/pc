@@ -3,25 +3,24 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#FFFFFF"
+        android:background="@drawable/background"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/menu_activeUsername"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="#FFFFFF"
+            android:background="#FFCC33"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="10dp"
             android:text="Active Username" />
 
         <ListView
             android:id="@+id/mainmenu_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF" >
 
         </ListView>
 

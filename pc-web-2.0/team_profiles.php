@@ -41,7 +41,7 @@ if (isset($_SESSION['username']))
 		}
 	}
 
-	if (isset($_GET['player_one']) && isset($_GET['player_two']))
+	if (isset($_GET['player_one']) && isset($_GET['player_two']) && ($_GET['player_one'] != $_GET['player_two']))
 	{
 		if (!stripos($_GET['player_one'], 'drop database') && !stripos($_GET['player_two'], 'drop database'))
 		{
@@ -281,7 +281,7 @@ if (isset($_SESSION['username']))
 										echo '<td class="highlight_cell"><a href="team_profiles.php?team='.$losing_team.'">'.$losing_team.'</a></td>';
 										echo '<td class="fixed_cell">'.$cups_remaining.'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_results_query, $i, 'number_of_ots').'</td>';
-										echo '<td class="highlight_cell"><a href="head_to_head.php?team1='.$winning_team.'&team2='.$losing_team.'">'.$result_date.'</a></td>';
+										echo '<td class="highlight_cell"><a href="detail.php?game='.mysql_result($run_results_query, $i, 'id').'">'.$result_date.'</a></td>';
 										echo '</tr>';
 
 										$i++;
@@ -317,6 +317,7 @@ if (isset($_SESSION['username']))
 												}
 											?>
 										</select>
+										<span> and </span>
 										<select name="player_two" class="form_input">
 											<?php 
 												$i = 0;

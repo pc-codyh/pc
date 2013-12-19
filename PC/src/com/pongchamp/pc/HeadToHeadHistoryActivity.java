@@ -1,7 +1,11 @@
 package com.pongchamp.pc;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -9,7 +13,6 @@ import org.apache.http.message.BasicNameValuePair;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -61,7 +64,8 @@ public class HeadToHeadHistoryActivity extends Activity
 								_headtoheadTitle,
 								_headtoheadRecordsTitle,
 								_headtoheadRecords,
-								_headtoheadResults);
+								_headtoheadResults,
+								_headtoheadPlayGame);
 		
 		populateScreen();
 	}
@@ -147,7 +151,7 @@ public class HeadToHeadHistoryActivity extends Activity
 		
 		for (ArrayList<NameValuePair> result : games)
 		{
-			gameResults = "";
+			gameResults = Integer.toString(count + 1) + ". ";
 			
 			if (Integer.parseInt(result.get(ID_TEAM_ONE_CUPS).getValue()) >
 			    Integer.parseInt(result.get(ID_TEAM_TWO_CUPS).getValue()))
@@ -247,12 +251,27 @@ public class HeadToHeadHistoryActivity extends Activity
 				}
 			}
 			
-			gameResults += ". " + result.get(ID_DATE).getValue();
+			SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd");
+			Date gameDay = null;
+			
+			try
+			{
+				gameDay = input.parse(result.get(ID_DATE).getValue());
+			}
+			catch (ParseException e) 
+			{
+				// The date could not be parsed.
+				e.printStackTrace();
+			}
+			
+			SimpleDateFormat output = new SimpleDateFormat("MMMM dd, yyyy");
+			String dateToString = output.format(gameDay);
+			
+			gameResults += " on " + dateToString;
 			
 			newResult = new TextView(getApplicationContext());
 			
 			newResult.setText(gameResults);
-			newResult.setBackgroundColor(Color.parseColor(((count % 2) == 0) ? "#FFE794" : "#FFF2C4"));
 			newResult.setTextColor(Color.BLACK);
 			newResult.setPadding(10, 5, 10, 5);
 			
@@ -268,7 +287,6 @@ public class HeadToHeadHistoryActivity extends Activity
 		
 		_headtoheadRecords.setText(record);
 		_headtoheadRecords.setTextColor(Color.BLACK);
-		_headtoheadRecords.setBackgroundColor(Color.parseColor("#FFE794"));
 		_headtoheadRecords.setPadding(10, 5, 10, 5);
 	}
 	

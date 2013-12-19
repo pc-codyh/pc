@@ -69,7 +69,8 @@ public class LoginActivity extends Activity
         					    _usernamePrompt,
         					    _passwordPrompt,
         					    _username,
-        					    _password);
+        					    _password,
+        					    _submitLogin);
 	}
 	
 	private void loadPersistentUsername()

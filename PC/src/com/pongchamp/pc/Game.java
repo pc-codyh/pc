@@ -18,7 +18,9 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -105,6 +107,7 @@ public class Game
 	TableRow _centerRow = null;
 	TextView _centerSeparator = null;
 	TextView _historySeparator = null;
+	TextView _historyTitle = null;
 	
 	String _shotHistoryString = null;
 	
@@ -128,7 +131,8 @@ public class Game
 				MediaPlayer heatingUpSound,
 				MediaPlayer onFireSound,
 				LinearLayout historyLayout,
-				TextView historySeparator)
+				TextView historySeparator,
+				TextView historyTitle)
 	{
 		_context = context;
 		_gameLayout = gameLayout;
@@ -142,6 +146,7 @@ public class Game
 		
 		_historyLayout = historyLayout;
 		_historySeparator = historySeparator;
+		_historyTitle = historyTitle;
 		
 		_rules = new ArrayList<String>(4);
 		
@@ -207,18 +212,6 @@ public class Game
 		setupCupButtons();
 		setupEndGameButton();
 		setupRules(extras);
-		
-		TextView shotHistoryTitle = new TextView(_context);
-		
-		shotHistoryTitle.setText("Shot History");
-		shotHistoryTitle.setTextColor(Color.BLACK);
-		shotHistoryTitle.setPadding(10, 5, 10, 5);
-		shotHistoryTitle.setBackgroundColor(Color.parseColor("#FFCC00"));
-		shotHistoryTitle.setTextSize(20);
-		
-		new Utilities().setFont(_context, shotHistoryTitle);
-		
-		_historyLayout.addView(shotHistoryTitle);
 	}
 	
 	/* The core method of the Game class. Acts as the 'onCreate()' method
@@ -380,6 +373,8 @@ public class Game
 				{
 					if (gameIsOver())
 					{
+						_endGame.setEnabled(false);
+						_endGame.setText("Uploading...");
 						processFinalStats();
 					}
 					else
@@ -1205,93 +1200,162 @@ public class Game
 		_shouldEnterOvertime = true;
 	}
 	
-	private String addAchievementToString(int id)
+	private TableRow addAchievement(int id)
 	{
+		TableRow row = new TableRow(_context);
+		ImageView icon = new ImageView(_context);
+		TextView title = new TextView(_context);
+		
+		row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+														TableRow.LayoutParams.WRAP_CONTENT));
+		row.setPadding(10, 10, 10, 10);
+		title.setPadding(10, 0, 0, 0);
+		title.setTextColor(Color.parseColor("#777777"));
+		
+		// Add icon and title here.
 		switch (id)
 		{
 			case 0:
 			{
-				return "Sharpshooter";
+				icon.setImageResource(R.drawable.sharpshooter);
+				title.setText("Sharpshooter");
+				
+				break;
 			}
 			
 			case 1:
 			{
-				return "Michael Jordan";
+				icon.setImageResource(R.drawable.michael_jordan);
+				title.setText("Michael Jordan");
+				
+				break;
 			}
 			
 			case 2:
 			{
-				return "Can I Buy A Vowel?";
+				icon.setImageResource(R.drawable.the_kid_can_play);
+				title.setText("The Kid Can Play");
+				
+				break;
 			}
 			
 			case 3:
 			{
-				return "Bankruptcy";
+				icon.setImageResource(R.drawable.bankruptcy);
+				title.setText("Bankruptcy");
+				
+				break;
 			}
 			
 			case 4:
 			{
-				return "Comeback Kill";
+				icon.setImageResource(R.drawable.comeback_kill);
+				title.setText("Comeback Kill");
+				
+				break;
 			}
 			
 			case 5:
 			{
-				return "Heartbreak City";
+				icon.setImageResource(R.drawable.heartbreak_city);
+				title.setText("Heartbreak City");
+				
+				break;
 			}
 			
 			case 6:
 			{
-				return "Caught With Their Pants Down";
+				icon.setImageResource(R.drawable.caught_with_their_pants_down);
+				title.setText("Caught With Their Pants Down");
+				
+				break;
 			}
 			
 			case 7:
 			{
-				return "Porn Star";
+				icon.setImageResource(R.drawable.porn_star);
+				title.setText("Porn Star");
+				
+				break;
 			}
 			
 			case 8:
 			{
-				return "Stevie Wonder";
+				icon.setImageResource(R.drawable.stevie_wonder);
+				title.setText("Stevie Wonder");
+				
+				break;
 			}
 			
 			case 9:
 			{
-				return "Perfection";
+				icon.setImageResource(R.drawable.perfection);
+				title.setText("Perfection");
+				
+				break;
 			}
 			
 			case 10:
 			{
-				return "Down But Not Out";
+				icon.setImageResource(R.drawable.down_but_not_out);
+				title.setText("Down But Not Out");
+				
+				break;
 			}
 			
 			case 12:
 			{
-				return "Bill Buckner";
+				icon.setImageResource(R.drawable.bill_buckner);
+				title.setText("Bill Buckner");
+				
+				break;
 			}
 			
 			case 13:
 			{
-				return "Bitch Cup";
+				icon.setImageResource(R.drawable.bitch_cup);
+				title.setText("Bitch Cup");
+				
+				break;
 			}
 			
 			case 14:
 			{
-				return "Marathon";
+				icon.setImageResource(R.drawable.marathon);
+				title.setText("Marathon");
+				
+				break;
 			}
 			
 			case 15:
 			{
-				return "First Degree Murder";
+				icon.setImageResource(R.drawable.first_degree_murder);
+				title.setText("First Degree Murder");
+				
+				break;
 			}
 			
 			case 16:
 			{
-				return "Skunked";
+				icon.setImageResource(R.drawable.skunked);
+				title.setText("Skunked");
+				
+				break;
 			}
 			
 			default:
-				return "";
+			{
+				// Do nothing.
+				break;
+			}
 		}
+		
+		new Utilities().setFont(_context, title);
+		
+		row.addView(icon);
+		row.addView(title);
+		
+		return row;
 	}
 	
 	public void updatePartnerHeartbreakCityStatus()
@@ -1308,23 +1372,25 @@ public class Game
 
 		_historyLayout.addView(_endGame);
 		_historyLayout.addView(_historySeparator);
+		_historyLayout.addView(_historyTitle);
+		_historyTitle.setText("Achievements Earned");
 		
 		int[] achievements = null;
 		boolean gotAchievement = false;
 		
-		TextView achievementsEarned = new TextView(_context);
+//		TextView achievementsEarned = new TextView(_context);
 		TextView achievementPlayer;
 		int count = 0;
 		
-		achievementsEarned.setText("Achievements Earned");
-		achievementsEarned.setTextColor(Color.BLACK);
-		achievementsEarned.setPadding(10, 5, 10, 5);
-		achievementsEarned.setBackgroundColor(Color.parseColor("#FFCC00"));
-		achievementsEarned.setTextSize(20);
+//		achievementsEarned.setText("Achievements Earned");
+//		achievementsEarned.setTextColor(Color.BLACK);
+//		achievementsEarned.setPadding(10, 5, 10, 5);
+//		achievementsEarned.setBackgroundColor(Color.parseColor("#FFCC00"));
+//		achievementsEarned.setTextSize(20);
 		
-		new Utilities().setFont(_context, achievementsEarned);
+//		new Utilities().setFont(_context, achievementsEarned);
 		
-		_historyLayout.addView(achievementsEarned);
+//		_historyLayout.addView(achievementsEarned);
 		
 		for (PongPlayer player : _players)
 		{
@@ -1334,48 +1400,39 @@ public class Game
 			
 			achievements = player.getAchievements();
 			
-			_shotHistoryString = player.getName() + ": ";
-			
-			for (int i = 0; i < achievements.length; i++)
-			{
-				if (achievements[i] > 0)
-				{
-					gotAchievement = true;
-					
-					_shotHistoryString += addAchievementToString(i) + ", ";
-					
-					// If an unlockable achievement is earned, don't
-					// add it to the list.
-					if (addAchievementToString(i).equals(""))
-					{
-						_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
-					}
-				}
-			}
-			
-			if (gotAchievement)
-			{
-				_shotHistoryString = _shotHistoryString.substring(0, _shotHistoryString.length() - 2);
-			}
+			_shotHistoryString = player.getName() + ":";
 			
 			achievementPlayer.setText(_shotHistoryString);
 			achievementPlayer.setTextColor(Color.BLACK);
 			achievementPlayer.setPadding(10, 5, 10, 5);
-			achievementPlayer.setBackgroundColor((count % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
 			
 			new Utilities().setFont(_context, achievementPlayer);
 			
 			_historyLayout.addView(achievementPlayer);
+			
+			TableLayout iconTable = new TableLayout(_context);
+			
+			for (int i = 0; i < achievements.length; i++)
+			{
+				// Don't show unlockable achievements in case
+				// the player hasn't unlocked them yet.
+				if (achievements[i] > 0 && i < 17)
+				{
+					iconTable.addView(addAchievement(i));
+				}
+			}
+			
+			_historyLayout.addView(iconTable);
 			
 			count++;
 		}
 		
 		TextView unlockableAchievements = new TextView(_context);
 		
-		unlockableAchievements.setText("*Note: Unlockable achievements do not appear here. They can be viewed on the website.");
+		unlockableAchievements.setText("Note: Unlockable achievements do not appear here. They can be viewed on the website.");
 		unlockableAchievements.setTextColor(Color.BLACK);
-		unlockableAchievements.setPadding(10, 5, 10, 5);
-		unlockableAchievements.setBackgroundColor(Color.WHITE);
+		unlockableAchievements.setPadding(10, 10, 10, 10);
+		unlockableAchievements.setBackgroundColor(Color.TRANSPARENT);
 		
 		new Utilities().setFont(_context, unlockableAchievements);
 		
@@ -1462,14 +1519,16 @@ public class Game
 		
 		textView.setText(str);
 		textView.setTextColor(Color.BLACK);
-		textView.setBackgroundColor((_shotCount % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
 		textView.setPadding(10, 5, 10, 5);
+		textView.setGravity(Gravity.RIGHT);
 		
 		new Utilities().setFont(_context, textView);
 		
 		_shotCount++;
 		
-		_historyLayout.addView(textView);
+		// Add the shot in chronological order.
+		// Most recent shot is at top.
+		_historyLayout.addView(textView, 4);
 	}
 	
 	public boolean getStatsUpdatedSuccessfully()
@@ -1528,14 +1587,19 @@ public class Game
 			{
 				Toast.makeText(_context, R.string.stats_updated_successfully, Toast.LENGTH_LONG).show();
 				
-				_endGame.setBackgroundResource(R.drawable.exit);
+				_endGame.setBackgroundResource(R.drawable.button);
+				_endGame.setText("Exit");
 				
 				showAchievements();
 			}
 			else
 			{
 				Toast.makeText(_context, R.string.stats_updated_failure, Toast.LENGTH_LONG).show();
+				
+				_endGame.setText("End Game");
 			}
+			
+			_endGame.setEnabled(true);
 		}
 	}
 	

@@ -22,7 +22,8 @@ if (isset($_POST['login']))
 
 			if ($run_login_query = mysql_query($login_query))
 			{
-				if (mysql_num_rows($run_login_query) == 1)
+				// Make sure password is case sensitive as well.
+				if (mysql_num_rows($run_login_query) == 1  && strcmp(mysql_result($run_login_query, 0, 'password'), $password) == 0)
 				{
 					// User successfully logged in.
 					$login_msg = 'Login successful.';

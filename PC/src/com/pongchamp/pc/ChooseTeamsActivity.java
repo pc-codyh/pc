@@ -60,7 +60,8 @@ public class ChooseTeamsActivity extends Activity
 		new Utilities().setFont(getApplicationContext(),
 								_teamOnePrompt,
 								_teamTwoPrompt,
-								_currentRulesPrompt);
+								_currentRulesPrompt,
+								_playGameButton);
 	}
 	
 	private void displayCurrentRules()
@@ -79,8 +80,6 @@ public class ChooseTeamsActivity extends Activity
 			
 			rule.setPadding(20, 5, 20, 5);
 			rule.setTextColor(Color.BLACK);
-			
-			rule.setBackgroundColor((Color.parseColor((i % 2 == 0) ? "#FFE794" : "#FFF2C4")));
 			
 			switch (i)
 			{
@@ -194,7 +193,6 @@ public class ChooseTeamsActivity extends Activity
 	{
 		Bundle extras = getIntent().getExtras();
 		
-//		Intent intent = new Intent(ChooseTeamsActivity.this, PlayGameActivity.class);
 		Intent intent = new Intent(ChooseTeamsActivity.this, HeadToHeadHistoryActivity.class);
 		
 		intent.putExtra("TeamOnePlayerOne", _teamOnePlayerOne.getSelectedItem().toString());

@@ -57,74 +57,90 @@ if (isset($_SESSION['username']))
 				<h3>The Good</h3>
 				<table class="all_time_stats">
 					<tr>
+						<td class="icon"><img src="imgs/sharpshooter.png" alt="icon" height="30" width="30"></td>
 						<th>Sharpshooter</th>
-						<td>Hit five cups in a row in a game</td>
+						<td class="desc">Hit five cups in a row in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/michael_jordan.png" alt="icon" height="30" width="30"></td>
 						<th>Michael Jordan</th>
-						<td>Go on fire two or more times in a game</td>
+						<td class="desc">Go on fire two or more times in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/the_kid_can_play.png" alt="icon" height="30" width="30"></td>
 						<th>The Kid Can Play</th>
-						<td>Sink all the cups for your team in a game (and your team must win)</td>
+						<td class="desc">Sink all the cups for your team in a game (and your team must win)</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/heartbreak_city.png" alt="icon" height="30" width="30"></td>
 						<th>Heartbreak City</th>
-						<td>Win a game after being down by five or more cups</td>
+						<td class="desc">Win a game after being down by five or more cups</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/caught_with_their_pants_down.png" alt="icon" height="30" width="30"></td>
 						<th>Caught With Their Pants Down</th>
-						<td>Hit two or more bounce shots in a game</td>
+						<td class="desc">Hit two or more bounce shots in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/porn_star.png" alt="icon" height="30" width="30"></td>
 						<th>Porn Star</th>
-						<td>Hit two or more gang-bangs in a game</td>
+						<td class="desc">Hit two or more gang-bangs in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/perfection.png" alt="icon" height="30" width="30"></td>
 						<th>Perfection</th>
-						<td>Shoot one-hundred percent in a game</td>
+						<td class="desc">Shoot one-hundred percent in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/down_but_not_out.png" alt="icon" height="30" width="30"></td>
 						<th>Down But Not Out</th>
-						<td>As an individual, successfully complete two or more redemptions in a game</td>
+						<td class="desc">As an individual, successfully complete two or more redemptions in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/marathon.png" alt="icon" height="30" width="30"></td>
 						<th>Marathon</th>
-						<td>Compete in a game that goes to triple overtime</td>
+						<td class="desc">Compete in a game that goes to triple overtime</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/first_degree_murder.png" alt="icon" height="30" width="30"></td>
 						<th>First Degree Murder</th>
-						<td>Win a game before the other team gets a re-rack (ten-cup start)</td>
+						<td class="desc">Win a game before the other team gets a re-rack (ten-cup start)</td>
 					</tr>
 				</table>
 				<h3>The Bad</h3>
 				<table class="all_time_stats">
 					<tr>
+						<td class="icon"><img src="imgs/comeback_kill.png" alt="icon" height="30" width="30"></td>
 						<th>Comeback Kill</th>
-						<td>Sink a cup after missing five or more shots in a row</td>
+						<td class="desc">Sink a cup after missing five or more shots in a row</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/bill_buckner.png" alt="icon" height="30" width="30"></td>
 						<th>Bill Buckner</th>
-						<td>Commit two or more errors in a game</td>
+						<td class="desc">Commit two or more errors in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/bitch_cup.png" alt="icon" height="30" width="30"></td>
 						<th>Bitch Cup</th>
-						<td>Hit the middle cup first on a ten-cup rack</td>
+						<td class="desc">Hit the middle cup first on a ten-cup rack</td>
 					</tr>
 				</table>
 				<h3>The Ugly</h3>
 				<table class="all_time_stats">
 					<tr>
+						<td class="icon"><img src="imgs/bankruptcy.png" alt="icon" height="30" width="30"></td>
 						<th>Bankruptcy</th>
-						<td>Sink no cups in a game</td>
+						<td class="desc">Sink no cups in a game</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/skunked.png" alt="icon" height="30" width="30"></td>
 						<th>Skunked</th>
-						<td>Lose a game before getting a re-rack (ten-cup start)</td>
+						<td class="desc">Lose a game before getting a re-rack (ten-cup start)</td>
 					</tr>
 					<tr>
+						<td class="icon"><img src="imgs/stevie_wonder.png" alt="icon" height="30" width="30"></td>
 						<th>Stevie Wonder</th>
-						<td>Miss ten shots in a row in a game</td>
+						<td class="desc">Miss ten shots in a row in a game</td>
 					</tr>
 				</table>
 			</div>

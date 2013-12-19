@@ -14,7 +14,8 @@ if ($runQuery = mysql_query($query))
 {
 	$numRows = mysql_num_rows($runQuery);
 	
-	if ($numRows == 1)
+	// Make sure password is case sensitive as well.
+	if ($numRows == 1 && strcmp(mysql_result($runQuery, 0, 'password'), $_GET['password']) == 0)
 	{
 		echo 1;
 	}

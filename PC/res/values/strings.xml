@@ -53,4 +53,6 @@
     <string name="shot_history_overtime">The game has entered overtime #</string>   
     <string name="quit_game_confirmation">Are you sure you want to exit? Any unsaved information will be lost.</string>
     <string name="no_internet_connection">No internet connection available. Please wait for a valid internet connection.</string> 
+    <string name="nameless">You must enter at least one character.</string>
+    <string name="name_and">"AND" cannot be used as a player name.</string> 
 </resources>

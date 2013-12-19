@@ -3,14 +3,28 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF" >
-    
+    android:background="@drawable/background" >
+    
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/headtohead_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/headtohead_playgame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:minHeight="40dp"
+        android:minWidth="120dp"
+        android:text="Play"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/headtohead_title"
@@ -51,17 +65,6 @@
         android:layout_marginTop="10dp"
         android:text="Results:"
         android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/headtohead_playgame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/icn_play_game"
-        android:minHeight="90dp"
-        android:minWidth="90dp"
-        android:textColor="#FFFFFF" />
 
 </LinearLayout>
 </ScrollView>

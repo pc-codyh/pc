@@ -51,10 +51,11 @@ public class MenuActivity extends Activity
 	
 	final int LOGOUT		= 0;
 	final int VIEWSTATS		= 1;
-	final int CREATEPLAYER	= 3;
-	final int RANDOMTEAMS	= 4;
-	final int CHANGERULES	= 5;
-	final int PLAYGAME		= 6;
+	final int ACHIEVEMENTS	= 3;
+	final int CREATEPLAYER	= 4;
+	final int RANDOMTEAMS	= 5;
+	final int CHANGERULES	= 6;
+	final int PLAYGAME		= 7;
 	
 	public enum RulesEnum
 	{
@@ -88,23 +89,6 @@ public class MenuActivity extends Activity
         _activeUsername = (TextView) findViewById(R.id.menu_activeUsername);
         
         _mainMenu = (ListView) findViewById(R.id.mainmenu_list);
-       
-//        ArrayList<String> rows = new ArrayList<String>();
-//        
-//        rows.add("Register");
-//        rows.add("Login");
-//        rows.add("Help");
-//        
-//        ArrayAdapter<String> adapter = new CustomListAdapter(this, android.R.layout.simple_list_item_1, rows);
-//        
-//        for (int i = 0; i < rows.size(); i++)
-//        {
-//        	adapter.add("Placeholder");
-//        }
-//        
-//        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-//        
-//        _mainMenu.setAdapter(adapter);
         
         onListViewItemClick();
         
@@ -219,6 +203,12 @@ public class MenuActivity extends Activity
 						}
 							break;
 							
+						case ACHIEVEMENTS:
+						{
+							onAchievementsButtonPressed();
+						}
+							break;
+							
 						case CREATEPLAYER:
 						{
 							onCreatePlayerButtonPressed();
@@ -264,6 +254,7 @@ public class MenuActivity extends Activity
     		rows.add("Logout");
             rows.add("View Stats");
             rows.add("Help");
+            rows.add("Achievements");
             rows.add("Create Player");
             rows.add("Random Teams");
             rows.add("Change Rules");
@@ -390,7 +381,7 @@ public class MenuActivity extends Activity
     {
     	_activeUsername.setText(R.string.menu_not_logged_in);
     	
-    	_activeUsername.setBackgroundColor(Color.WHITE);
+    	_activeUsername.setBackgroundColor(Color.parseColor("#FFCC00"));
     	
     	_activeUser = null;
     	
@@ -427,7 +418,11 @@ public class MenuActivity extends Activity
     public void onHelpButtonPressed()
     {
 		openHelpWindow();
-
+    }
+    
+    public void onAchievementsButtonPressed()
+    {
+    	openAchievementsWindow();
     }
     
     public void openRegisterWindow()
@@ -465,6 +460,11 @@ public class MenuActivity extends Activity
     	
     	intent.putExtra("ActiveUsername", _activeUser.getUsername());
     	intent.putStringArrayListExtra("Players", _players);
+    	
+    	intent.putExtra("StartingCups", _rules.get(RulesEnum.STARTING_CUPS.getValue()).getValue().toString());
+		intent.putExtra("BouncesWorth", _rules.get(RulesEnum.BOUNCES_WORTH.getValue()).getValue().toString());
+		intent.putExtra("BounceInRedemption", _rules.get(RulesEnum.BOUNCE_IN_REDEMP.getValue()).getValue().toString());
+		intent.putExtra("NBAJam", _rules.get(RulesEnum.NBA_JAM.getValue()).getValue().toString());
     	
     	MenuActivity.this.startActivity(intent);
     	
@@ -506,6 +506,15 @@ public class MenuActivity extends Activity
     public void openHelpWindow()
     {
     	Intent intent = new Intent(MenuActivity.this, HelpActivity.class);
+    	
+    	MenuActivity.this.startActivity(intent);
+    	
+    	overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    
+    public void openAchievementsWindow()
+    {
+    	Intent intent = new Intent(MenuActivity.this, AchievementsActivity.class);
     	
     	MenuActivity.this.startActivity(intent);
     	

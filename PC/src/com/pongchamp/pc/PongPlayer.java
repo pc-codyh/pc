@@ -121,13 +121,13 @@ public class PongPlayer
 	final int ID_MAR			= 14;	// Marathon
 	final int ID_FDM			= 15;	// First Degree Murder
 	final int ID_SKUNK			= 16;	// Skunked
-	final int ID_ALC			= 17;	// Alcoholic
-	final int ID_OAH			= 18;	// On A Heater
-	final int ID_CE				= 19;	// Count 'Em
-	final int ID_SLIP			= 20; 	// Slippery
-	final int ID_DCIAC			= 21; 	// Don't Call It A Comeback
-	final int ID_DTH			= 22;	// Dropping The Hammer
-	final int ID_SHOW			= 23;	// Showman
+	final int ID_BD				= 17;	// Binge Drinker
+	final int ID_SU				= 18;	// Superstar
+	final int ID_SK				= 19;	// Serial Killer
+	final int ID_MAG			= 20; 	// Magician
+	final int ID_IMM			= 21; 	// Immortal
+	final int ID_MARK			= 22;	// Marksman
+	final int ID_SIA			= 23;	// Seen It All
 	final int ID_ACH_COUNT		= 24;
 	
 	// Achievements earned this game.
@@ -184,6 +184,7 @@ public class PongPlayer
 	
 	String _getPlayerURL = "http://www.pongchamp.com/getplayer.php";
 	String _updateStatsURL = "http://www.pongchamp.com/updatestats.php";
+	String _updateSeasonStatsURL = "http://192.168.1.68/pc-web-2.0/update_season.php";
 	
 	public PongPlayer(PongPlayerDisplay display, int id, Game gameRef, Context context, PCUser pcUser, int playerID, MediaPlayer heatingUpSound, MediaPlayer onFireSound)
 	{
@@ -597,7 +598,7 @@ public class PongPlayer
 		// (21) Slippery [Hit two consecutive bounce shots without missing]
 		if (_lastShotBounce == true)
 		{
-			stat_achievement[ID_SLIP] = 1;
+			stat_achievement[ID_MAG] = 1;
 		}
 		
 		updateHeartbreakCityStatus();
@@ -901,13 +902,13 @@ public class PongPlayer
 		// (20) Count 'Em [Hit ten cups in a game]
 		if (stat_shotsHit >= 10)
 		{
-			stat_achievement[ID_CE] = 1;
+			stat_achievement[ID_SK] = 1;
 		}
 		
 		// (23) Dropping The Hammer [Hit three last cups in a game]
 		if (stat_hitsPerCup.get(0) >= 3)
 		{
-			stat_achievement[ID_DTH] = 1;
+			stat_achievement[ID_MARK] = 1;
 		}
 		
 		fillStats();
@@ -981,6 +982,122 @@ public class PongPlayer
 				}
 				
 				result = httpHelper.executeHttpPost(nameValuePairs, _updateStatsURL);
+				
+				ArrayList<NameValuePair> seasonStats = new ArrayList<NameValuePair>();
+				
+				seasonStats.add(new BasicNameValuePair("username", _activeUser.getUsername()));
+				seasonStats.add(new BasicNameValuePair("name", name));
+				
+				seasonStats.add(new BasicNameValuePair("hit_streak", Integer.toString(stat_highestHitStreak)));
+				seasonStats.add(new BasicNameValuePair("miss_streak", Integer.toString(stat_highestMissStreak)));
+				seasonStats.add(new BasicNameValuePair("shots", Integer.toString(stat_shotsTaken)));
+				seasonStats.add(new BasicNameValuePair("hits", Integer.toString(stat_shotsHit)));
+				seasonStats.add(new BasicNameValuePair("bounces", Integer.toString(stat_bouncesHit)));
+				seasonStats.add(new BasicNameValuePair("gang_bangs", Integer.toString(stat_gangBangsHit)));
+				seasonStats.add(new BasicNameValuePair("errors", Integer.toString(stat_errorsCommitted)));
+				seasonStats.add(new BasicNameValuePair("heating_up", Integer.toString(stat_heatingUp)));
+				seasonStats.add(new BasicNameValuePair("on_fire", Integer.toString(stat_onFire)));
+				seasonStats.add(new BasicNameValuePair("redemp_shots", Integer.toString(stat_redemptionShotsTaken)));
+				seasonStats.add(new BasicNameValuePair("redemp_hits", Integer.toString(stat_redemptionShotsHit)));
+				seasonStats.add(new BasicNameValuePair("redemp_atmps", Integer.toString(stat_redemptionAttempts)));
+				seasonStats.add(new BasicNameValuePair("redemp_succs", Integer.toString(stat_redemptionSuccesses)));
+				
+				count = 0;
+				
+				for (int shotsPerCup : stat_shotsPerCup)
+				{
+					count ++;
+					
+					seasonStats.add(new BasicNameValuePair("s" + count, Integer.toString(shotsPerCup)));
+				}
+				
+				count = 0;
+				
+				for (int hitsPerCup : stat_hitsPerCup)
+				{
+					count++;
+					
+					seasonStats.add(new BasicNameValuePair("h" + count, Integer.toString(hitsPerCup)));
+				}
+				
+				count = 0;
+				
+				// Unlockable Achievements are not tracked per season.
+				for (int achievement : stat_achievement)
+				{
+					seasonStats.add(new BasicNameValuePair("ach" + count, Integer.toString(achievement)));
+					
+					count++;
+				}
+				
+				// Only update ELO rating for last player to execute POST.
+				if (_gameRef.getRequestCount() == 3)
+				{
+					seasonStats.add(new BasicNameValuePair("ELO", "1"));
+					
+					switch (_playerID)
+					{
+						case 0:
+						{
+							seasonStats.add(new BasicNameValuePair("teammate", _gameRef.getPlayer(1).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent1", _gameRef.getPlayer(2).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent2", _gameRef.getPlayer(3).getName()));
+						}
+							break;
+							
+						case 1:
+						{
+							seasonStats.add(new BasicNameValuePair("teammate", _gameRef.getPlayer(0).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent1", _gameRef.getPlayer(2).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent2", _gameRef.getPlayer(3).getName()));
+						}
+							break;
+							
+						case 2:
+						{
+							seasonStats.add(new BasicNameValuePair("teammate", _gameRef.getPlayer(3).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent1", _gameRef.getPlayer(0).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent2", _gameRef.getPlayer(1).getName()));
+						}
+							break;
+							
+						case 3:
+						{
+							seasonStats.add(new BasicNameValuePair("teammate", _gameRef.getPlayer(2).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent1", _gameRef.getPlayer(0).getName()));
+							seasonStats.add(new BasicNameValuePair("opponent2", _gameRef.getPlayer(1).getName()));
+						}
+							break;
+							
+						default:
+							break;
+					}
+				}
+				
+				// Add win/loss information.
+				if (_opponentCupsRemaining == 0)
+				{
+					seasonStats.add(new BasicNameValuePair("result", "2"));
+				}
+				else
+				{
+					if (_gameRef.getOvertimeCount() > 0)
+					{
+						seasonStats.add(new BasicNameValuePair("result", "1"));
+					}
+					else
+					{
+						seasonStats.add(new BasicNameValuePair("result", "0"));
+					}
+				}
+				
+				seasonStats.add(new BasicNameValuePair("cup_dif", Integer.toString(_ownCupsRemaining - _opponentCupsRemaining)));
+				seasonStats.add(new BasicNameValuePair("overtime", (_gameRef.getOvertimeCount() > 0) ? "1" : "0"));
+				
+				// Can fail.
+				String seasonResult = httpHelper.executeHttpPost(seasonStats, _updateSeasonStatsURL);
+				
+				System.out.println(seasonResult);
 			}
 			else
 			{
@@ -1072,7 +1189,7 @@ public class PongPlayer
 					//		go on to win the game in the first overtime]
 					if (stat_redemptionSuccesses == 1 && _gameRef.getOvertimeCount() == 1)
 					{
-						stat_achievement[ID_DCIAC] = 1;
+						stat_achievement[ID_IMM] = 1;
 					}
 					
 					updateCanIBuyAVowelAchievement();

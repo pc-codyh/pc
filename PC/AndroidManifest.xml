@@ -68,6 +68,11 @@
             android:screenOrientation="portrait"
             android:label="">
         </activity>
+        <activity
+            android:name=".AchievementsActivity"
+            android:screenOrientation="portrait"
+            android:label="">
+        </activity>
     </application>
 
 </manifest>

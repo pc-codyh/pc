@@ -31,6 +31,7 @@ public class RandomizeTeamsActivity extends Activity
 	PCUser _activeUser = null;
 	
 	Button _randomizeButton = null;
+	Button _quickPlay = null;
 	
 	TextView _playerOne = null;
 	TextView _playerTwo = null;
@@ -38,6 +39,7 @@ public class RandomizeTeamsActivity extends Activity
 	TextView _playerFour = null;
 	TextView _inRafflePrompt = null;
 	TextView _versusPrompt = null;
+	TextView _selectPlayers = null;
 	
 	LinearLayout _layout;
 	ScrollView _subLayout;
@@ -49,6 +51,8 @@ public class RandomizeTeamsActivity extends Activity
 	
 	ArrayAdapter<String> _playersInRaffle = null;
 	ArrayList<TextView> _playerTextViews = null;
+	
+	final int ID_PLAY_GAME = 1;
 		
 	@SuppressLint("NewApi")
 	public void onCreate(Bundle savedInstanceState)
@@ -59,6 +63,7 @@ public class RandomizeTeamsActivity extends Activity
 		Bundle extras = getIntent().getExtras();
 		
 		_randomizeButton = (Button) findViewById(R.id.randomizeteams_submitRandomization);
+		_quickPlay = (Button) findViewById(R.id.randomizeteams_quick_play);
 		
 		_playerOne = (TextView) findViewById(R.id.randomizeteams_playerOne);
 		_playerTwo = (TextView) findViewById(R.id.randomizeteams_playerTwo);
@@ -66,6 +71,7 @@ public class RandomizeTeamsActivity extends Activity
 		_playerFour = (TextView) findViewById(R.id.randomizeteams_playerFour);
 		_inRafflePrompt = (TextView) findViewById(R.id.randomizeteams_in_raffle_prompt);
 		_versusPrompt = (TextView) findViewById(R.id.randomizeteams_versus_prompt);
+		_selectPlayers = (TextView) findViewById(R.id.randomizeteams_select_players);
 		
 		_layout = (LinearLayout) findViewById(R.id.randomizeteams_layout);
 		_subLayout = (ScrollView) findViewById(R.id.randomizeteams_sublayout);
@@ -86,6 +92,7 @@ public class RandomizeTeamsActivity extends Activity
 		_activeUser = new PCUser(username);
 		
 		onRandomizeButtonPressed();
+		onQuickPlayButtonPressed();
 		loadPlayers();
 		
 		setOnListViewClickListener();
@@ -96,7 +103,13 @@ public class RandomizeTeamsActivity extends Activity
 				                _playerThree,
 				                _playerFour,
 				                _inRafflePrompt,
-				                _versusPrompt);
+				                _versusPrompt,
+				                _selectPlayers,
+				                _randomizeButton,
+				                _quickPlay);
+		
+		_versusPrompt.setVisibility(View.INVISIBLE);
+		_quickPlay.setVisibility(View.INVISIBLE);
 	}
 	
 	public void onRandomizeButtonPressed()
@@ -115,6 +128,33 @@ public class RandomizeTeamsActivity extends Activity
 				{
 					Toast.makeText(getApplicationContext(), R.string.less_than_four_in_raffle, Toast.LENGTH_LONG).show();
 				}
+			}
+		});
+	}
+	
+	public void onQuickPlayButtonPressed()
+	{
+		_quickPlay.setOnClickListener(new View.OnClickListener()
+		{
+			public void onClick(View v)
+			{
+				Bundle extras = getIntent().getExtras();
+				
+				Intent intent = new Intent(RandomizeTeamsActivity.this, HeadToHeadHistoryActivity.class);
+				
+				intent.putExtra("StartingCups", extras.getString("StartingCups"));
+				intent.putExtra("BouncesWorth", extras.getString("BouncesWorth"));
+				intent.putExtra("BounceInRedemption", extras.getString("BounceInRedemption"));
+				intent.putExtra("NBAJam", extras.getString("NBAJam"));
+				
+				intent.putExtra("ActiveUsername", extras.getString("ActiveUsername"));
+				
+				intent.putExtra("TeamOnePlayerOne", _playerOne.getText().toString());
+				intent.putExtra("TeamOnePlayerTwo", _playerTwo.getText().toString());
+				intent.putExtra("TeamTwoPlayerOne", _playerThree.getText().toString());
+				intent.putExtra("TeamTwoPlayerTwo", _playerFour.getText().toString());
+				
+				RandomizeTeamsActivity.this.startActivityForResult(intent, ID_PLAY_GAME);	
 			}
 		});
 	}
@@ -184,6 +224,7 @@ public class RandomizeTeamsActivity extends Activity
 	{
 		_randomizeButton.setEnabled(false);
 		_randomizeButton.setText("");
+		_quickPlay.setEnabled(false);
 		
 		new CountDownTimer(4000, 1000)
 		{
@@ -195,8 +236,14 @@ public class RandomizeTeamsActivity extends Activity
 				_playerThree.setText(pThree);
 				_playerFour.setText(pFour);
 				
+				_versusPrompt.setVisibility(View.VISIBLE);
+				
 				_randomizeButton.setEnabled(true);
-				_randomizeButton.setBackgroundResource(R.drawable.randomize);
+				_randomizeButton.setBackgroundResource(R.drawable.button);
+				_randomizeButton.setText("Randomize");
+				
+				_quickPlay.setEnabled(true);
+				_quickPlay.setVisibility(View.VISIBLE);
 			}
 
 			@Override
@@ -304,7 +351,6 @@ public class RandomizeTeamsActivity extends Activity
 					playerView.setText(p);
 					playerView.setTextColor(Color.BLACK);
 					playerView.setPadding(10, 5, 10, 5);
-					playerView.setBackgroundColor((count % 2 == 0) ? Color.parseColor("#FFE794") : Color.parseColor("#FFF2C4"));
 					
 					new Utilities().setFont(getApplicationContext(), playerView);
 					

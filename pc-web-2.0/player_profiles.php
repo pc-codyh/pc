@@ -26,6 +26,7 @@ if (isset($_SESSION['username']))
 	}
 
 	$playerName = '';
+	$profile_table = 'players';
 
 	if (isset($_GET['player']))
 	{
@@ -37,56 +38,79 @@ if (isset($_SESSION['username']))
 	}
 
 	///////////////////
+	// Seasons Query //
+	///////////////////
+	$run_seasons_query = mysql_query('SELECT `season` FROM `seasons` WHERE 1');
+	///////////////////
+
+	if (isset($_GET['season']))
+	{
+		$run_get_season_query = mysql_query('SELECT * FROM `seasons` WHERE `season`="'.$_GET['season'].'"');
+
+		if (mysql_num_rows($run_get_season_query) == 1)
+		{
+			$profile_table = $_GET['season'];
+
+			$season_title = '';
+
+			$index = strpos($profile_table, '_');
+			$season_title = substr($profile_table, $index + 1);
+			$index = strpos($season_title, '_');
+			$season_title = ucfirst(substr($season_title, 0, $index).' '.substr($season_title, $index + 1));
+		}
+	}
+
+	///////////////////
 	// Query Players //
-	$players_query = 'SELECT `name` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" ORDER BY `name` ASC';
+	$players_query = 'SELECT `name` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" ORDER BY `name` ASC';
 	$run_players_query = mysql_query($players_query);
 	///////////////////
 
 	////////////////
 	// Query Rank //
-	$rank_query = 'SELECT `name`, `rank`, `elo_rating`, `compound_rating` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$rank_query = 'SELECT `name`, `rank`, `elo_rating`, `compound_rating` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_rank_query = mysql_query($rank_query);
 	////////////////
 
 	//////////////////
 	// Query Record //
-	$record_query = 'SELECT `name`, `wins`, `losses`, `ot_losses`, `ot_games_played`, `cup_dif` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$record_query = 'SELECT `name`, `wins`, `losses`, `ot_losses`, `ot_games_played`, `cup_dif` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_record_query = mysql_query($record_query);
 	//////////////////
 
 	////////////////////
 	// Query Shooting //
-	$shooting_query = 'SELECT `name`, `shots`, `hits`, `shooting_percentage`, `bounces`, `gang_bangs`, `errors`, `heating_up`, `on_fire`, `h1` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$shooting_query = 'SELECT `name`, `shots`, `hits`, `shooting_percentage`, `bounces`, `gang_bangs`, `errors`, `heating_up`, `on_fire`, `h1` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_shooting_query = mysql_query($shooting_query);
 	////////////////////
 
 	///////////////////
 	// Query Streaks //
-	$streaks_query = 'SELECT `name`, `win_streak`, `loss_streak`, `hit_streak`, `miss_streak` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$streaks_query = 'SELECT `name`, `win_streak`, `loss_streak`, `hit_streak`, `miss_streak` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_streaks_query = mysql_query($streaks_query);
 	///////////////////
 
 	//////////////////////
 	// Query Redemption //
-	$redemption_query = 'SELECT `name`, `redemp_shotperc`, `redemp_shots`, `redemp_hits`, `redemp_atmps`, `redemp_succs` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$redemption_query = 'SELECT `name`, `redemp_shotperc`, `redemp_shots`, `redemp_hits`, `redemp_atmps`, `redemp_succs` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_redemption_query = mysql_query($redemption_query);
 	//////////////////////
 
 	/////////////////////////
 	// Query Rack Shooting //
-	$rack_query = 'SELECT `name`, `p10`, `p9`, `p8`, `p7`, `p6`, `p5`, `p4`, `p3`, `p2`, `p1`, `h1` FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$rack_query = 'SELECT `name`, `p10`, `p9`, `p8`, `p7`, `p6`, `p5`, `p4`, `p3`, `p2`, `p1`, `h1` FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_rack_query = mysql_query($rack_query);
 	/////////////////////////
 
 	////////////////////////
 	// Query Achievements //
-	$achievement_query = 'SELECT * FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$achievement_query = 'SELECT * FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_achievement_query = mysql_query($achievement_query);
 	////////////////////////
 
 	///////////////////////////
 	// Query Achievement Sum //
-	$achievement_sum_query = 'SELECT SUM(`a_shs` + `a_mj` + `a_cibav` + `a_bank` + `a_ck` + `a_hc` + `a_cwtpd` + `a_ps` + `a_sw` + `a_per` + `a_dbno` + `a_bb` + `a_bc` + `a_mar` + `a_fdm` + `a_skunk` + `ua_alc` + `ua_oah` + `ua_ce` + `ua_slip` + `ua_dciac` + `ua_dth`) FROM `players` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
+	$achievement_sum_query = 'SELECT SUM(`a_shs` + `a_mj` + `a_cibav` + `a_bank` + `a_ck` + `a_hc` + `a_cwtpd` + `a_ps` + `a_sw` + `a_per` + `a_dbno` + `a_bb` + `a_bc` + `a_mar` + `a_fdm` + `a_skunk` + `ua_alc` + `ua_oah` + `ua_ce` + `ua_slip` + `ua_dciac` + `ua_dth`) FROM `'.$profile_table.'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"';
 	$run_achievement_sum_query = mysql_query($achievement_sum_query);
 	///////////////////////////
 
@@ -194,6 +218,33 @@ if (isset($_SESSION['username']))
 											}
 										?>
 									</select>
+									<?php if ($profile_table != 'players') { ?>
+									<select name="season" class="form_input">
+										<?php 
+											$i = 0;
+
+											while ($i < mysql_num_rows($run_seasons_query))
+											{
+												$season_name = mysql_result($run_seasons_query, $i, 'season');
+												$index = strpos($season_name, '_');
+												$season_name = substr($season_name, $index + 1);
+												$index = strpos($season_name, '_');
+												$season_name = ucfirst(substr($season_name, 0, $index).' '.substr($season_name, $index + 1));
+													
+												if ($season == mysql_result($run_seasons_query, $i, 'season'))
+												{
+													echo '<option value="'.mysql_result($run_seasons_query, $i, 'season').'" selected>'.$season_name.'</option>';
+												}
+												else
+												{
+													echo '<option value="'.mysql_result($run_seasons_query, $i, 'season').'">'.$season_name.'</option>';
+												}
+
+												$i++;
+											}
+										?>
+									</select>
+									<?php } ?>
 								</td>
 								<td>
 									<input type="submit" name="submit" value="View Profile" class="form_submit">
@@ -202,7 +253,7 @@ if (isset($_SESSION['username']))
 						</table>
 					</form>
 				</div>
-				<h1 class="main_heading">Individual Stats For <?php echo $playerName; ?></h1>
+				<h1 class="main_heading">Individual Stats For <?php echo $playerName; if ($profile_table != 'players') { echo ' (<span class="season">'.$season_title.'</span>)'; } ?></h1>
 				<div id="ind_rank">
 					<table>
 						<tr>
@@ -470,6 +521,85 @@ if (isset($_SESSION['username']))
 						</td>
 					</tr>
 				</table>
+				<?php if ($profile_table == 'players') { ?>
+				<table class="stats_divider">
+					<tr>
+						<td>
+							<h2 class="sub_heading">Seasons</h2>
+							<table class="stats_table tablesorter">
+								<thead>
+								<tr class="stats_table_header_row show_pointer">
+									<th title="Row">Row</th>
+									<th>Season</th>
+									<th class="fixed_cell" title="Games Played">GP</th>
+									<th class="fixed_cell" title="Wins">W</th>
+									<th class="fixed_cell" title="Losses">L</th>
+									<th class="fixed_cell" title="Overtime Losses">OTL</th>
+									<th class="fixed_cell" title="Cup Differential">DIF</th>
+									<th class="fixed_cell" title="Winning Percentage">WP</th>
+									<th class="fixed_cell" title="Shooting Percentage">SP</th>
+								</tr>
+								</thead>
+								<tbody>
+								<?php 
+									$i = 0;
+
+									while ($i < mysql_num_rows($run_seasons_query))
+									{
+										$run_ind_season_query = mysql_query('SELECT * FROM `'.mysql_result($run_seasons_query, $i, 'season').'` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `name`="'.$playerName.'"');
+
+										$ind_season_title = mysql_result($run_seasons_query, $i, 'season');
+
+										$index = strpos($ind_season_title, '_');
+										$ind_season_title = substr($ind_season_title, $index + 1);
+										$index = strpos($ind_season_title, '_');
+										$ind_season_title = ucfirst(substr($ind_season_title, 0, $index).' '.substr($ind_season_title, $index + 1));
+
+										echo '<tr>';
+										echo '<td></td>';
+										echo '<td class="highlight_cell"><a href="player_profiles.php?player='.mysql_result($run_rack_query, $i, 'name').'&season='.mysql_result($run_seasons_query, $i, 'season').'">'.$ind_season_title.'</a></td>';
+
+										if (mysql_num_rows($run_ind_season_query) == 1)
+										{
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'games_played').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'wins').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'losses').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'ot_losses').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'cup_dif').'</td>';
+
+											if (mysql_result($run_ind_season_query, $i, 'games_played') > 0)
+											{
+												echo '<td class="fixed_cell">'.number_format((mysql_result($run_ind_season_query, $i, 'wins') / mysql_result($run_ind_season_query, $i, 'games_played')) * 100, 2, '.', '').'</td>';
+											}
+											else
+											{
+												echo '<td class="fixed_cell">'.number_format(0.0, 2, '.', '').'</td>';
+											}
+
+											echo '<td class="fixed_cell">'.number_format(mysql_result($run_ind_season_query, $i, 'shooting_percentage') * 100, 2, '.', '').'</td>';
+											echo '</tr>';
+										}
+										else
+										{
+											echo '<td class="fixed_cell">0</td>';
+											echo '<td class="fixed_cell">0</td>';
+											echo '<td class="fixed_cell">0</td>';
+											echo '<td class="fixed_cell">0</td>';
+											echo '<td class="fixed_cell">0</td>';
+											echo '<td class="fixed_cell">0.00</td>';
+											echo '<td class="fixed_cell">0.00</td>';
+											echo '</tr>';
+										}
+
+										$i++;
+									}
+								?>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<?php } ?>
 				<table class="stats_divider">
 					<tr>
 						<td>
@@ -584,6 +714,7 @@ if (isset($_SESSION['username']))
 								</tbody>
 							</table>
 						</td>
+						<?php if ($profile_table == 'players') { ?>
 						<td>
 							<h2 class="sub_heading">Unlocked Achievements</h2>
 							<table class="stats_table tablesorter">
@@ -698,8 +829,10 @@ if (isset($_SESSION['username']))
 								</tbody>
 							</table>
 						</td>
+						<?php } ?>
 					</tr>
 				</table>
+				<?php if ($profile_table == 'players') { ?>
 				<table class="stats_divider">
 					<tr>
 						<td>
@@ -770,6 +903,7 @@ if (isset($_SESSION['username']))
 						</td>
 					</tr>
 				</table>
+				<?php } ?>
 				<table class="stats_divider">
 					<tr>
 						<td>
@@ -810,7 +944,7 @@ if (isset($_SESSION['username']))
 										echo '<td class="highlight_cell"><a href="team_profiles.php?team='.$losing_team.'">'.$losing_team.'</a></td>';
 										echo '<td class="fixed_cell">'.$cups_remaining.'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_results_query, $i, 'number_of_ots').'</td>';
-										echo '<td class="highlight_cell"><a href="head_to_head.php?team1='.$winning_team.'&team2='.$losing_team.'">'.$result_date.'</a></td>';
+										echo '<td class="highlight_cell"><a href="detail.php?game='.mysql_result($run_results_query, $i, 'id').'">'.$result_date.'</a></td>';
 										echo '</tr>';
 
 										$i++;
@@ -855,7 +989,11 @@ if (isset($_SESSION['username']))
 						</form>
 					</div>
 					<div id="account_already_exists">
+						<?php if ($profile_table == 'players') { ?>
 						<p>The player you are looking for does not exist.</p>
+						<?php } else { ?>
+						<p>The player you are looking for has not played a game yet this season.</p>
+						<?php } ?>
 					</div>
 				<?php } ?>
 			<?php } else { ?>

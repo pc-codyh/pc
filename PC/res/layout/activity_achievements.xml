@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background" >
+    
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ach_table"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/ach_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCC00"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="Achievements"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ach_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="The Good"
+        android:textColor="#c92200"
+        android:textSize="18dp" />
+
+    <TableRow
+        android:id="@+id/TableRow01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sharpshooter" />
+
+        <TextView
+            android:id="@+id/ach_shs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Sharpshooter"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_shs_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Hit five cups in a row in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/michael_jordan" />
+
+        <TextView
+            android:id="@+id/ach_mj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Michael Jordan"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_mj_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Go on fire two or more times in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/the_kid_can_play" />
+
+        <TextView
+            android:id="@+id/ach_tkcp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="The Kid Can Play"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_tkcp_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Sink all the cups for your team in a game (and your team must win)" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heartbreak_city" />
+
+        <TextView
+            android:id="@+id/ach_hc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Heartbreak City"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_hc_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Win a game after being down by five or more cups" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView09"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/caught_with_their_pants_down" />
+
+        <TextView
+            android:id="@+id/ach_cwtpd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Caught With Their Pants Down"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_cwtpd_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Hit two or more bounce shots in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow09"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/porn_star" />
+
+        <TextView
+            android:id="@+id/ach_ps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Porn Star"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_ps_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Hit two or more gang-bangs in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/perfection" />
+
+        <TextView
+            android:id="@+id/ach_per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Perfection"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_per_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Shoot one-hundred percent in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/down_but_not_out" />
+
+        <TextView
+            android:id="@+id/ach_dbno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Down But Not Out"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_dbno_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="As an individual, successfully complete two or more redemptions in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/marathon" />
+
+        <TextView
+            android:id="@+id/ach_mar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Marathon"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_mar_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Compete in a game that goes to triple overtime" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/first_degree_murder" />
+
+        <TextView
+            android:id="@+id/ach_fdm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="First Degree Murder"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_fdm_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Win a game before the other team gets a re-rack (ten-cup start)" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/ach_bad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="The Bad"
+        android:textColor="#c92200"
+        android:textSize="18dp" />
+
+    <TableRow
+        android:id="@+id/TableRow13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/comeback_kill" />
+
+        <TextView
+            android:id="@+id/ach_ck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Comeback Kill"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_ck_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Sink a cup after missing five or more shots in a row" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bill_buckner" />
+
+        <TextView
+            android:id="@+id/ach_bb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Bill Buckner"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_bb_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Commit two or more errors in a game" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bitch_cup" />
+
+        <TextView
+            android:id="@+id/ach_bc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Bitch Cup"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_bc_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Hit the middle cup first on a ten-cup rack" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/ach_ugly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="The Ugly"
+        android:textColor="#c92200"
+        android:textSize="18dp" />
+
+    <TableRow
+        android:id="@+id/TableRow16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bankruptcy" />
+
+        <TextView
+            android:id="@+id/ach_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Bankruptcy"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_bank_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Sink no cups in a game" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/skunked" />
+
+        <TextView
+            android:id="@+id/ach_skunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Skunked"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_skunk_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Lose a game before getting a re-rack (ten-cup start)" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/TableRow14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/ImageView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stevie_wonder" />
+
+        <TextView
+            android:id="@+id/ach_sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight=".4"
+            android:text="Stevie Wonder"
+            android:textColor="#777777" />
+
+        <TextView
+            android:id="@+id/ach_sw_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Miss ten shots in a row in a game" />
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/ach_unlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="In addition to the Achievements listed here, there are seven unlockable Achievements for each player. Those Achievements can be seen on the website only." />
+
+</TableLayout>
+
+</ScrollView>

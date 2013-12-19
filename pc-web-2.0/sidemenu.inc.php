@@ -8,6 +8,9 @@
 		<a href="help.php">
 			<li class="side_menu_parent <?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Help
 				<ul>
+					<a href="new_features.php">
+						<li class="side_menu_first_child <?php $value = $count % 2; echo 'row'.$value; $count++; ?>">What's New</li>
+					</a>
 					<a href="stat_list.php">
 						<li class="side_menu_first_child <?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Stat List</li>
 					</a>
@@ -29,8 +32,17 @@
 				</ul>
 			</li>
 		</a>
-		<a href="profiles.php">
-			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Player Profiles</li>
+		<a href="choose_profile_type.php">
+			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Player Profiles
+				<ul>
+					<a href="profiles.php">
+						<li class="side_menu_first_child <?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Overall</li>
+					</a>
+					<a href="seasonal_profiles.php">
+						<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Seasonal</li>
+					</a>
+				</ul>
+			</li>
 		</a>
 		<a href="team_stats.php">
 			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Team Stats</li>
@@ -41,13 +53,10 @@
 		<a href="results.php">
 			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Game Results</li>
 		</a>
-		<a href="">
+		<a href="head_to_head.php">
 			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Head-to-Head Results</li>
 		</a>
-		<a href="">
-			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">League Leaders</li>
-		</a>
-		<a href="">
+		<a href="achievements.php">
 			<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Achievements</li>
 		</a>
 	</ul>

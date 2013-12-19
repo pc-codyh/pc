@@ -65,7 +65,8 @@ public class ChangeRulesActivity extends Activity
 								_bounceInRedemptionYes,
 								_bounceInRedemptionNo,
 								_nbaJamOn,
-								_nbaJamOff);
+								_nbaJamOff,
+								_doneButton);
 	}
 	
 	private void setDefaultButtonsChecked()
