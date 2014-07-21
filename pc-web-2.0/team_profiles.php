@@ -75,7 +75,7 @@ if (isset($_SESSION['username']))
 
 <html>
 <head>
-<title></title>
+<title>Team Profiles</title>
 <link rel="stylesheet" href="css/pc.css" />
 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

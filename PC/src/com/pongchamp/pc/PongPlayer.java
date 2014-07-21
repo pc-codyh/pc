@@ -184,7 +184,7 @@ public class PongPlayer
 	
 	String _getPlayerURL = "http://www.pongchamp.com/getplayer.php";
 	String _updateStatsURL = "http://www.pongchamp.com/updatestats.php";
-	String _updateSeasonStatsURL = "http://192.168.1.68/pc-web-2.0/update_season.php";
+	String _updateSeasonStatsURL = "http://www.pongchamp.com/update_season.php";
 	
 	public PongPlayer(PongPlayerDisplay display, int id, Game gameRef, Context context, PCUser pcUser, int playerID, MediaPlayer heatingUpSound, MediaPlayer onFireSound)
 	{

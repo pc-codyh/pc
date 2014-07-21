@@ -15,7 +15,7 @@
 						<li class="side_menu_first_child <?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Stat List</li>
 					</a>
 					<a href="achievement_list.php">
-						<li class="<?php $value = $count % 2; echo 'row'.$value; $count++; ?>">Achievement List</li>
+						<li class="<?php $value = $count % 2; echo 'row'.$value; ?>">Achievement List</li>
 					</a>
 				</ul>
 			</li>

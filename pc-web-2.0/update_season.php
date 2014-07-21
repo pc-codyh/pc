@@ -29,8 +29,13 @@ function get_season($month)
 
 $current_date = date('Y-m');
 $index = strpos($current_date, '-');
-$current_year = (trim(substr($current_date, 0, $index)) + 1);
+$current_year = (trim(substr($current_date, 0, $index)));
 $current_month = trim(substr($current_date, $index + 1));
+
+if ($current_month == '12')
+{
+	$current_year = $current_year + 1;
+}
 
 $current_season = 'season_'.get_season($current_month).'_'.$current_year;
 
@@ -437,34 +442,6 @@ if (isset($_POST['username']))
 		// Finally, need to update the compound_rating and rank for all players.
 		if (isset($_POST['ELO']))
 		{
-			$all_players_query = 'SELECT * FROM `'.$current_season.'` WHERE `id_registrations`="'.$user_id.'"';
-
-			$run_all_players_query = mysql_query($all_players_query);
-
-			$i = 0;
-
-			while ($i < mysql_num_rows($run_all_players_query))
-			{
-				$compound_rating = ((mysql_result($run_all_players_query, $i, 'elo_rating') + mysql_result($run_all_players_query, $i, 'games_played')) * mysql_result($run_all_players_query, $i, 'shooting_percentage'));
-
-				mysql_query('UPDATE `'.$current_season.'` SET `compound_rating`="'.$compound_rating.'" WHERE `id_registrations`="'.$user_id.'" AND `name`="'.mysql_result($run_all_players_query, $i, 'name').'"');
-
-				$i++;
-			}
-
-			$all_players_query = 'SELECT `name`, `compound_rating`, `rank` FROM `'.$current_season.'` WHERE `id_registrations`="'.$user_id.'" ORDER BY `compound_rating` DESC';
-
-			$run_all_players_query = mysql_query($all_players_query);
-
-			$i = 0;
-
-			while ($i < mysql_num_rows($run_all_players_query))
-			{
-				$i++;
-
-				mysql_query('UPDATE `'.$current_season.'` SET `rank`="'.$i.'" WHERE `id_registrations`="'.$user_id.'" AND `name`="'.mysql_result($run_all_players_query, ($i - 1), 'name').'"');
-			}
-
 			// FINALLY, update the ELO ratings.
 
 			// Self.
@@ -512,6 +489,36 @@ if (isset($_POST['username']))
 			}
 
 			mysql_query('UPDATE `'.$current_season.'` SET `elo_rating`="'.$elo_rating.'" WHERE `id_registrations`="'.$user_id.'" AND `name`="'.$_POST['opponent2'].'"');
+
+			// UPDATE COMPOUND RATING AND RANK AFTER ELO RATINGS //
+
+			$all_players_query = 'SELECT * FROM `'.$current_season.'` WHERE `id_registrations`="'.$user_id.'"';
+
+			$run_all_players_query = mysql_query($all_players_query);
+
+			$i = 0;
+
+			while ($i < mysql_num_rows($run_all_players_query))
+			{
+				$compound_rating = ((mysql_result($run_all_players_query, $i, 'elo_rating') + mysql_result($run_all_players_query, $i, 'games_played')) * mysql_result($run_all_players_query, $i, 'shooting_percentage'));
+
+				mysql_query('UPDATE `'.$current_season.'` SET `compound_rating`="'.$compound_rating.'" WHERE `id_registrations`="'.$user_id.'" AND `name`="'.mysql_result($run_all_players_query, $i, 'name').'"');
+
+				$i++;
+			}
+
+			$all_players_query = 'SELECT `name`, `compound_rating`, `rank` FROM `'.$current_season.'` WHERE `id_registrations`="'.$user_id.'" ORDER BY `compound_rating` DESC';
+
+			$run_all_players_query = mysql_query($all_players_query);
+
+			$i = 0;
+
+			while ($i < mysql_num_rows($run_all_players_query))
+			{
+				$i++;
+
+				mysql_query('UPDATE `'.$current_season.'` SET `rank`="'.$i.'" WHERE `id_registrations`="'.$user_id.'" AND `name`="'.mysql_result($run_all_players_query, ($i - 1), 'name').'"');
+			}
 		}
 	}
 }

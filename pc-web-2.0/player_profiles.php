@@ -40,7 +40,7 @@ if (isset($_SESSION['username']))
 	///////////////////
 	// Seasons Query //
 	///////////////////
-	$run_seasons_query = mysql_query('SELECT `season` FROM `seasons` WHERE 1');
+	$run_seasons_query = mysql_query('SELECT `season` FROM `seasons` WHERE 1 ORDER BY `id` DESC');
 	///////////////////
 
 	if (isset($_GET['season']))
@@ -116,8 +116,16 @@ if (isset($_SESSION['username']))
 
 	///////////////////
 	// Query Results //
-	$results_query = 'SELECT * FROM `games` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND (`team_one_player_one`="'.$playerName.'" OR `team_one_player_two`="'.$playerName.'" OR `team_two_player_one`="'.$playerName.'" OR `team_two_player_two`="'.$playerName.'") ORDER BY `id` DESC';
-	$run_results_query = mysql_query($results_query);
+	if (!isset($_GET['season']))
+	{
+		$results_query = 'SELECT * FROM `games` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND (`team_one_player_one`="'.$playerName.'" OR `team_one_player_two`="'.$playerName.'" OR `team_two_player_one`="'.$playerName.'" OR `team_two_player_two`="'.$playerName.'") ORDER BY `id` DESC';
+		$run_results_query = mysql_query($results_query);
+	}
+	else
+	{
+		$results_query = 'SELECT * FROM `games` WHERE `id_registrations`="'.$_SESSION['userid'].'" AND `season`="'.$_GET['season'].'" AND (`team_one_player_one`="'.$playerName.'" OR `team_one_player_two`="'.$playerName.'" OR `team_two_player_one`="'.$playerName.'" OR `team_two_player_two`="'.$playerName.'") ORDER BY `id` DESC';
+		$run_results_query = mysql_query($results_query);
+	}
 	///////////////////
 }
 
@@ -125,7 +133,7 @@ if (isset($_SESSION['username']))
 
 <html>
 <head>
-<title></title>
+<title>Player Profiles</title>
 <link rel="stylesheet" href="css/pc.css" />
 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -557,26 +565,26 @@ if (isset($_SESSION['username']))
 
 										echo '<tr>';
 										echo '<td></td>';
-										echo '<td class="highlight_cell"><a href="player_profiles.php?player='.mysql_result($run_rack_query, $i, 'name').'&season='.mysql_result($run_seasons_query, $i, 'season').'">'.$ind_season_title.'</a></td>';
+										echo '<td class="highlight_cell"><a href="player_profiles.php?player='.mysql_result($run_ind_season_query, 0, 'name').'&season='.mysql_result($run_seasons_query, $i, 'season').'">'.$ind_season_title.'</a></td>';
 
 										if (mysql_num_rows($run_ind_season_query) == 1)
 										{
-											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'games_played').'</td>';
-											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'wins').'</td>';
-											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'losses').'</td>';
-											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'ot_losses').'</td>';
-											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, $i, 'cup_dif').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, 0, 'games_played').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, 0, 'wins').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, 0, 'losses').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, 0, 'ot_losses').'</td>';
+											echo '<td class="fixed_cell">'.mysql_result($run_ind_season_query, 0, 'cup_dif').'</td>';
 
-											if (mysql_result($run_ind_season_query, $i, 'games_played') > 0)
+											if (mysql_result($run_ind_season_query, 0, 'games_played') > 0)
 											{
-												echo '<td class="fixed_cell">'.number_format((mysql_result($run_ind_season_query, $i, 'wins') / mysql_result($run_ind_season_query, $i, 'games_played')) * 100, 2, '.', '').'</td>';
+												echo '<td class="fixed_cell">'.number_format((mysql_result($run_ind_season_query, 0, 'wins') / mysql_result($run_ind_season_query, 0, 'games_played')) * 100, 2, '.', '').'</td>';
 											}
 											else
 											{
 												echo '<td class="fixed_cell">'.number_format(0.0, 2, '.', '').'</td>';
 											}
 
-											echo '<td class="fixed_cell">'.number_format(mysql_result($run_ind_season_query, $i, 'shooting_percentage') * 100, 2, '.', '').'</td>';
+											echo '<td class="fixed_cell">'.number_format(mysql_result($run_ind_season_query, 0, 'shooting_percentage') * 100, 2, '.', '').'</td>';
 											echo '</tr>';
 										}
 										else

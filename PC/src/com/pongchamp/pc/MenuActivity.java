@@ -339,7 +339,7 @@ public class MenuActivity extends Activity
     // in a separate browser window.
     private void onViewStatsButtonPressed()
     {
-    	Uri uri = Uri.parse("http://www.pongchamp.com/viewstats.php?username=" + _activeUser.getUsername() + "&submit=View+Stats");
+    	Uri uri = Uri.parse("http://www.pongchamp.com/overall_stats.php");
 		
 		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 		

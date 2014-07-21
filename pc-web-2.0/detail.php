@@ -69,7 +69,7 @@ if (isset($_SESSION['username']))
 
 <html>
 <head>
-<title></title>
+<title>Game Details</title>
 <link rel="stylesheet" href="css/pc.css" />
 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -212,7 +212,7 @@ if (isset($_SESSION['username']))
 										echo '<td class="highlight_cell"><a href="player_profiles.php?name='.mysql_result($run_detail_query, $i, 'name').'">'.mysql_result($run_detail_query, $i, 'name').'</a></td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_detail_query, $i, 'shots').'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_detail_query, $i, 'hits').'</td>';
-										echo '<td class="fixed_cell">'.number_format(mysql_result($run_detail_query, $i, 'shot_perc') * 100, 2, '.', '').'</td>';
+										echo '<td class="fixed_cell">'.number_format(mysql_result($run_detail_query, $i, 'shot_perc'), 2, '.', '').'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_detail_query, $i, 'bounces').'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_detail_query, $i, 'gang_bangs').'</td>';
 										echo '<td class="fixed_cell">'.mysql_result($run_detail_query, $i, 'errors').'</td>';

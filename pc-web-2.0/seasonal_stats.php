@@ -31,7 +31,7 @@ if (isset($_SESSION['username']))
 	///////////////////
 	// Seasons Query //
 	///////////////////
-	$run_seasons_query = mysql_query('SELECT `season` FROM `seasons` WHERE 1');
+	$run_seasons_query = mysql_query('SELECT `season` FROM `seasons` WHERE 1 ORDER BY `id` DESC');
 	///////////////////
 
 
@@ -102,7 +102,7 @@ if (isset($_SESSION['username']))
 
 <html>
 <head>
-<title></title>
+<title>Seasonal Stats</title>
 <link rel="stylesheet" href="css/pc.css" />
 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
