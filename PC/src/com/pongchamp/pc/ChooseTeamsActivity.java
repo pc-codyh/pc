@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -58,10 +58,11 @@ public class ChooseTeamsActivity extends Activity
 		displayCurrentRules();
 		
 		new Utilities().setFont(getApplicationContext(),
-								_teamOnePrompt,
-								_teamTwoPrompt,
-								_currentRulesPrompt,
-								_playGameButton);
+		Typeface.BOLD,
+		_teamOnePrompt,
+		_teamTwoPrompt,
+		_currentRulesPrompt,
+		_playGameButton);
 	}
 	
 	private void displayCurrentRules()
@@ -116,7 +117,7 @@ public class ChooseTeamsActivity extends Activity
 			
 			rule.setText(str);
 			
-			new Utilities().setFont(getApplicationContext(), rule);
+			new Utilities().setFont(getApplicationContext(), Typeface.BOLD, rule);
 			
 			_layout.addView(rule);
 		}

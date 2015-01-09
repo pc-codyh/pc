@@ -61,10 +61,11 @@ public class CreatePlayerActivity extends Activity
         onSubmitButtonPressed();
         
         new Utilities().setFont(getApplicationContext(),
-        						_createPlayerResultText,
-        						_namePrompt,
-        						_newPlayerName,
-        						_submitButton);
+        Typeface.BOLD,
+		_createPlayerResultText,
+		_namePrompt,
+		_newPlayerName,
+		_submitButton);
 	}
 	
 	public void onSubmitButtonPressed()

@@ -13,6 +13,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -61,11 +62,12 @@ public class HeadToHeadHistoryActivity extends Activity
 		_headtoheadResults.setVisibility(View.INVISIBLE);
 		
 		new Utilities().setFont(getApplicationContext(),
-								_headtoheadTitle,
-								_headtoheadRecordsTitle,
-								_headtoheadRecords,
-								_headtoheadResults,
-								_headtoheadPlayGame);
+		Typeface.BOLD,
+		_headtoheadTitle,
+		_headtoheadRecordsTitle,
+		_headtoheadRecords,
+		_headtoheadResults,
+		_headtoheadPlayGame);
 		
 		populateScreen();
 	}
@@ -275,7 +277,7 @@ public class HeadToHeadHistoryActivity extends Activity
 			newResult.setTextColor(Color.BLACK);
 			newResult.setPadding(10, 5, 10, 5);
 			
-			new Utilities().setFont(getApplicationContext(), newResult);
+			new Utilities().setFont(getApplicationContext(), Typeface.BOLD, newResult);
 			
 			_headtoheadLayout.addView(newResult);
 			

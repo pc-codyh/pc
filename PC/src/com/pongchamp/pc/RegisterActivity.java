@@ -63,14 +63,15 @@ public class RegisterActivity extends Activity
         _registrationResultText.setVisibility(View.INVISIBLE);
         
         new Utilities().setFont(getApplicationContext(),
-        					    _registrationResultText,
-        					    _usernamePrompt,
-        					    _passwordPrompt,
-        					    _confirmPasswordPrompt,
-        					    _usernameField,
-        					    _passwordField,
-        					    _confirmPasswordField,
-        					    _submitRegistration);
+        Typeface.BOLD,
+	    _registrationResultText,
+	    _usernamePrompt,
+	    _passwordPrompt,
+	    _confirmPasswordPrompt,
+	    _usernameField,
+	    _passwordField,
+	    _confirmPasswordField,
+	    _submitRegistration);
     }
 	
 	private void onSubmitRegistrationPressed()

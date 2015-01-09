@@ -47,8 +47,8 @@ public class LoginActivity extends Activity
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
         
         _username = (EditText) findViewById(R.id.login_Username);
         _password = (EditText) findViewById(R.id.login_Password);
@@ -65,12 +65,13 @@ public class LoginActivity extends Activity
         _loginResultText.setVisibility(View.INVISIBLE);
         
         new Utilities().setFont(getApplicationContext(),
-        					    _loginResultText,
-        					    _usernamePrompt,
-        					    _passwordPrompt,
-        					    _username,
-        					    _password,
-        					    _submitLogin);
+        Typeface.BOLD,
+	    _loginResultText,
+	    _usernamePrompt,
+	    _passwordPrompt,
+	    _username,
+	    _password,
+	    _submitLogin);
 	}
 	
 	private void loadPersistentUsername()

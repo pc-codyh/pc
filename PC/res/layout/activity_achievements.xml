@@ -40,7 +40,7 @@
         android:padding="10dp" >
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/mmLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/sharpshooter" />
@@ -334,7 +334,7 @@
     </TableRow>
 
     <TextView
-        android:id="@+id/ach_bad"
+        android:id="@+id/mmView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"

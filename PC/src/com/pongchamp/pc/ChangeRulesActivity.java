@@ -3,6 +3,7 @@ package com.pongchamp.pc;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -53,20 +54,21 @@ public class ChangeRulesActivity extends Activity
 		onDoneButtonPressed();
 		
 		new Utilities().setFont(getApplicationContext(),
-								_rulesPrompt,
-								_startingCupsPrompt,
-								_bouncesWorthPrompt,
-								_bounceInRedempPrompt,
-								_nbaJamPrompt,
-								_startingCups6,
-								_startingCups10,
-								_bouncesWorth1,
-								_bouncesWorth2,
-								_bounceInRedemptionYes,
-								_bounceInRedemptionNo,
-								_nbaJamOn,
-								_nbaJamOff,
-								_doneButton);
+		Typeface.BOLD,
+		_rulesPrompt,
+		_startingCupsPrompt,
+		_bouncesWorthPrompt,
+		_bounceInRedempPrompt,
+		_nbaJamPrompt,
+		_startingCups6,
+		_startingCups10,
+		_bouncesWorth1,
+		_bouncesWorth2,
+		_bounceInRedemptionYes,
+		_bounceInRedemptionNo,
+		_nbaJamOn,
+		_nbaJamOff,
+		_doneButton);
 	}
 	
 	private void setDefaultButtonsChecked()

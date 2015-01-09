@@ -7,11 +7,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.SparseBooleanArray;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +21,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -98,15 +96,16 @@ public class RandomizeTeamsActivity extends Activity
 		setOnListViewClickListener();
 		
 		new Utilities().setFont(getApplicationContext(),
-				                _playerOne,
-				                _playerTwo,
-				                _playerThree,
-				                _playerFour,
-				                _inRafflePrompt,
-				                _versusPrompt,
-				                _selectPlayers,
-				                _randomizeButton,
-				                _quickPlay);
+		Typeface.BOLD,
+        _playerOne,
+        _playerTwo,
+        _playerThree,
+        _playerFour,
+        _inRafflePrompt,
+        _versusPrompt,
+        _selectPlayers,
+        _randomizeButton,
+        _quickPlay);
 		
 		_versusPrompt.setVisibility(View.INVISIBLE);
 		_quickPlay.setVisibility(View.INVISIBLE);
@@ -352,7 +351,7 @@ public class RandomizeTeamsActivity extends Activity
 					playerView.setTextColor(Color.BLACK);
 					playerView.setPadding(10, 5, 10, 5);
 					
-					new Utilities().setFont(getApplicationContext(), playerView);
+					new Utilities().setFont(getApplicationContext(), Typeface.BOLD, playerView);
 					
 					_playerTextViews.add(playerView);
 					

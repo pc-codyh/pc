@@ -1,6 +1,7 @@
 package com.pongchamp.pc;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -45,7 +46,7 @@ public class AchievementsActivity extends Activity
 		_dbno = (TextView) findViewById(R.id.ach_dbno); _dbnoDesc = (TextView) findViewById(R.id.ach_dbno_desc);
 		_mar = (TextView) findViewById(R.id.ach_mar); _marDesc = (TextView) findViewById(R.id.ach_mar_desc);
 		_fdm = (TextView) findViewById(R.id.ach_fdm); _fdmDesc = (TextView) findViewById(R.id.ach_fdm_desc);
-		_bad = (TextView) findViewById(R.id.ach_bad);
+		_bad = (TextView) findViewById(R.id.mmView);
 		_ck = (TextView) findViewById(R.id.ach_ck); _ckDesc = (TextView) findViewById(R.id.ach_ck_desc);
 		_bb = (TextView) findViewById(R.id.ach_bb); _bbDesc = (TextView) findViewById(R.id.ach_bb_desc);
 		_bc = (TextView) findViewById(R.id.ach_bc); _bcDesc = (TextView) findViewById(R.id.ach_bc_desc);
@@ -56,26 +57,27 @@ public class AchievementsActivity extends Activity
 		_unlock = (TextView) findViewById(R.id.ach_unlock);
 		
 		new Utilities().setFont(getApplicationContext(),
-								_title,
-								_good,
-								_shs, _shsDesc,
-								_mj, _mjDesc,
-								_tkcp, _tkcpDesc,
-								_hc, _hcDesc,
-								_cwtpd, _cwtpdDesc,
-								_ps, _psDesc,
-								_per, _perDesc,
-								_dbno, _dbnoDesc,
-								_mar, _marDesc,
-								_fdm, _fdmDesc,
-								_bad,
-								_ck, _ckDesc,
-								_bb, _bbDesc,
-								_bc, _bcDesc,
-								_ugly,
-								_bank, _bankDesc,
-								_skunk, _skunkDesc,
-								_sw, _swDesc,
-								_unlock);
+		Typeface.BOLD,
+		_title,
+		_good,
+		_shs, _shsDesc,
+		_mj, _mjDesc,
+		_tkcp, _tkcpDesc,
+		_hc, _hcDesc,
+		_cwtpd, _cwtpdDesc,
+		_ps, _psDesc,
+		_per, _perDesc,
+		_dbno, _dbnoDesc,
+		_mar, _marDesc,
+		_fdm, _fdmDesc,
+		_bad,
+		_ck, _ckDesc,
+		_bb, _bbDesc,
+		_bc, _bcDesc,
+		_ugly,
+		_bank, _bankDesc,
+		_skunk, _skunkDesc,
+		_sw, _swDesc,
+		_unlock);
 	}
 }

@@ -8,28 +8,35 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-@SuppressLint({ "NewApi", "ShowToast" })
+@SuppressLint({ "NewApi", "ShowToast", "ClickableViewAccessibility" })
 public class MenuActivity extends Activity
 {
 	PCUser _activeUser = null;
-	TextView _activeUsername = null;
+//	TextView _activeUsername = null;
+//	ListView _mainMenu;
 	
-	ListView _mainMenu;
+	ScrollView _view;
+	ImageView _logo;
+	TextView _title;
+	TextView _subtitle;
+	Button _signIn;
+	Button _createAccount;
 	
 	/* 
 	 * The following array holds the values of the selected rules
@@ -84,18 +91,117 @@ public class MenuActivity extends Activity
         setTheme(R.style.AppTheme);
         
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_main);
         
-        _activeUsername = (TextView) findViewById(R.id.menu_activeUsername);
+//        _activeUsername = (TextView) findViewById(R.id.menu_activeUsername);
+//        _mainMenu = (ListView) findViewById(R.id.mainmenu_list);
+        _logo = (ImageView) findViewById(R.id.mmLogo);
+        _view = (ScrollView) findViewById(R.id.mmView);
+        _title = (TextView) findViewById(R.id.mmTitle);
+        _subtitle = (TextView) findViewById(R.id.mmSubtitle);
+        _signIn = (Button) findViewById(R.id.mmSignIn);
+        _createAccount = (Button) findViewById(R.id.mmCreateAccount);
         
-        _mainMenu = (ListView) findViewById(R.id.mainmenu_list);
+//        onListViewItemClick();
         
-        onListViewItemClick();
-        
+        beginAnimations();
+        setupClickHandlers();
         handleInputParams(null);
         applyRuleChanges(null);
         
-        new Utilities().setFont(getApplicationContext(), _activeUsername);
+//        new Utilities().setFont(getApplicationContext(), _activeUsername);
+        new Utilities().setFont(getApplicationContext(),
+        Typeface.NORMAL,
+        _subtitle);
+        
+        new Utilities().setFont(getApplicationContext(),
+        Typeface.BOLD,
+        _signIn,
+        _createAccount);
+        
+        new Utilities().setFont(getApplicationContext(),
+        Typeface.BOLD,
+        _title);
+        
+        _signIn.setOnTouchListener(new View.OnTouchListener()
+        {	
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				toggleTextColor((Button) v, event, false);
+				
+				return false;
+			}
+		});
+        
+        _createAccount.setOnTouchListener(new View.OnTouchListener()
+        {	
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				toggleTextColor((Button) v, event, false);
+				
+				return false;
+			}
+		});
+        
+        _view.setOnTouchListener(new View.OnTouchListener()
+        {	
+			public boolean onTouch(View v, MotionEvent event)
+			{
+				toggleTextColor(_signIn, event, true);
+				toggleTextColor(_createAccount, event, true);
+				
+				return false;
+			}
+		});
+    }
+    
+    private void beginAnimations()
+    {
+    	Animation aLogo = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
+    	Animation aTitle = AnimationUtils.loadAnimation(this, R.anim.title_animation);
+    	Animation aSubtitle = AnimationUtils.loadAnimation(this, R.anim.subtitle_animation);
+    	Animation aButton = AnimationUtils.loadAnimation(this, R.anim.login_button_animation);
+    	
+    	aLogo.reset();
+    	aTitle.reset();
+    	aSubtitle.reset();
+    	aButton.reset();
+    	
+    	_logo.clearAnimation();
+    	_title.clearAnimation();
+    	_subtitle.clearAnimation();
+    	_signIn.clearAnimation();
+    	_createAccount.clearAnimation();
+    	_logo.startAnimation(aLogo);
+    	_title.startAnimation(aTitle);
+    	_subtitle.startAnimation(aSubtitle);
+    	_signIn.startAnimation(aButton);
+    	_createAccount.startAnimation(aButton);
+    }
+    
+    private void toggleTextColor(Button b, MotionEvent e, boolean isMainView)
+    {    	
+    	switch (e.getAction())
+		{
+			case MotionEvent.ACTION_DOWN:
+			{
+				if (!isMainView)
+				{
+					b.setTextColor(Color.WHITE);
+					b.setBackgroundResource(R.drawable.rounded_btn_pressed);
+				}
+			}
+				break;
+				
+			case MotionEvent.ACTION_UP:
+			{
+				b.setTextColor(Color.parseColor("#A00000"));
+				b.setBackgroundResource(R.drawable.rounded_btn);
+			}
+				break;
+		}
+    	
+    	return;
     }
     
     @Override
@@ -146,99 +252,124 @@ public class MenuActivity extends Activity
     	}
     }
     
+    private void setupClickHandlers()
+    {
+    	_signIn.setOnClickListener(new View.OnClickListener()
+    	{	
+			public void onClick(View v)
+			{
+				if (_activeUser == null)
+				{
+					onLoginButtonPressed();
+				}
+			}
+		});
+    	
+    	_createAccount.setOnClickListener(new View.OnClickListener()
+    	{	
+			public void onClick(View v)
+			{
+				if (_activeUser == null)
+				{
+					onRegisterButtonPressed();
+				}
+			}
+		});
+    }
+    
     // Function to handle the click event
     // of the ListView.
     private void onListViewItemClick()
     {
-    	_mainMenu.setOnItemClickListener(new OnItemClickListener()
-    	{
-			public void onItemClick(AdapterView<?> adapter, View view, int position, long id)
-			{
-				// The user is not logged in.
-				if (_activeUser == null)
-				{
-					switch (position)
-					{
-						case REGISTER:
-						{
-							onRegisterButtonPressed();
-						}
-							break;
-							
-						case LOGIN:
-						{
-							onLoginButtonPressed();
-						}
-							break;
-							
-						case HELP:
-						{
-							onHelpButtonPressed();
-						}
-							break;
-							
-						default:
-							break;
-					}
-				}
-				else
-				{
-					switch (position)
-					{
-						case LOGOUT:
-						{
-							onLogoutButtonPressed();
-						}
-							break;
-							
-						case VIEWSTATS:
-						{
-							onViewStatsButtonPressed();
-						}
-							break;
-							
-						case HELP:
-						{
-							onHelpButtonPressed();
-						}
-							break;
-							
-						case ACHIEVEMENTS:
-						{
-							onAchievementsButtonPressed();
-						}
-							break;
-							
-						case CREATEPLAYER:
-						{
-							onCreatePlayerButtonPressed();
-						}
-							break;
-							
-						case RANDOMTEAMS:
-						{
-							onRandomizeTeamsButtonPressed();
-						}
-							break;
-							
-						case CHANGERULES:
-						{
-							onChangeRulesButtonPressed();
-						}
-							break;
-							
-						case PLAYGAME:
-						{
-							onPlayGameButtonPressed();
-						}
-							break;
-							
-						default:
-							break;
-					}
-				}
-			}
-    	});
+//    	_mainMenu.setOnItemClickListener(new OnItemClickListener()
+//    	{
+//			public void onItemClick(AdapterView<?> adapter, View view, int position, long id)
+//			{
+//				// The user is not logged in.
+//				if (_activeUser == null)
+//				{
+//					switch (position)
+//					{
+//						case REGISTER:
+//						{
+//							onRegisterButtonPressed();
+//						}
+//							break;
+//							
+//						case LOGIN:
+//						{
+//							onLoginButtonPressed();
+//						}
+//							break;
+//							
+//						case HELP:
+//						{
+//							onHelpButtonPressed();
+//						}
+//							break;
+//							
+//						default:
+//							break;
+//					}
+//				}
+//				else
+//				{
+//					switch (position)
+//					{
+//						case LOGOUT:
+//						{
+//							onLogoutButtonPressed();
+//						}
+//							break;
+//							
+//						case VIEWSTATS:
+//						{
+//							onViewStatsButtonPressed();
+//						}
+//							break;
+//							
+//						case HELP:
+//						{
+//							onHelpButtonPressed();
+//						}
+//							break;
+//							
+//						case ACHIEVEMENTS:
+//						{
+//							onAchievementsButtonPressed();
+//						}
+//							break;
+//							
+//						case CREATEPLAYER:
+//						{
+//							onCreatePlayerButtonPressed();
+//						}
+//							break;
+//							
+//						case RANDOMTEAMS:
+//						{
+//							onRandomizeTeamsButtonPressed();
+//						}
+//							break;
+//							
+//						case CHANGERULES:
+//						{
+//							onChangeRulesButtonPressed();
+//						}
+//							break;
+//							
+//						case PLAYGAME:
+//						{
+//							onPlayGameButtonPressed();
+//						}
+//							break;
+//							
+//						default:
+//							break;
+//					}
+//				}
+//			}
+//    	});
     }
     
     private void handleInputParams(String username)
@@ -247,7 +378,7 @@ public class MenuActivity extends Activity
         
     	if (username != null)
     	{
-    		_activeUsername.setText("Welcome, " + username);
+//    		_activeUsername.setText("Welcome, " + username);
     		
     		_activeUser = new PCUser(username);
     		
@@ -259,10 +390,12 @@ public class MenuActivity extends Activity
             rows.add("Random Teams");
             rows.add("Change Rules");
             rows.add("Play Game");
+            
+            _signIn.setText("Signed in successfully");
     	}
     	else
     	{
-    		_activeUsername.setText(R.string.menu_not_logged_in);
+//    		_activeUsername.setText(R.string.menu_not_logged_in);
     		
     		rows.add("Register");
             rows.add("Login");
@@ -278,7 +411,7 @@ public class MenuActivity extends Activity
         
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         
-        _mainMenu.setAdapter(adapter);
+//        _mainMenu.setAdapter(adapter);
     }
     
     private void loadCachedPlayers(ArrayList<String> players)
@@ -353,35 +486,35 @@ public class MenuActivity extends Activity
     
     private void onLogoutButtonPressed()
     {
-		AlertDialog.Builder alert = new AlertDialog.Builder(_mainMenu.getContext());
-		
-		alert.setTitle(R.string.logout_button_title);
-		alert.setMessage(R.string.logout_alert_message);
-		
-		alert.setNegativeButton(R.string.no_button_title, new DialogInterface.OnClickListener()
-		{	
-			public void onClick(DialogInterface dialog, int which)
-			{
-				// Do nothing when the window is dismissed.
-			}
-		});
-		
-		alert.setPositiveButton(R.string.yes_button_title, new DialogInterface.OnClickListener()
-		{	
-			public void onClick(DialogInterface dialog, int which)
-			{
-				logout();
-			}
-		});
-		
-		alert.show();
+//		AlertDialog.Builder alert = new AlertDialog.Builder(_mainMenu.getContext());
+//		
+//		alert.setTitle(R.string.logout_button_title);
+//		alert.setMessage(R.string.logout_alert_message);
+//		
+//		alert.setNegativeButton(R.string.no_button_title, new DialogInterface.OnClickListener()
+//		{	
+//			public void onClick(DialogInterface dialog, int which)
+//			{
+//				// Do nothing when the window is dismissed.
+//			}
+//		});
+//		
+//		alert.setPositiveButton(R.string.yes_button_title, new DialogInterface.OnClickListener()
+//		{	
+//			public void onClick(DialogInterface dialog, int which)
+//			{
+//				logout();
+//			}
+//		});
+//		
+//		alert.show();
     }
     
     private void logout()
     {
-    	_activeUsername.setText(R.string.menu_not_logged_in);
+//    	_activeUsername.setText(R.string.menu_not_logged_in);
     	
-    	_activeUsername.setBackgroundColor(Color.parseColor("#FFCC00"));
+//    	_activeUsername.setBackgroundColor(Color.parseColor("#FFCC00"));
     	
     	_activeUser = null;
     	

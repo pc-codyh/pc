@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -182,28 +183,29 @@ public class PlayGameActivity extends Activity
 		setupStatsTabLoad();
 		
 		new Utilities().setFont(getApplicationContext(),
-								_teamOnePlayerOneStatsName,
-								_teamOnePlayerTwoStatsName,
-								_teamTwoPlayerOneStatsName,
-								_teamTwoPlayerTwoStatsName,
-								_teamOnePlayerOneNBAJam,
-								_teamOnePlayerTwoNBAJam,
-								_teamTwoPlayerOneNBAJam,
-								_teamTwoPlayerTwoNBAJam,
-								_teamOnePlayerOneShooting,
-								_teamOnePlayerTwoShooting,
-								_teamTwoPlayerOneShooting,
-								_teamTwoPlayerTwoShooting,
-								_teamOnePlayerOneButton,
-								_teamOnePlayerTwoButton,
-								_teamTwoPlayerOneButton,
-								_teamTwoPlayerTwoButton,
-								_teamOnePlayerOneName,
-								_teamOnePlayerTwoName,
-								_teamTwoPlayerOneName,
-								_teamTwoPlayerTwoName,
-								_endGame,
-								_historyTitle);
+		Typeface.BOLD,
+		_teamOnePlayerOneStatsName,
+		_teamOnePlayerTwoStatsName,
+		_teamTwoPlayerOneStatsName,
+		_teamTwoPlayerTwoStatsName,
+		_teamOnePlayerOneNBAJam,
+		_teamOnePlayerTwoNBAJam,
+		_teamTwoPlayerOneNBAJam,
+		_teamTwoPlayerTwoNBAJam,
+		_teamOnePlayerOneShooting,
+		_teamOnePlayerTwoShooting,
+		_teamTwoPlayerOneShooting,
+		_teamTwoPlayerTwoShooting,
+		_teamOnePlayerOneButton,
+		_teamOnePlayerTwoButton,
+		_teamTwoPlayerOneButton,
+		_teamTwoPlayerTwoButton,
+		_teamOnePlayerOneName,
+		_teamOnePlayerTwoName,
+		_teamTwoPlayerOneName,
+		_teamTwoPlayerTwoName,
+		_endGame,
+		_historyTitle);
 	}
 	
 	@Override
@@ -630,14 +632,15 @@ public class PlayGameActivity extends Activity
 		teamTwoRecord.setText(_game.getTeamTwoRecord());
 		
 		new Utilities().setFont(getApplicationContext(),
-								teamOneNames,
-								teamTwoNames,
-								teamOneLine,
-								teamTwoLine,
-								teamOneRecord,
-								teamTwoRecord,
-								prompt,
-								versusPrompt);
+		Typeface.BOLD,
+		teamOneNames,
+		teamTwoNames,
+		teamOneLine,
+		teamTwoLine,
+		teamOneRecord,
+		teamTwoRecord,
+		prompt,
+		versusPrompt);
 	}
 	
 	private double roundToHalf(double x)

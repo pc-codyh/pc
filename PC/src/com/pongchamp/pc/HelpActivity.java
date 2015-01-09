@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -27,8 +28,9 @@ public class HelpActivity extends Activity
 		_mainText = (TextView) findViewById(R.id.help_text);
 		
 		new Utilities().setFont(getApplicationContext(),
-								_prompt,
-								_mainText);
+		Typeface.BOLD,
+		_prompt,
+		_mainText);
 		
 		loadMainText();
 	}

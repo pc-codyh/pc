@@ -12,6 +12,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -1350,7 +1351,7 @@ public class Game
 			}
 		}
 		
-		new Utilities().setFont(_context, title);
+		new Utilities().setFont(_context, Typeface.BOLD, title);
 		
 		row.addView(icon);
 		row.addView(title);
@@ -1406,7 +1407,7 @@ public class Game
 			achievementPlayer.setTextColor(Color.BLACK);
 			achievementPlayer.setPadding(10, 5, 10, 5);
 			
-			new Utilities().setFont(_context, achievementPlayer);
+			new Utilities().setFont(_context, Typeface.BOLD, achievementPlayer);
 			
 			_historyLayout.addView(achievementPlayer);
 			
@@ -1434,7 +1435,7 @@ public class Game
 		unlockableAchievements.setPadding(10, 10, 10, 10);
 		unlockableAchievements.setBackgroundColor(Color.TRANSPARENT);
 		
-		new Utilities().setFont(_context, unlockableAchievements);
+		new Utilities().setFont(_context, Typeface.BOLD, unlockableAchievements);
 		
 		_historyLayout.addView(unlockableAchievements);
 	}
@@ -1522,7 +1523,7 @@ public class Game
 		textView.setPadding(10, 5, 10, 5);
 		textView.setGravity(Gravity.RIGHT);
 		
-		new Utilities().setFont(_context, textView);
+		new Utilities().setFont(_context, Typeface.BOLD, textView);
 		
 		_shotCount++;
 		

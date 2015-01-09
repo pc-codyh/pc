@@ -2,10 +2,8 @@ package com.pongchamp.pc;
 
 import java.util.ArrayList;
 
-import org.apache.http.NameValuePair;
-
 import android.content.Context;
-import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -134,7 +132,7 @@ public class CustomListAdapter extends ArrayAdapter<String>
 			}
 		}
 		
-		new Utilities().setFont(_context, text);
+		new Utilities().setFont(_context, Typeface.BOLD, text);
 		
 		return view;
 	}
